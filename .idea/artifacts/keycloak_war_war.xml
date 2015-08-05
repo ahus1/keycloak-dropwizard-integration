@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="keycloak-war:war">
+    <output-path>$PROJECT_DIR$/keycloak-war/target</output-path>
+    <root id="archive" name="keycloak-war-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="keycloak-war:war exploded" />
+    </root>
+  </artifact>
+</component>

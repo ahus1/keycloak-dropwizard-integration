@@ -1,0 +1,70 @@
+# Advanced Dropwizard Integration
+
+## What you can see here
+
+This is a setup that builds upon the simple integration.
+But instead of relying on security constraints it uses Dropwizard's `@Auth` annotation.
+
+## Setup for Keycloak
+
+The following elements add Keycloak authentication to Dropwizard and are identical to the simple setup:
+
+. Add Keycloak information to `config.yml`
++
+[source,yaml,indent=0]
+.config.yml
+-----
+include::../config.yml[tags=config-a]
+  realmKey: "MIIB...AQAB"
+include::../config.yml[tags=config-b]
+-----
+. Add Keycloak as a security constraint to `LotteryConfiguration.java`, but without the role and URL mappings.
++
+[source,java,indent=0]
+.LotteryConfiguration.java
+-----
+include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryConfiguration.java[tags=config]
+-----
+
+. Setup security constraint handler
++
+[source,java,indent=0]
+.LotteryApplication.java
+-----
+include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.java[tags=constraint]
+-----
+. Setup keycloak as an Authentication Handler in Dropwizard style:
++
+[source,java,indent=0]
+.LotteryApplication.java
+-----
+include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.java[tags=keycloak]
+-----
+
+Once this is set up, Dropwizard's `@Auth` annotation can be used as usual in ressources:
+
+[source,java,indent=0]
+.DrawRessource
+-----
+include::src/main/java/de/ahus1/lottery/adapter/dropwizard/resource/DrawRessource.java[tags=ressource]
+-----
+<1> This enforces authentication of the user, possibly triggering a full OAuth redirect flow
+<2> An optional authentication provides the authentication details if the user is logged in already
+
+////
+## Additions to handle user roles in ressources
+
+TODO: describe @Role annotation and how to activate it.
+////
+
+## How to run
+
+Use the following command line to start it from the parent's directory
+
+----
+mvn test -pl keycloak-dropwizard-jaxrs -am -Peycloak-dropwizard-jaxrs
+----
+
+Once it is started, point your browser to http://localhost:9090 to see the application.
+
+Enter a date like `2015-01-01` to see the predicted results of the given date.

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lottery-war:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="lottery-war-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="lottery-war:war exploded" />
+    </root>
+  </artifact>
+</component>

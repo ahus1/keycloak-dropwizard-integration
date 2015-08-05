@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keycloak-dropwizard-integration.iml" filepath="$PROJECT_DIR$/keycloak-dropwizard-integration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keycloak-dropwizard-jaxrs/keycloak-dropwizard-jaxrs.iml" filepath="$PROJECT_DIR$/keycloak-dropwizard-jaxrs/keycloak-dropwizard-jaxrs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keycloak-dropwizard-jetty/keycloak-dropwizard-jetty.iml" filepath="$PROJECT_DIR$/keycloak-dropwizard-jetty/keycloak-dropwizard-jetty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keycloak-war/keycloak-war.iml" filepath="$PROJECT_DIR$/keycloak-war/keycloak-war.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple-war/simple-war.iml" filepath="$PROJECT_DIR$/simple-war/simple-war.iml" />
+    </modules>
+  </component>
+</project>

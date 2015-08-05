@@ -1,0 +1,1 @@
+mvn test -pl keycloak-war -am -Pkeycloak-war
