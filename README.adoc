@@ -11,6 +11,8 @@ This project shows how JBoss Keycloak and Dropwizard can be used together.
 
 ifdef::env-github[To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.]
 
+ifndef::env-github[To read the latest version of this tutorial, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.]
+
 http://keycloak.org[JBoss Keycloak^] provides a standalone OAuth 2.0 and Open ID Connect server.
 It handles user credentials for you application, so you can focus on business requirements.
 
@@ -21,6 +23,7 @@ https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dr
 shows how to use Dropwizard's `@Auth` annotation with Keycloak using a full OAuth flow.
 
 At the time I write this there is no open source integration of the two, so I set up this project.
+See https://github.com/ahus1/keycloak-dropwizard-integration for the latest version.
 
 ### Things to do
 
@@ -38,16 +41,16 @@ Then call `keycloak-server.bat` to import an already configured realm. Using thi
 This example will guide you through setting up JBoss Keycloak in several configurations:
 
   * Simple Integration for http://dropwizard.io[Dropwizard^] +
-    see <<keycloak-dropwizard-jetty/README{ext-relative}#keycloak-dropwizard-jetty,module keycloak-dropwizard-jetty>>.
+    see  https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jetty[module keycloak-dropwizard-jetty^].
   * Advanced Integration http://dropwizard.io[Dropwizard^] +
-    see <<keycloak-dropwizard-jaxrs/README{ext-relative}#keycloak-dropwizard-jaxrs,module keycloak-dropwizard-jaxrs>>.
+    see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs[module keycloak-dropwizard-jaxrs^].
 
 For completeness and an even simple setup a standard Servlet configuration is also included (without and with Keycloak):
 
   * Simple Servlet +
-    see <<simple-war/README{ext-relative}#simple-war,module simple-war>>.
+    see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/simple-war[module simple-war^].
   * Servlet with Keycloak +
-    see <<keycloak-war/README{ext-relative}#keycloak-war,module keycloak-war>>.
+    see  https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-war[module keycloak-war^].
 
 ### License
 

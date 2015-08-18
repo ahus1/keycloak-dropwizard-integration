@@ -1,5 +1,5 @@
 ifdef::env-github[]
-To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.]
+To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.
 endif::[]
 
 # Simple Dropwizard Integration
