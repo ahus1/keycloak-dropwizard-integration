@@ -9,14 +9,18 @@ ifdef::env-github[:outfilesuffix: .adoc]
 
 This project shows how JBoss Keycloak and Dropwizard can be used together.
 
-http://keycloak.org[JBoss Keycloak^] provides a standalone OAuth 2.0 and Open ID Connect server. It handles user credentials for you application, so you can focus on business requirements.
+ifdef::env-github[To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.]
+
+http://keycloak.org[JBoss Keycloak^] provides a standalone OAuth 2.0 and Open ID Connect server.
+It handles user credentials for you application, so you can focus on business requirements.
 
 http://dropwizard.io[Dropwizard^] is a Java framework for developing ops-friendly, high-performance, RESTful web services.
 
-*TL;DR:* The module <<keycloak-dropwizard-jaxrs,keycloak-dropwizard-jaxrs>>
+*TL;DR:* The module
+https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs[keycloak-dropwizard-jaxrs]
 shows how to use Dropwizard's `@Auth` annotation with Keycloak using a full OAuth flow.
 
-At the time I write this there is no open source integration of the two.
+At the time I write this there is no open source integration of the two, so I set up this project.
 
 ### Things to do
 
