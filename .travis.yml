@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+- 1.9.3
+addons:
+  apt:
+    packages:
+    - graphviz
+script: ./tutorial/build.sh
+after_success: ./tutorial/update-gh-pages.sh
+env:
+  global:
+  - secure: hNawfngKjfxYnlQ45yLtghJPJKh3ksV+6bEGWp9w2CAgsJw2I3fQOrNU6Rt4U/FKx+m79x+rB8G64sAy9D1lxdeA2tRefolkySLByAFekH0CZb8zElecBucNLxVQPv5hr/DrcigxdTVJQIy3cxmPm0i0wXG25wCXEqlKJuA4//gV+3w9btAYzA/yANFbiyI/exqEwqF15ED+2BPprPhYYdPFSKVXpNfdHBbGTLpAAW1MIRR73E+Rn8cQX8NzEoGxqoE1IYlOOL2WYWs4K/H1OxYjm8jk6rZ275V7eU16LtUOf0E90q1aK7Wac+gqVn8e+TJ3YWQaEGZGXj9HwL5ENaclxUfG1Y53txZt5CxnCN4MvZwOHIvZ/fxLcIyY94u/d0BeHVUAjncbwJluMkH7c0QcPFyaCjVp6MJ02GHzuvmNWwq7OK4C2hB9zJqv1JG31M8BLaONyZGwkyjfZ0cL3u+/NoVzBUWiRd1F4awMIGLBWYy71GhqecEQgw8MOyWwiL4wo6pzhvgJKY65MPx3r7XEn/S9V71qQrV3RjA8bOHCVY2CnsCsFL+laZpCuwqqu+kLTyIPSh4Vnla6baJtTpVyiXX5qpZ8ffKPReA+nxUBGhd5Okp5qViRkUgKxTqndrQNG/M3+0mBRho+j5P7c8szSPYZexulY3X0BeI29YY=

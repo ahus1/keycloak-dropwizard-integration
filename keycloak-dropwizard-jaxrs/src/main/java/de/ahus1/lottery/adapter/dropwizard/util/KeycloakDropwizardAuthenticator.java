@@ -23,8 +23,10 @@ public class KeycloakDropwizardAuthenticator extends KeycloakJettyAuthenticator 
         }
         HttpSession session = ((HttpServletRequest) req).getSession(false);
         if(session != null && session.getAttribute(JaxrsSessionTokenStore.CACHED_FORM_PARAMETERS) != null) {
+            // workaround for https://issues.jboss.org/browse/KEYCLOAK-1776
             Request r = (req instanceof Request) ? (Request)req : HttpChannel.getCurrentHttpChannel().getRequest();
             r.setContentType("application/x-www-form-urlencoded");
+            // end of workaround
             mandatory = true;
         }
         return super.validateRequest(req, res, mandatory);
