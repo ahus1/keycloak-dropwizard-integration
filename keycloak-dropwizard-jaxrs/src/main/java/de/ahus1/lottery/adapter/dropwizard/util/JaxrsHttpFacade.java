@@ -16,7 +16,8 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
+ * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a> (original version)
+ * @author <a href="mailto:alexander.schwartz@gmx.net">Alexander Schwartz</a> (adoption for Dropwizard)
  */
 public class JaxrsHttpFacade implements HttpFacade {
 

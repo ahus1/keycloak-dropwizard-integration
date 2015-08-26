@@ -81,16 +81,7 @@
     <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-healthchecks:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.argparse4j:argparse4j:0.4.4" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.toolchain.setuid:jetty-setuid-java:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-jdbi:0.8.2" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-db:0.8.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jdbc:8.0.18" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:8.0.18" level="project" />
-    <orderEntry type="library" name="Maven: org.jdbi:jdbi:2.59" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-jdbi:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-assets:0.8.2" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-migrations:0.8.2" level="project" />
-    <orderEntry type="library" name="Maven: org.liquibase:liquibase-core:3.3.2" level="project" />
-    <orderEntry type="library" name="Maven: com.mattbertolini:liquibase-slf4j:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views-freemarker:0.8.2" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views:0.8.2" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.21" level="project" />
@@ -122,7 +113,6 @@
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.19" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.ow2.asm:asm-debug-all:5.0.3" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-auth:0.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:1.4.178" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.sourceforge.htmlunit:htmlunit:2.17" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: xalan:xalan:2.7.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: xalan:serializer:2.7.2" level="project" />

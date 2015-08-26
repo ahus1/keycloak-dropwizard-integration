@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Lottery Calculator</title>
+    <script src="http://localhost:8080/auth/js/keycloak.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+
+Hello, <span id="name"></span> (<a onclick="keycloak.logout()" name="logout">logout</a>)
+
+<p/>
+
+Date: <input type="text" name="date"/> <br/>
+<input type="button" onclick="reloadData()" name="draw" value="Draw!"/>
+
+<span id="message"></span>
+
+<p id="result" style="display: none">
+    <b>Draw for <span id="drawdate">${draw.date}</span></b>
+    <br>
+    The lucky numbers are:<br>
+    <span id="draw"></span>
+</p>
+</body>
+</html>

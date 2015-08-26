@@ -40,10 +40,12 @@ Then call `keycloak-server.bat` to import an already configured realm. Using thi
 
 This example will guide you through setting up JBoss Keycloak in several configurations:
 
-  * Simple Integration for http://dropwizard.io[Dropwizard^] +
+  * Simple Integration Servlet style for http://dropwizard.io[Dropwizard^] +
     see  https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jetty[module keycloak-dropwizard-jetty^].
-  * Advanced Integration http://dropwizard.io[Dropwizard^] +
+  * Advanced Integration http://dropwizard.io[Dropwizard^] style +
     see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs[module keycloak-dropwizard-jaxrs^].
+  * Bearer-Only REST services for http://dropwizard.io[Dropwizard^] +
+    see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-bearer[module keycloak-dropwizard-bearer^].
 
 For completeness and an even simple setup a standard Servlet configuration is also included (without and with Keycloak):
 

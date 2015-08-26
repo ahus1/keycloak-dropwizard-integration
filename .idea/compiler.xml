@@ -60,9 +60,18 @@
         <processorPath useClasspath="true" />
         <module name="keycloak-dropwizard-jaxrs" />
       </profile>
+      <profile default="false" name="Annotation profile for keycloak-dropwizard-bearer" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="keycloak-dropwizard-bearer" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="domain" target="1.8" />
+      <module name="keycloak-dropwizard-bearer" target="1.8" />
+      <module name="keycloak-dropwizard-integration" target="1.8" />
       <module name="keycloak-dropwizard-jaxrs" target="1.8" />
       <module name="keycloak-dropwizard-jetty" target="1.8" />
       <module name="keycloak-integrations" target="1.8" />
