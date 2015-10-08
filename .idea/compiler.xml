@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="Javac" />
     <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="!?*.java" />
@@ -18,40 +17,12 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for domain" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="domain" />
-      </profile>
       <profile default="false" name="Annotation profile for simple-war" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="simple-war" />
-      </profile>
-      <profile default="false" name="Annotation profile for untitled" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="untitled" />
-      </profile>
-      <profile default="false" name="Annotation profile for keycloak-war" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="keycloak-war" />
-      </profile>
-      <profile default="false" name="Annotation profile for keycloak-dropwizard-jetty" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="keycloak-dropwizard-jetty" />
       </profile>
       <profile default="false" name="Annotation profile for keycloak-dropwizard-jaxrs" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
@@ -60,6 +31,13 @@
         <processorPath useClasspath="true" />
         <module name="keycloak-dropwizard-jaxrs" />
       </profile>
+      <profile default="false" name="Annotation profile for domain" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="domain" />
+      </profile>
       <profile default="false" name="Annotation profile for keycloak-dropwizard-bearer" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
@@ -67,19 +45,38 @@
         <processorPath useClasspath="true" />
         <module name="keycloak-dropwizard-bearer" />
       </profile>
+      <profile default="false" name="Annotation profile for keycloak-dropwizard-jetty" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="keycloak-dropwizard-jetty" />
+      </profile>
+      <profile default="false" name="Annotation profile for keycloak-war" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="keycloak-war" />
+      </profile>
+      <profile default="false" name="Annotation profile for keycloak-dropwizard-jaxrs-example" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="keycloak-dropwizard-jaxrs-example" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="domain" target="1.8" />
       <module name="keycloak-dropwizard-bearer" target="1.8" />
-      <module name="keycloak-dropwizard-integration" target="1.8" />
       <module name="keycloak-dropwizard-jaxrs" target="1.8" />
+      <module name="keycloak-dropwizard-jaxrs-example" target="1.8" />
       <module name="keycloak-dropwizard-jetty" target="1.8" />
       <module name="keycloak-integrations" target="1.8" />
       <module name="keycloak-war" target="1.8" />
       <module name="lottery" target="1.8" />
-      <module name="lottery-war" target="1.8" />
       <module name="simple-war" target="1.8" />
-      <module name="untitled" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

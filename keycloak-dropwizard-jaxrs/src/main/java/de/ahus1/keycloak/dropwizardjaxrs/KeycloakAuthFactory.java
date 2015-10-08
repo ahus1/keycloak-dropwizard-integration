@@ -1,4 +1,4 @@
-package de.ahus1.lottery.adapter.dropwizard.util;
+package de.ahus1.keycloak.dropwizardjaxrs;
 
 import com.google.common.base.Optional;
 import io.dropwizard.auth.*;
@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
-import javax.xml.ws.spi.http.HttpContext;
 
 public class KeycloakAuthFactory<T> extends AuthFactory<HttpServletRequest, T> {
 

@@ -1,12 +1,12 @@
 package de.ahus1.lottery.adapter.dropwizard.resource;
 
 import de.ahus1.lottery.adapter.dropwizard.util.Authentication;
+import de.ahus1.lottery.adapter.dropwizard.util.Role;
 import de.ahus1.lottery.domain.DrawingService;
 import io.dropwizard.auth.Auth;
 
 import javax.servlet.ServletException;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
 

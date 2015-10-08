@@ -2,73 +2,34 @@ ifdef::env-github[]
 To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.
 endif::[]
 
-# Advanced Dropwizard Integration Dropwizard style
+# Preparing a proper Dropwizard Bundle for Keycloak
 
 ## What you can see here
 
-This is a setup that builds upon the simple integration.
-But instead of relying on security constraints it uses Dropwizard's `@Auth` annotation.
+This is a Dropwizard bundle that provides a ready-to-use Keycloak integration.
 
-## Setup for Keycloak
+## Step by Step
 
-The following elements add Keycloak authentication to Dropwizard and are identical to the simple setup:
+This shows the main integration points
 
-. Add Keycloak information to `config.yml`
-+
-[source,yaml,indent=0]
-.config.yml
------
-include::../config.yml[tags=config-a]
-  realmKey: "MIIB...AQAB"
-include::../config.yml[tags=config-b]
------
-. Add Keycloak as a security constraint to `LotteryConfiguration.java`, but without the role and URL mappings.
+. Setup keycloak as an Authentication Handler in Dropwizard style:
 +
 [source,java,indent=0]
-.LotteryConfiguration.java
+.KeycloakBundle.java
 -----
-include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryConfiguration.java[tags=config]
+include::src/main/java/de/ahus1/keycloak/dropwizardjaxrs/KeycloakBundle.java[tags=keycloak]
 -----
+
 
 . Setup security constraint handler
 +
 [source,java,indent=0]
-.LotteryApplication.java
+.KeycloakBundle.java
 -----
-include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.java[tags=constraint]
------
-. Setup keycloak as an Authentication Handler in Dropwizard style:
-+
-[source,java,indent=0]
-.LotteryApplication.java
------
-include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.java[tags=keycloak]
+include::src/main/java/de/ahus1/keycloak/dropwizardjaxrs/KeycloakBundle.java[tags=constraint]
 -----
 
-Once this is set up, Dropwizard's `@Auth` annotation can be used as usual in ressources:
+## How to use it
 
-[source,java,indent=0]
-.DrawRessource
------
-include::src/main/java/de/ahus1/lottery/adapter/dropwizard/resource/DrawRessource.java[tags=ressource]
------
-<1> This enforces authentication of the user, possibly triggering a full OAuth redirect flow
-<2> An optional authentication provides the authentication details if the user is logged in already
+Anyone who wants to use this will need register this bundle and will need to provide an own implementation derived from `AbstractKeycloakAuthenticator` together with an class encapsulating the user's authentication that might be derived from `Authentication`. Please see the next chapter how to integrate.
 
-////
-## Additions to handle user roles in ressources
-
-TODO: describe @Role annotation and how to activate it.
-////
-
-## How to run
-
-Use the following command line to start it from the parent's directory
-
-----
-mvn test -pl keycloak-dropwizard-jaxrs -am -Peycloak-dropwizard-jaxrs
-----
-
-Once it is started, point your browser to http://localhost:9090 to see the application.
-
-Enter a date like `2015-01-01` to see the predicted results of the given date.

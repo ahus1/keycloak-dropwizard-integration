@@ -1,10 +1,9 @@
-package de.ahus1.lottery.adapter.dropwizard.util;
+package de.ahus1.keycloak.dropwizardjaxrs;
 
 import org.eclipse.jetty.security.ServerAuthException;
 import org.eclipse.jetty.server.Authentication;
 import org.eclipse.jetty.server.HttpChannel;
 import org.eclipse.jetty.server.Request;
-import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.AdapterTokenStore;
 import org.keycloak.adapters.KeycloakDeployment;
 import org.keycloak.adapters.jetty.KeycloakJettyAuthenticator;

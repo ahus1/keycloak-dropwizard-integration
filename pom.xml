@@ -13,6 +13,7 @@
         <module>keycloak-war</module>
         <module>keycloak-dropwizard-jetty</module>
         <module>keycloak-dropwizard-jaxrs</module>
+        <module>keycloak-dropwizard-jaxrs-example</module>
         <module>keycloak-dropwizard-bearer</module>
     </modules>
 

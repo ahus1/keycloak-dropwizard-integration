@@ -27,13 +27,13 @@ See https://github.com/ahus1/keycloak-dropwizard-integration for the latest vers
 
 ### Things to do
 
-Over time the Sources in the module `keycloak-dropwizard-jaxrs` will probably evolve to a ready-to-user Dropwizard module.
+The module `keycloak-dropwizard-jaxrs` is evolving into a ready-to-user Dropwizard module. There will be release soon.
 
 ### Prerequisites
 
 These examples need a local JBoss Keycloak instance with Realm `test` and user `demo` with password `demo`.
 
-Please download the Keycloak distribution version 1.5.0 from http://keycloak.org and extract it to a subfolder `keycloak-server` of this directory.
+Please download the Keycloak distribution version 1.4.0 from http://keycloak.org and extract it to a subfolder `keycloak-server` of this directory.
 Then call `keycloak-server.bat` to import an already configured realm. Using this startup file the configuration will be reset every time you start Keycloak.
 
 ### Parts
@@ -44,6 +44,7 @@ This example will guide you through setting up JBoss Keycloak in several configu
     see  https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jetty[module keycloak-dropwizard-jetty^].
   * Advanced Integration http://dropwizard.io[Dropwizard^] style +
     see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs[module keycloak-dropwizard-jaxrs^].
+    and https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs-example[module keycloak-dropwizard-example^].
   * Bearer-Only REST services for http://dropwizard.io[Dropwizard^] +
     see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-bearer[module keycloak-dropwizard-bearer^].
 

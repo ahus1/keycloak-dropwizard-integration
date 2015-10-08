@@ -1,4 +1,4 @@
-package de.ahus1.lottery.adapter.dropwizard.util;
+package de.ahus1.keycloak.dropwizardjaxrs;
 
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.util.MultiMap;

@@ -1,40 +1,24 @@
-package de.ahus1.lottery.adapter.dropwizard.util;
+package de.ahus1.keycloak.dropwizardjaxrs;
 
-import de.ahus1.lottery.adapter.dropwizard.resource.Role;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.AdapterDeploymentContext;
 import org.keycloak.adapters.KeycloakDeployment;
 import org.keycloak.adapters.RefreshableKeycloakSecurityContext;
-import org.keycloak.representations.AccessToken;
-import org.keycloak.representations.IDToken;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.ForbiddenException;
-import javax.ws.rs.NotAllowedException;
-import javax.ws.rs.WebApplicationException;
-import java.util.Locale;
 
-public class Authentication {
-    private HttpServletRequest request;
-    private KeycloakSecurityContext securityContext;
+/**
+ * This is a base class you can use for your own applications authentication. Feel free to
+ * roll your own, as I don't want to impose any class dependencies on your (domain) model.
+ */
+public class AbstractAuthentication {
+    protected HttpServletRequest request;
+    protected KeycloakSecurityContext securityContext;
 
-    public Authentication(KeycloakSecurityContext securityContext, HttpServletRequest request) {
+    public AbstractAuthentication(HttpServletRequest request, KeycloakSecurityContext securityContext) {
         this.request = request;
         this.securityContext = securityContext;
-    }
-
-    public IDToken getIdToken() {
-        return securityContext.getIdToken();
-    }
-
-    public void checkUserInRole(Role role) {
-        if(!securityContext.getToken().getRealmAccess()
-                .isUserInRole(
-                        role.name().toLowerCase(Locale.ENGLISH))
-                ) {
-            throw new ForbiddenException();
-        }
     }
 
     public void logout() {
@@ -53,5 +37,4 @@ public class Authentication {
             }
         }
     }
-
 }
