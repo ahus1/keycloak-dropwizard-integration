@@ -49,7 +49,6 @@ public class LotteryApplicationTest {
     }
 
     @Test
-    @Ignore("doesn't work yet, as mime type is not set by Keycloak (yet)")
     public void shouldLoginFromPost() throws IOException, ReflectiveOperationException {
         try (final WebClient webClient = new WebClient()) {
             // load initial page, will redirect to keycloak
