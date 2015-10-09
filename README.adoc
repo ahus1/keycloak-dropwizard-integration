@@ -19,7 +19,7 @@ It handles user credentials for you application, so you can focus on business re
 http://dropwizard.io[Dropwizard^] is a Java framework for developing ops-friendly, high-performance, RESTful web services.
 
 *TL;DR:* The module
-https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs[keycloak-dropwizard-jaxrs]
+https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs-example[keycloak-dropwizard-jaxrs-example]
 shows how to use Dropwizard's `@Auth` annotation with Keycloak using a full OAuth flow.
 
 At the time I write this there is no open source integration of the two, so I set up this project.

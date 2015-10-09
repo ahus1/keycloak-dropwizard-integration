@@ -1,4 +1,4 @@
-package de.ahus1.keycloak.dropwizardjaxrs;
+package de.ahus1.keycloak.dropwizard;
 
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.AdapterDeploymentContext;
@@ -12,11 +12,11 @@ import javax.servlet.http.HttpSession;
  * This is a base class you can use for your own applications authentication. Feel free to
  * roll your own, as I don't want to impose any class dependencies on your (domain) model.
  */
-public class AbstractAuthentication {
+public abstract class AbstractUser {
     protected HttpServletRequest request;
     protected KeycloakSecurityContext securityContext;
 
-    public AbstractAuthentication(HttpServletRequest request, KeycloakSecurityContext securityContext) {
+    public AbstractUser(HttpServletRequest request, KeycloakSecurityContext securityContext) {
         this.request = request;
         this.securityContext = securityContext;
     }

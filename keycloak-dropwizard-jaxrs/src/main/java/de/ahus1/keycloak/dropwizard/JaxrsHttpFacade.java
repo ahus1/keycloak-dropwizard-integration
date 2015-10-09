@@ -1,4 +1,4 @@
-package de.ahus1.keycloak.dropwizardjaxrs;
+package de.ahus1.keycloak.dropwizard;
 
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.HttpFacade;

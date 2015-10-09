@@ -18,8 +18,8 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <artifactId>keycloak-dropwizard-jaxrs</artifactId>
-            <groupId>de.ahus1.keycloak</groupId>
+            <artifactId>keycloak-dropwizard</artifactId>
+            <groupId>de.ahus1.keycloak.dropwizard</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

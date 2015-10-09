@@ -4,15 +4,15 @@ import de.ahus1.lottery.domain.Draw;
 import org.keycloak.representations.IDToken;
 
 public class DrawBean {
-    private IDToken idToken;
+    private String name;
     private Draw draw;
 
-    public void setIdToken(IDToken idToken) {
-        this.idToken = idToken;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public IDToken getIdToken() {
-        return idToken;
+    public String getName() {
+        return name;
     }
 
     public void setDraw(Draw draw) {

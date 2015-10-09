@@ -1,4 +1,4 @@
-package de.ahus1.keycloak.dropwizardjaxrs;
+package de.ahus1.keycloak.dropwizard;
 
 import com.google.common.base.Optional;
 import io.dropwizard.auth.AuthenticationException;

@@ -1,4 +1,4 @@
-package de.ahus1.keycloak.dropwizardjaxrs;
+package de.ahus1.keycloak.dropwizard;
 
 import org.eclipse.jetty.security.ServerAuthException;
 import org.eclipse.jetty.server.Authentication;

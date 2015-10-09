@@ -1,4 +1,4 @@
-package de.ahus1.keycloak.dropwizardjaxrs;
+package de.ahus1.keycloak.dropwizard;
 
 import io.dropwizard.ConfiguredBundle;
 import io.dropwizard.auth.AuthFactory;
@@ -43,7 +43,25 @@ public abstract class KeycloakBundle<T> implements ConfiguredBundle<T> {
         }
     }
 
-    protected abstract KeycloakAuthFactory createAuthFactory(T configuration);
+    /**
+     * Default implementation for the Keycloak auth factory. Please provide your own if you implement
+     * your own User's representation.
+     * @param configuration the application's configuration
+     * @return Keycloak auth factory
+     */
+    protected KeycloakAuthFactory createAuthFactory(T configuration) {
+        return new KeycloakAuthFactory(getKeycloakConfiguration(configuration), getRealm(configuration),
+                new KeycloakAuthenticator(), User.class);
+    }
+
+    /**
+     * Prepare the realm name. Override as needed to provide a different name.
+     * @param configuration for future use
+     * @return realm name
+     */
+    protected String getRealm(T configuration) {
+        return "dropwizard";
+    };
 
     protected abstract AdapterConfig getKeycloakConfiguration(T configuration);
 

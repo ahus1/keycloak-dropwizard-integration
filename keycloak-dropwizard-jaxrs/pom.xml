@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>keycloak-dropwizard-jaxrs</artifactId>
-    <groupId>de.ahus1.keycloak</groupId>
+    <artifactId>keycloak-dropwizard</artifactId>
+    <groupId>de.ahus1.keycloak.dropwizard</groupId>
 
     <dependencies>
         <dependency>
