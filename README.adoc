@@ -25,9 +25,30 @@ shows how to use Dropwizard's `@Auth` annotation with Keycloak using a full OAut
 At the time I write this there is no open source integration of the two, so I set up this project.
 See https://github.com/ahus1/keycloak-dropwizard-integration for the latest version.
 
-### Things to do
+### How to use
 
-The module `keycloak-dropwizard-jaxrs` is evolving into a ready-to-user Dropwizard module. There will be release soon.
+The module `keycloak-dropwizard-jaxrs` is evolving into a ready-to-user Dropwizard module. The first releases are now available (currently on jcenter and in my personal Bintray repository):
+
+image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/download.svg[link="https://bintray.com/ahus1/maven/keycloak-dropwizard/_latestVersion"]
+
+.pom.xml
+----
+<repositories>
+  <repository>
+    <id>bintray-ahus1</id>
+    <name>Maven Repository of Alexander Schwartz</name>
+    <url>https://dl.bintray.com/ahus1/maven/</url>
+  </repository>
+</repositories>
+
+<dependencies>
+  <dependency>
+    <groupId>de.ahus1.keycloak.dropwizard</groupId>
+    <artifactId>domain</artifactId>
+    <version>0.x.x</version>
+  </dependency>
+</dependencies>
+----
 
 ### Prerequisites
 
