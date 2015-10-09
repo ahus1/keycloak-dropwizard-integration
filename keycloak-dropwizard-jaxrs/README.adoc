@@ -17,7 +17,7 @@ This shows the main integration points
 [source,java,indent=0]
 .KeycloakBundle.java
 -----
-include::src/main/java/de/ahus1/keycloak/dropwizardjaxrs/KeycloakBundle.java[tags=keycloak]
+include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=keycloak]
 -----
 
 
@@ -26,7 +26,7 @@ include::src/main/java/de/ahus1/keycloak/dropwizardjaxrs/KeycloakBundle.java[tag
 [source,java,indent=0]
 .KeycloakBundle.java
 -----
-include::src/main/java/de/ahus1/keycloak/dropwizardjaxrs/KeycloakBundle.java[tags=constraint]
+include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=constraint]
 -----
 
 ## How to use it
