@@ -1,6 +1,7 @@
 package de.ahus1.lottery.adapter.dropwizard;
 
 import de.ahus1.keycloak.dropwizard.KeycloakBundle;
+import de.ahus1.keycloak.dropwizard.KeycloakConfiguration;
 import de.ahus1.lottery.adapter.dropwizard.resource.DrawRessource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
@@ -8,7 +9,6 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
-import org.keycloak.representations.adapters.config.AdapterConfig;
 
 import java.io.IOException;
 
@@ -37,7 +37,7 @@ public class LotteryApplication extends Application<LotteryConfiguration> {
         // tag::keycloak[]
         bootstrap.addBundle(new KeycloakBundle<LotteryConfiguration>() {
             @Override
-            protected AdapterConfig getKeycloakConfiguration(LotteryConfiguration configuration) {
+            protected KeycloakConfiguration getKeycloakConfiguration(LotteryConfiguration configuration) {
                 return configuration.getKeycloakConfiguration();
             }
         });

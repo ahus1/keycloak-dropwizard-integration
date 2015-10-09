@@ -9,7 +9,6 @@ import org.eclipse.jetty.security.ConstraintSecurityHandler;
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.keycloak.adapters.jetty.KeycloakJettyAuthenticator;
 import org.keycloak.enums.TokenStore;
-import org.keycloak.representations.adapters.config.AdapterConfig;
 
 import java.util.Locale;
 
@@ -32,7 +31,7 @@ public abstract class KeycloakBundle<T> implements ConfiguredBundle<T> {
 
         if (getKeycloakConfiguration(configuration).isBearerOnly()) {
             // no session needed
-        } else if(getKeycloakConfiguration(configuration).getTokenStore() != null &&
+        } else if (getKeycloakConfiguration(configuration).getTokenStore() != null &&
                 getKeycloakConfiguration(configuration).getTokenStore().toLowerCase(Locale.ENGLISH)
                         .equals(TokenStore.COOKIE.toString().toLowerCase(Locale.ENGLISH))) {
             // no session needed
@@ -46,6 +45,7 @@ public abstract class KeycloakBundle<T> implements ConfiguredBundle<T> {
     /**
      * Default implementation for the Keycloak auth factory. Please provide your own if you implement
      * your own User's representation.
+     *
      * @param configuration the application's configuration
      * @return Keycloak auth factory
      */
@@ -56,14 +56,15 @@ public abstract class KeycloakBundle<T> implements ConfiguredBundle<T> {
 
     /**
      * Prepare the realm name. Override as needed to provide a different name.
+     *
      * @param configuration for future use
      * @return realm name
      */
     protected String getRealm(T configuration) {
         return "dropwizard";
-    };
+    }
 
-    protected abstract AdapterConfig getKeycloakConfiguration(T configuration);
+    protected abstract KeycloakConfiguration getKeycloakConfiguration(T configuration);
 
     @Override
     public void initialize(Bootstrap<?> bootstrap) {

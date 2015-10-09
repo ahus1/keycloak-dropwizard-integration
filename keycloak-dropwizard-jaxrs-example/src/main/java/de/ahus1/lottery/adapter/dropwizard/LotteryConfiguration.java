@@ -1,18 +1,19 @@
 package de.ahus1.lottery.adapter.dropwizard;
 
+import de.ahus1.keycloak.dropwizard.KeycloakConfiguration;
 import io.dropwizard.Configuration;
 import org.keycloak.representations.adapters.config.AdapterConfig;
 
 // tag::config[]
 public class LotteryConfiguration extends Configuration {
 
-    private AdapterConfig keycloakConfiguration = new AdapterConfig();
+    private KeycloakConfiguration keycloakConfiguration = new KeycloakConfiguration();
 
-    public AdapterConfig getKeycloakConfiguration() {
+    public KeycloakConfiguration getKeycloakConfiguration() {
         return keycloakConfiguration;
     }
 
-    public void setKeycloakConfiguration(AdapterConfig keycloakConfiguration) {
+    public void setKeycloakConfiguration(KeycloakConfiguration keycloakConfiguration) {
         this.keycloakConfiguration = keycloakConfiguration;
     }
 }
