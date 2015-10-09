@@ -1,2 +1,6 @@
 /**/target
 /keycloak-server
+/settings.xml
+*.releaseBackup
+release.properties
+*-reduced-pom.xml
