@@ -44,7 +44,7 @@ image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/d
 <dependencies>
   <dependency>
     <groupId>de.ahus1.keycloak.dropwizard</groupId>
-    <artifactId>domain</artifactId>
+    <artifactId>keycloak-dropwizard</artifactId>
     <version>0.x.x</version>
   </dependency>
 </dependencies>
