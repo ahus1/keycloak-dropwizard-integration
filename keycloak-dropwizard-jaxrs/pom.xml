@@ -9,6 +9,11 @@
 
     <artifactId>keycloak-dropwizard</artifactId>
 
+    <name>Dropwizard Module for JBoss Keycloak</name>
+    <description>Add this module to integrate your Dropwizard application with
+        JBoss Keycloak.</description>
+    <url>https://github.com/ahus1/keycloak-dropwizard-integration/</url>
+
     <dependencies>
         <dependency>
             <groupId>io.dropwizard</groupId>

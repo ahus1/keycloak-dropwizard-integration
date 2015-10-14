@@ -9,6 +9,26 @@
         <tag>HEAD</tag>
     </scm>
 
+    <name>Parent POM for Dropwizard and JBoss Keycloak integration</name>
+    <description>Parent project to serve dependencies and common configuration.</description>
+    <url>https://github.com/ahus1/keycloak-dropwizard-integration/</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Alexander Schwartz</name>
+            <email>alexander.schwartz@gmx.net</email>
+            <organization>private</organization>
+            <organizationUrl>http://www.ahus1.de</organizationUrl>
+        </developer>
+    </developers>
+
     <groupId>de.ahus1.keycloak.dropwizard</groupId>
     <artifactId>keycloak-dropwizard-parent</artifactId>
     <version>0.2.1-SNAPSHOT</version>
@@ -51,6 +71,28 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <configuration>
+                    <deployAtEnd>true</deployAtEnd>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -91,6 +133,10 @@
             <id>bintray</id>
             <url>https://api.bintray.com/maven/ahus1/maven/keycloak-dropwizard</url>
         </repository>
+        <snapshotRepository>
+            <id>sonatypeosssnapshot</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 
 </project>
