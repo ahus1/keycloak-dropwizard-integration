@@ -27,20 +27,13 @@ See https://github.com/ahus1/keycloak-dropwizard-integration for the latest vers
 
 ### How to use
 
-The module `keycloak-dropwizard-jaxrs` is evolving into a ready-to-use Dropwizard module. The first releases are now available (currently on jcenter and in my personal Bintray repository):
+The module `keycloak-dropwizard-jaxrs` is evolving into a ready-to-use Dropwizard module.
+The first releases are now available (both from jcenter and Maven central):
 
 image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/download.svg[link="https://bintray.com/ahus1/maven/keycloak-dropwizard/_latestVersion"]
 
 .pom.xml
 ----
-<repositories>
-  <repository>
-    <id>bintray-ahus1</id>
-    <name>Maven Repository of Alexander Schwartz</name>
-    <url>https://dl.bintray.com/ahus1/maven/</url>
-  </repository>
-</repositories>
-
 <dependencies>
   <dependency>
     <groupId>de.ahus1.keycloak.dropwizard</groupId>
