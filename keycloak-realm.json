@@ -124,6 +124,12 @@
     }
   },
   "requiredCredentials" : [ "password" ],
+  "otpPolicyType" : "totp",
+  "otpPolicyAlgorithm" : "HmacSHA1",
+  "otpPolicyInitialCounter" : 0,
+  "otpPolicyDigits" : 6,
+  "otpPolicyLookAheadWindow" : 1,
+  "otpPolicyPeriod" : 30,
   "users" : [ {
     "id" : "14f8f7b9-68cb-415b-92bb-826f24d966d4",
     "createdTimestamp" : 1439492204519,
@@ -146,6 +152,8 @@
       "hashedSaltedValue" : "qL9Zig3yDVGc8BDzdAfEt2VyLT058imzD5aiDAI0J+M7ox9vGxaVMSymxd3jwxAWwBikODneqw0Pz2wtRsH2Rg==",
       "salt" : "di7uKS5ohEr6iZ8rfmY9LA==",
       "hashIterations" : 1,
+      "counter" : 0,
+      "digits" : 0,
       "temporary" : false
     } ],
     "requiredActions" : [ ],
@@ -153,10 +161,6 @@
     "clientRoles" : {
       "account" : [ "manage-account", "view-profile" ]
     }
-  } ],
-  "scopeMappings" : [ {
-    "client" : "javascript",
-    "roles" : [ "user" ]
   } ],
   "clientScopeMappings" : {
     "realm-management" : [ {
@@ -170,6 +174,7 @@
     "name" : "${client_realm-management}",
     "surrogateAuthRequired" : false,
     "enabled" : true,
+    "clientAuthenticatorType" : "client-secret",
     "secret" : "5578b3e1-85ca-45f3-a691-eba85c83c7bf",
     "redirectUris" : [ ],
     "webOrigins" : [ ],
@@ -270,6 +275,7 @@
     "baseUrl" : "http://localhost:9090/",
     "surrogateAuthRequired" : false,
     "enabled" : true,
+    "clientAuthenticatorType" : "client-secret",
     "secret" : "7abd7d08-b10f-4513-bbba-aebebddabb45",
     "redirectUris" : [ "http://localhost:9090/*" ],
     "webOrigins" : [ "http://localhost:9090" ],
@@ -297,7 +303,7 @@
     "fullScopeAllowed" : true,
     "nodeReRegistrationTimeout" : 600,
     "registeredNodes" : {
-      "msgn280f" : 1439818425
+      "msgn280f" : 1444862552
     },
     "protocolMappers" : [ {
       "id" : "5a4ae8de-c06f-4180-8baf-017489b581d8",
@@ -385,6 +391,7 @@
     "baseUrl" : "/auth/admin/test/console/index.html",
     "surrogateAuthRequired" : false,
     "enabled" : true,
+    "clientAuthenticatorType" : "client-secret",
     "secret" : "45a47db5-910a-4834-aa44-a08371e20024",
     "redirectUris" : [ "/auth/admin/test/console/*" ],
     "webOrigins" : [ ],
@@ -483,6 +490,7 @@
     "name" : "${client_broker}",
     "surrogateAuthRequired" : false,
     "enabled" : true,
+    "clientAuthenticatorType" : "client-secret",
     "secret" : "65b058cb-7343-4b66-bcf1-3597982f8c35",
     "redirectUris" : [ ],
     "webOrigins" : [ ],
@@ -582,6 +590,7 @@
     "baseUrl" : "/auth/realms/test/account",
     "surrogateAuthRequired" : false,
     "enabled" : true,
+    "clientAuthenticatorType" : "client-secret",
     "secret" : "2006e198-fe51-4d60-99f2-fc73a787bfc3",
     "defaultRoles" : [ "view-profile", "manage-account" ],
     "redirectUris" : [ "/auth/realms/test/account/*" ],
@@ -681,6 +690,7 @@
     "name" : "javascript",
     "surrogateAuthRequired" : false,
     "enabled" : true,
+    "clientAuthenticatorType" : "client-secret",
     "secret" : "6f0f8713-0a66-4365-bda6-2caf5437a060",
     "redirectUris" : [ "http://localhost:9090/*" ],
     "webOrigins" : [ "http://localhost:9090" ],
@@ -826,6 +836,25 @@
       "priority" : 30
     } ]
   }, {
+    "alias" : "clients",
+    "description" : "Base authentication for clients",
+    "providerId" : "client-flow",
+    "topLevel" : true,
+    "builtIn" : true,
+    "authenticationExecutions" : [ {
+      "authenticator" : "client-secret",
+      "autheticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "userSetupAllowed" : false,
+      "priority" : 10
+    }, {
+      "authenticator" : "client-jwt",
+      "autheticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "userSetupAllowed" : false,
+      "priority" : 20
+    } ]
+  }, {
     "alias" : "registration form",
     "description" : "registration form",
     "providerId" : "form-flow",
@@ -857,25 +886,6 @@
       "priority" : 60
     } ]
   }, {
-    "alias" : "forms",
-    "description" : "Username, password, otp and other auth forms.",
-    "providerId" : "basic-flow",
-    "topLevel" : false,
-    "builtIn" : true,
-    "authenticationExecutions" : [ {
-      "authenticator" : "auth-username-password-form",
-      "autheticatorFlow" : false,
-      "requirement" : "REQUIRED",
-      "userSetupAllowed" : false,
-      "priority" : 10
-    }, {
-      "authenticator" : "auth-otp-form",
-      "autheticatorFlow" : false,
-      "requirement" : "OPTIONAL",
-      "userSetupAllowed" : true,
-      "priority" : 20
-    } ]
-  }, {
     "alias" : "direct grant",
     "description" : "OpenID Connect Resource Owner Grant",
     "providerId" : "basic-flow",
@@ -901,6 +911,37 @@
       "priority" : 30
     } ]
   }, {
+    "alias" : "reset credentials",
+    "description" : "Reset credentials for a user if they forgot their password or something",
+    "providerId" : "basic-flow",
+    "topLevel" : true,
+    "builtIn" : true,
+    "authenticationExecutions" : [ {
+      "authenticator" : "reset-credentials-choose-user",
+      "autheticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "userSetupAllowed" : false,
+      "priority" : 10
+    }, {
+      "authenticator" : "reset-credential-email",
+      "autheticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "userSetupAllowed" : false,
+      "priority" : 20
+    }, {
+      "authenticator" : "reset-password",
+      "autheticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "userSetupAllowed" : false,
+      "priority" : 30
+    }, {
+      "authenticator" : "reset-otp",
+      "autheticatorFlow" : false,
+      "requirement" : "OPTIONAL",
+      "userSetupAllowed" : false,
+      "priority" : 40
+    } ]
+  }, {
     "alias" : "registration",
     "description" : "registration flow",
     "providerId" : "basic-flow",
@@ -914,26 +955,31 @@
       "userSetupAllowed" : false,
       "priority" : 10
     } ]
+  }, {
+    "alias" : "forms",
+    "description" : "Username, password, otp and other auth forms.",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : true,
+    "authenticationExecutions" : [ {
+      "authenticator" : "auth-username-password-form",
+      "autheticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "userSetupAllowed" : false,
+      "priority" : 10
+    }, {
+      "authenticator" : "auth-otp-form",
+      "autheticatorFlow" : false,
+      "requirement" : "OPTIONAL",
+      "userSetupAllowed" : false,
+      "priority" : 20
+    } ]
   } ],
   "authenticatorConfig" : [ ],
   "requiredActions" : [ {
-    "alias" : "CONFIGURE_TOTP",
-    "name" : "Configure Totp",
-    "providerId" : "CONFIGURE_TOTP",
-    "enabled" : true,
-    "defaultAction" : false,
-    "config" : { }
-  }, {
     "alias" : "UPDATE_PROFILE",
     "name" : "Update Profile",
     "providerId" : "UPDATE_PROFILE",
-    "enabled" : true,
-    "defaultAction" : false,
-    "config" : { }
-  }, {
-    "alias" : "VERIFY_EMAIL",
-    "name" : "Verify Email",
-    "providerId" : "VERIFY_EMAIL",
     "enabled" : true,
     "defaultAction" : false,
     "config" : { }
@@ -945,11 +991,30 @@
     "defaultAction" : false,
     "config" : { }
   }, {
+    "alias" : "VERIFY_EMAIL",
+    "name" : "Verify Email",
+    "providerId" : "VERIFY_EMAIL",
+    "enabled" : true,
+    "defaultAction" : false,
+    "config" : { }
+  }, {
+    "alias" : "CONFIGURE_TOTP",
+    "name" : "Configure Totp",
+    "providerId" : "CONFIGURE_TOTP",
+    "enabled" : true,
+    "defaultAction" : false,
+    "config" : { }
+  }, {
     "alias" : "terms_and_conditions",
     "name" : "Terms and Conditions",
     "providerId" : "terms_and_conditions",
     "enabled" : false,
     "defaultAction" : false,
     "config" : { }
-  } ]
+  } ],
+  "browserFlow" : "browser",
+  "registrationFlow" : "registration",
+  "directGrantFlow" : "direct grant",
+  "resetCredentialsFlow" : "reset credentials",
+  "clientAuthenticationFlow" : "clients"
 }

@@ -47,7 +47,7 @@ image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/d
 
 These examples need a local JBoss Keycloak instance with Realm `test` and user `demo` with password `demo`.
 
-Please download the Keycloak distribution version 1.4.0 from http://keycloak.org and extract it to a subfolder `keycloak-server` of this directory.
+Please download the Keycloak distribution version 1.5.0 from http://keycloak.org and extract it to a subfolder `keycloak-server` of this directory.
 Then call `keycloak-server.bat` to import an already configured realm. Using this startup file the configuration will be reset every time you start Keycloak.
 
 ### Parts
