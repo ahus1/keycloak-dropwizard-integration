@@ -46,7 +46,7 @@ A very short and simple JavaScript client is located in `src/main/ressources/ass
 Use the following command line to start it from the parent's directory
 
 ----
-mvn test -pl keycloak-dropwizard-bearer -am -Peycloak-dropwizard-bearer
+mvn test -pl keycloak-dropwizard-bearer -am -Pkeycloak-dropwizard-bearer
 ----
 
 Once it is started, point your browser to http://localhost:9090/ajax/index.html to see the application.

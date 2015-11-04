@@ -5,32 +5,34 @@ import org.keycloak.adapters.HttpFacade;
 import org.keycloak.util.HostUtils;
 
 import javax.security.cert.X509Certificate;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.container.ContainerRequestContext;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.NewCookie;
-import java.io.IOException;
+import javax.ws.rs.core.SecurityContext;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
 
 /**
- * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a> (original version)
+ * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  * @author <a href="mailto:alexander.schwartz@gmx.net">Alexander Schwartz</a> (adoption for Dropwizard)
  */
 public class JaxrsHttpFacade implements HttpFacade {
 
-    protected final HttpServletRequest requestContext;
+    protected final ContainerRequestContext requestContext;
+    protected final SecurityContext securityContext;
     protected final RequestFacade requestFacade = new RequestFacade();
     protected final ResponseFacade responseFacade = new ResponseFacade();
     protected KeycloakSecurityContext keycloakSecurityContext;
+    protected boolean responseFinished;
 
-    public JaxrsHttpFacade(HttpServletRequest request) {
-        this.requestContext = request;
+    public JaxrsHttpFacade(ContainerRequestContext containerRequestContext, SecurityContext securityContext) {
+        this.requestContext = containerRequestContext;
+        this.securityContext = securityContext;
     }
 
-    protected class RequestFacade implements HttpFacade.Request {
+    protected class RequestFacade implements Request {
 
         @Override
         public String getMethod() {
@@ -39,65 +41,57 @@ public class JaxrsHttpFacade implements HttpFacade {
 
         @Override
         public String getURI() {
-            return requestContext.getRequestURL().toString();
+            return requestContext.getUriInfo().getRequestUri().toString();
         }
 
         @Override
         public boolean isSecure() {
-            return requestContext.isSecure();
+            return securityContext.isSecure();
         }
 
         @Override
         public String getQueryParamValue(String param) {
-            return requestContext.getParameter(param);
+            MultivaluedMap<String, String> queryParams = requestContext.getUriInfo().getQueryParameters();
+            if (queryParams == null)
+                return null;
+            return queryParams.getFirst(param);
         }
 
         @Override
         public Cookie getCookie(String cookieName) {
-            javax.servlet.http.Cookie[] cookies = requestContext.getCookies();
-            for (javax.servlet.http.Cookie cookie : cookies) {
-                if (cookie.getName().equals(cookieName)) {
-                    return new Cookie(cookie.getName(), cookie.getValue(), cookie.getVersion(), cookie.getDomain(), cookie.getPath());
-                }
-            }
-            return null;
+            Map<String, javax.ws.rs.core.Cookie> cookies = requestContext.getCookies();
+            if (cookies == null)
+                return null;
+            javax.ws.rs.core.Cookie cookie = cookies.get(cookieName);
+            if (cookie == null)
+                return null;
+            return new Cookie(cookie.getName(), cookie.getValue(), cookie.getVersion(), cookie.getDomain(), cookie.getPath());
         }
 
         @Override
         public String getHeader(String name) {
-            return requestContext.getHeader(name);
+            return requestContext.getHeaderString(name);
         }
 
         @Override
         public List<String> getHeaders(String name) {
-            Enumeration<String> headers = requestContext.getHeaders(name);
-            ArrayList list = new ArrayList();
-            while (headers.hasMoreElements()) {
-                list.add(headers.nextElement());
-            }
-            if (list.size() == 0) {
-                return null;
-            } else {
-                return list;
-            }
+            MultivaluedMap<String, String> headers = requestContext.getHeaders();
+            return (headers == null) ? null : headers.get(name);
         }
 
         @Override
         public InputStream getInputStream() {
-            try {
-                return requestContext.getInputStream();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            return requestContext.getEntityStream();
         }
 
         @Override
         public String getRemoteAddr() {
+            // TODO: implement properly
             return HostUtils.getIpAddress();
         }
     }
 
-    protected class ResponseFacade implements HttpFacade.Response {
+    protected class ResponseFacade implements Response {
 
         private javax.ws.rs.core.Response.ResponseBuilder responseBuilder = javax.ws.rs.core.Response.status(204);
 
@@ -115,6 +109,7 @@ public class JaxrsHttpFacade implements HttpFacade {
         public void setHeader(String name, String value) {
             responseBuilder.header(name, value);
         }
+
 
         @Override
         public void resetCookie(String name, String path) {
@@ -135,14 +130,15 @@ public class JaxrsHttpFacade implements HttpFacade {
         @Override
         public void sendError(int code, String message) {
             javax.ws.rs.core.Response response = responseBuilder.status(code).entity(message).build();
-            throw new WebApplicationException(response);
+            requestContext.abortWith(response);
+            responseFinished = true;
         }
 
         @Override
         public void end() {
             javax.ws.rs.core.Response response = responseBuilder.build();
-
-            throw new WebApplicationException(response);
+            requestContext.abortWith(response);
+            responseFinished = true;
         }
     }
 
@@ -170,4 +166,7 @@ public class JaxrsHttpFacade implements HttpFacade {
         throw new IllegalStateException("Not supported yet");
     }
 
+    public boolean isResponseFinished() {
+        return responseFinished;
+    }
 }

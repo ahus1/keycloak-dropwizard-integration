@@ -24,7 +24,7 @@ public class DrawRessource {
     private HttpServletRequest request;
 
     @GET
-    @RolesAllowed("user")
+    // @RolesAllowed("user")
     public DrawView show() {
         KeycloakSecurityContext session = (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
         DrawBean bean = new DrawBean();

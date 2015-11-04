@@ -4,9 +4,13 @@ import de.ahus1.keycloak.dropwizard.User;
 import de.ahus1.lottery.domain.DrawingService;
 import io.dropwizard.auth.Auth;
 
+import javax.annotation.security.RolesAllowed;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.SecurityContext;
 import java.time.LocalDate;
 
 // tag::ressource[]
@@ -14,10 +18,13 @@ import java.time.LocalDate;
 @Produces(MediaType.TEXT_HTML)
 public class DrawRessource {
 
+    @Context
+    private HttpServletRequest request;
+
     // end::ressource[]
     @GET
+    @RolesAllowed("user")
     public DrawView show(@Auth User auth) {
-        auth.checkUserInRole("user");
         DrawBean bean = new DrawBean();
         DrawView view = new DrawView(bean);
         bean.setName(auth.getName());
@@ -27,8 +34,8 @@ public class DrawRessource {
     // tag::ressource[]
     @POST
     @Path("/draw")
+    @RolesAllowed("user")
     public DrawView draw(@FormParam("date") String dateAsString, @Auth User auth) { // <1>
-        auth.checkUserInRole("user");
         DrawBean bean = new DrawBean();
         LocalDate date = LocalDate.parse(dateAsString);
         bean.setDraw(DrawingService.drawNumbers(date));
@@ -39,10 +46,9 @@ public class DrawRessource {
 
     @GET
     @Path("/logout")
-    public LogoutView logout(@Auth(required = false) User auth) throws ServletException { // <2>
-        // request.logout(); // no effect as we didn't hook into jetty
-        if (auth != null) {
-            auth.logout();
+    public LogoutView logout(@Context SecurityContext context) throws ServletException { // <2>
+        if (context.getUserPrincipal() != null) {
+            request.logout();
         }
         return new LogoutView();
     }

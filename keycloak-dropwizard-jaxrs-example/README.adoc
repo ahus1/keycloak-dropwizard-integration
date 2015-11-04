@@ -46,7 +46,7 @@ Once this is set up, Dropwizard's `@Auth` annotation can be used as usual in res
 include::src/main/java/de/ahus1/lottery/adapter/dropwizard/resource/DrawRessource.java[tags=ressource]
 -----
 <1> This enforces authentication of the user, possibly triggering a full OAuth redirect flow
-<2> An optional authentication provides the authentication details if the user is logged in already
+<2> Access the security context directly to find out if the user is logged in without forcing authentication
 
 ////
 ## Additions to handle user roles in ressources

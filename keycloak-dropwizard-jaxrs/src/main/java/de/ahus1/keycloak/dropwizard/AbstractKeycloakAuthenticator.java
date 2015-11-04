@@ -6,13 +6,14 @@ import io.dropwizard.auth.Authenticator;
 import org.keycloak.KeycloakSecurityContext;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 
 /**
  * Authentication to make it work with Keycloak.
  * @param <P> authentication class you will use throughout your application.
  *           You can use AbstractAuthentication as a base class here.
  */
-public abstract class AbstractKeycloakAuthenticator<P> implements Authenticator<HttpServletRequest, P> {
+public abstract class AbstractKeycloakAuthenticator<P extends Principal> implements Authenticator<HttpServletRequest, P> {
 
     @Override
     public Optional<P> authenticate(HttpServletRequest request) throws AuthenticationException {

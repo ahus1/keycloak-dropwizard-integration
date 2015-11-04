@@ -12,24 +12,24 @@ This is a Dropwizard bundle that provides a ready-to-use Keycloak integration.
 
 This shows the main integration points
 
-. Setup keycloak as an Authentication Handler in Dropwizard style:
+. Setup keycloak as an Authenticator to handle pre-auth integration:
 +
 [source,java,indent=0]
 .KeycloakBundle.java
 -----
-include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=keycloak]
+include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=authenticator]
 -----
 
-
-. Setup security constraint handler
+. Setup the authentication factory
 +
 [source,java,indent=0]
 .KeycloakBundle.java
 -----
-include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=constraint]
+include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=authfactory]
 -----
 
 ## How to use it
 
-Anyone who wants to use this will need register this bundle and will need to provide an own implementation derived from `AbstractKeycloakAuthenticator` together with an class encapsulating the user's authentication that might be derived from `Authentication`. Please see the next chapter how to integrate.
+Anyone who wants to use this will need register this bundle and will need to provide an own implementation derived from `KeycloakBundle` together with an class encapsulating the user's authentication that might be derived from `AbstractUser`.
+Please see the next chapter how to integrate.
 
