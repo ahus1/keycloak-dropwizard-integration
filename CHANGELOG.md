@@ -3,6 +3,29 @@
 1st release to Maven Central.
 Works with Keycloak 1.5 and Dropwizard 0.9.
 
+When upgrading, you'll notice that `@Auth(required=false)` is no longer supported by Dropwizard 0.9.
+Instead instead inject the Security context like shown below. 
+
+    @GET
+    @Path("/logout")
+    public LogoutView logout(@Context SecurityContext context) throws ServletException { 
+        if (context.getUserPrincipal() != null) {
+            request.logout();
+        }
+    }
+    
+This is also the first release that supports the `@RolesAllowed` annotation.
+This was possible due to the Dropwizard 0.9 changes.
+
+    @GET
+    @RolesAllowed("user")
+    public DrawView show(@Auth User auth) {
+        DrawBean bean = new DrawBean();
+        DrawView view = new DrawView(bean);
+        bean.setName(auth.getName());
+        return view;
+    }
+
 # v0.2.1 - 15 Oct 2015
 
 1st release to Maven Central.
@@ -12,5 +35,3 @@ Works with Keycloak 1.4/1.5 and Dropwizard 0.8.
 
 Initial release. Wrapped up as a Dropwizard Bundle. Handles full OAuth flow including form submissions.
 Works with Keycloak 1.4/1.5 and Dropwizard 0.8.
-
-
