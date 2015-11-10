@@ -1,8 +1,7 @@
 package de.ahus1.keycloak.dropwizard;
 
-import org.keycloak.KeycloakSecurityContext;
-import org.keycloak.adapters.HttpFacade;
-import org.keycloak.util.HostUtils;
+import org.keycloak.adapters.spi.HttpFacade;
+import org.keycloak.common.util.HostUtils;
 
 import javax.security.cert.X509Certificate;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -24,7 +23,6 @@ public class JaxrsHttpFacade implements HttpFacade {
     protected final SecurityContext securityContext;
     protected final RequestFacade requestFacade = new RequestFacade();
     protected final ResponseFacade responseFacade = new ResponseFacade();
-    protected KeycloakSecurityContext keycloakSecurityContext;
     protected boolean responseFinished;
 
     public JaxrsHttpFacade(ContainerRequestContext containerRequestContext, SecurityContext securityContext) {
@@ -47,6 +45,11 @@ public class JaxrsHttpFacade implements HttpFacade {
         @Override
         public boolean isSecure() {
             return securityContext.isSecure();
+        }
+
+        @Override
+        public String getFirstParam(String param) {
+            return getQueryParamValue(param);
         }
 
         @Override
@@ -143,15 +146,6 @@ public class JaxrsHttpFacade implements HttpFacade {
     }
 
     @Override
-    public KeycloakSecurityContext getSecurityContext() {
-        return keycloakSecurityContext;
-    }
-
-    public void setSecurityContext(KeycloakSecurityContext securityContext) {
-        this.keycloakSecurityContext = securityContext;
-    }
-
-    @Override
     public Request getRequest() {
         return requestFacade;
     }
@@ -166,7 +160,4 @@ public class JaxrsHttpFacade implements HttpFacade {
         throw new IllegalStateException("Not supported yet");
     }
 
-    public boolean isResponseFinished() {
-        return responseFinished;
-    }
 }

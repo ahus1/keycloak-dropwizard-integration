@@ -7,10 +7,17 @@ import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 import org.eclipse.jetty.server.HttpChannel;
 import org.eclipse.jetty.server.Request;
-import org.glassfish.jersey.server.ContainerRequest;
-import org.keycloak.adapters.*;
+import org.keycloak.adapters.AdapterDeploymentContext;
+import org.keycloak.adapters.AdapterTokenStore;
+import org.keycloak.adapters.KeycloakDeployment;
+import org.keycloak.adapters.KeycloakDeploymentBuilder;
+import org.keycloak.adapters.jetty.JettyAdapterSessionStore;
 import org.keycloak.adapters.jetty.core.JettyCookieTokenStore;
 import org.keycloak.adapters.jetty.core.JettyRequestAuthenticator;
+import org.keycloak.adapters.jetty.core.JettySessionTokenStore;
+import org.keycloak.adapters.spi.AuthChallenge;
+import org.keycloak.adapters.spi.AuthOutcome;
+import org.keycloak.adapters.spi.HttpFacade;
 import org.keycloak.enums.TokenStore;
 import org.keycloak.representations.adapters.config.AdapterConfig;
 import org.slf4j.Logger;
@@ -95,7 +102,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
             return;
         }
 
-        AdapterTokenStore tokenStore = getTokenStore(request, (ContainerRequest) requestContext.getRequest(), facade, deployment);
+        AdapterTokenStore tokenStore = getTokenStore(request, facade, deployment);
 
         tokenStore.checkCurrentToken();
         JettyRequestAuthenticator authenticator = createRequestAuthenticator(request, facade, deployment, tokenStore);
@@ -109,7 +116,6 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
             facade.getResponse().setCookie("JSESSIONID", request.getSession().getId(), "/", null, -1, false, false);
             facade.getResponse().end();
         }
-        return;
     }
 
     protected JettyRequestAuthenticator createRequestAuthenticator(HttpServletRequest request, JaxrsHttpFacade facade,
@@ -119,7 +125,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
     }
 
 
-    public static AdapterTokenStore getTokenStore(HttpServletRequest request, ContainerRequest requestContext, HttpFacade facade, KeycloakDeployment resolvedDeployment) {
+    public static AdapterTokenStore getTokenStore(HttpServletRequest request, HttpFacade facade, KeycloakDeployment resolvedDeployment) {
         AdapterTokenStore store = (AdapterTokenStore) request.getAttribute(TOKEN_STORE_NOTE);
         if (store != null) {
             return store;
@@ -127,7 +133,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
 
         Request r = (request instanceof Request) ? (Request) request : HttpChannel.getCurrentHttpChannel().getRequest();
         if (resolvedDeployment.getTokenStore() == TokenStore.SESSION) {
-            store = new JaxrsSessionTokenStore(r, requestContext, resolvedDeployment);
+            store = new JettySessionTokenStore(r, resolvedDeployment, new JettyAdapterSessionStore(r));
         } else {
             store = new JettyCookieTokenStore(r, facade, resolvedDeployment);
         }
@@ -161,7 +167,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
         @Override
         public KeycloakAuthFilter<P> buildAuthFilter() {
             Preconditions.checkArgument(adapterConfig != null, "Keycloak config is not set");
-            KeycloakAuthFilter filter = super.buildAuthFilter();
+            KeycloakAuthFilter<P> filter = super.buildAuthFilter();
             filter.initializeKeycloak();
             return filter;
         }

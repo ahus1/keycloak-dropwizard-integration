@@ -7,7 +7,9 @@ import org.eclipse.jetty.server.Request;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.AdapterTokenStore;
 import org.keycloak.adapters.KeycloakDeployment;
+import org.keycloak.adapters.jetty.JettyAdapterSessionStore;
 import org.keycloak.adapters.jetty.KeycloakJettyAuthenticator;
+import org.keycloak.adapters.jetty.core.JettySessionTokenStore;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -26,15 +28,15 @@ public class KeycloakDropwizardAuthenticator extends KeycloakJettyAuthenticator 
             mandatory = true;
         }
         HttpSession session = ((HttpServletRequest) req).getSession(false);
-        if (session != null && session.getAttribute(JaxrsSessionTokenStore.CACHED_FORM_PARAMETERS) != null) {
+        if (session != null && session.getAttribute(JettyAdapterSessionStore.CACHED_FORM_PARAMETERS) != null) {
             // this is a redirect after the code has been received for a FORM
             mandatory = true;
-        } else if(session != null && session.getAttribute(KeycloakSecurityContext.class.getName()) != null) {
+        } else if (session != null && session.getAttribute(KeycloakSecurityContext.class.getName()) != null) {
             // there is an existing authentication in the session, use it
             mandatory = true;
         }
         Authentication authentication = super.validateRequest(req, res, mandatory);
-        if(authentication instanceof DeferredAuthentication) {
+        if (authentication instanceof DeferredAuthentication) {
             // resolving of a deferred authentication later will otherwise lead to a NullPointerException
             authentication = null;
         }
@@ -43,6 +45,6 @@ public class KeycloakDropwizardAuthenticator extends KeycloakJettyAuthenticator 
 
     @Override
     public AdapterTokenStore createSessionTokenStore(Request request, KeycloakDeployment resolvedDeployment) {
-        return new JaxrsSessionTokenStore(request, null, resolvedDeployment);
+        return new JettySessionTokenStore(request, resolvedDeployment, new JettyAdapterSessionStore(request));
     }
 }

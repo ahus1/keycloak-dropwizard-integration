@@ -86,12 +86,15 @@
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views-freemarker:0.9.1" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views:0.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.23" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty92-adapter:1.5.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty92-adapter:1.6.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.4.GA" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-core:1.5.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-adapter-core:1.5.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty-core:1.5.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: net.iharder:base64:2.3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-core:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-common:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.50" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-adapter-core:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty-core:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-adapter-spi:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty-adapter-spi:1.6.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.50" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.9" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.9" level="project" />

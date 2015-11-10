@@ -81,12 +81,14 @@
     <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-healthchecks:3.1.2" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.argparse4j:argparse4j:0.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.toolchain.setuid:jetty-setuid-java:1.0.3" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty92-adapter:1.5.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty92-adapter:1.6.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.4.GA" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-core:1.5.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-adapter-core:1.5.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty-core:1.5.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: net.iharder:base64:2.3.8" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-core:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-common:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.50" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-adapter-core:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty-core:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jetty-adapter-spi:1.6.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.50" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.9" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.9" level="project" />
@@ -96,7 +98,8 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.2.4.v20141103" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.2.4.v20141103" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:9.2.4.v20141103" level="project" />
-    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jaxrs-oauth-client:1.5.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-jaxrs-oauth-client:1.6.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-adapter-spi:1.6.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-auth:0.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.1" level="project" />
