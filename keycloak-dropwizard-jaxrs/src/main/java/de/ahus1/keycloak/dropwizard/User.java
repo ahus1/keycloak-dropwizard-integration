@@ -22,7 +22,7 @@ public class User extends AbstractUser {
     }
 
     public String getName() {
-        return securityContext.getIdToken().getName();
+        return securityContext.getToken().getName();
     }
 
 }
