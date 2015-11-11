@@ -1,6 +1,11 @@
+# v0.3.1 - (unreleased)
+
+Update to Keycloak 1.6. 
+Although this is quite a major change for Keycloak, the API for our consumers didn't change.
+Therefore it is a patch only.
+
 # v0.3.0 - 04 Nov 2015
 
-1st release to Maven Central.
 Works with Keycloak 1.5 and Dropwizard 0.9.
 
 When upgrading, you'll notice that `@Auth(required=false)` is no longer supported by Dropwizard 0.9.

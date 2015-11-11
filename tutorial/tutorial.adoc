@@ -23,3 +23,5 @@ include::../keycloak-dropwizard-jaxrs/README.adoc[]
 include::../keycloak-dropwizard-jaxrs-example/README.adoc[]
 
 include::../keycloak-dropwizard-bearer/README.adoc[]
+
+include::../keycloak-dropwizard-bearermodule/README.adoc[]

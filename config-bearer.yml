@@ -1,0 +1,24 @@
+server:
+  applicationConnectors:
+      - type: http
+        port: 9090
+  adminConnectors:
+      - type: http
+        port: 9091
+
+
+# tag::bearer-a[]
+keycloakConfiguration:
+# end::bearer-a[]
+  realm: test
+  realmKey: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsJ9Qdu+pQ3rPzdj/2DfiR3LXmKKbZG+Xi1pxidY1rdfjdtuPK6XRGfaDZD10yUKRGFqxf1mAee4NlWcDT1Q7CuugAaptkdkyRrXhcPdbQJQvebavwaIPa+sMM4WdtyKL8NJnXM3s843wahkmNit1VJ54v8DYnNtP8aVJN6NLjpN5G2i8GNjxZMehEChKXLN1xQJXw/Q/AdUkaHlp2MzW5s8AGbu3j9dhYPFWgjj5KiCjM0JLzCB1/zE+2xvcRW2qYLDDSBkMdt+OF/knlSSVdiwrnpIPNTT22Ybyw1r1MDgRtNPb9dBvuWJi2ulmDwJjFcYn9czPusoIikoRtXV5VwIDAQAB"
+  authServerUrl: http://localhost:8080/auth
+  sslRequired: none
+  registerNodeAtStartup: true
+  registerNodePeriod: 600
+# tag::bearer-b[]
+  bearerOnly: true
+# end::bearer-b[]
+  resource: test
+  credentials:
+    secret: 7abd7d08-b10f-4513-bbba-aebebddabb45
