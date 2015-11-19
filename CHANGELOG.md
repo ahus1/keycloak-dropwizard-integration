@@ -1,8 +1,10 @@
-# v0.3.1 - (unreleased)
+# v0.4.0 - 19 Nov 2015
 
 Update to Keycloak 1.6. 
 Although this is quite a major change for Keycloak, the API for our consumers didn't change.
 Therefore it is a patch only.
+
+This release has also better support to combine a frontend public client with a backend bearer token only server.
 
 # v0.3.0 - 04 Nov 2015
 
