@@ -77,13 +77,13 @@
         <dependency>
             <groupId>io.dropwizard.modules</groupId>
             <artifactId>dropwizard-java8</artifactId>
-            <version>0.8.0-2</version>
+            <version>${dropwizardjava8.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.dropwizard.modules</groupId>
             <artifactId>dropwizard-java8-auth</artifactId>
-            <version>0.8.0-2</version>
+            <version>${dropwizardjava8.version}</version>
         </dependency>
 
         <dependency>
