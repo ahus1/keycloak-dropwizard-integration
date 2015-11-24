@@ -1,6 +1,6 @@
 # v0.4.1 - 24 Nov 2015
 
-Fix 500er response when bearer only and request without Authentication header.
+Fix 500er response when bearer only and request without Authentication header. #4
 
 # v0.4.0 - 19 Nov 2015
 
