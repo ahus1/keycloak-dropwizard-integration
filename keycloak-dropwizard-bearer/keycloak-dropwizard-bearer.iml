@@ -119,10 +119,10 @@
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.22.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.ow2.asm:asm-debug-all:5.0.4" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-auth:0.9.1" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard.modules:dropwizard-java8:0.8.0-2" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.5.1" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.5.1" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard.modules:dropwizard-java8-auth:0.8.0-2" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard.modules:dropwizard-java8:0.9.0-1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.6.3" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard.modules:dropwizard-java8-auth:0.9.0-1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.junit:arquillian-junit-standalone:1.1.5.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.junit:arquillian-junit-core:1.1.5.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.test:arquillian-test-spi:1.1.5.Final" level="project" />

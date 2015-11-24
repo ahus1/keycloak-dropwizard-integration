@@ -113,7 +113,10 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
         AuthChallenge challenge = authenticator.getChallenge();
         if (challenge != null) {
             challenge.challenge(facade);
-            facade.getResponse().setCookie("JSESSIONID", request.getSession().getId(), "/", null, -1, false, false);
+            if (!adapterConfig.isBearerOnly()) {
+                // create session and set cookie for client
+                facade.getResponse().setCookie("JSESSIONID", request.getSession().getId(), "/", null, -1, false, false);
+            }
             facade.getResponse().end();
         }
     }

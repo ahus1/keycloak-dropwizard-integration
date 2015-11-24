@@ -1,3 +1,7 @@
+# v0.4.1 - 24 Nov 2015
+
+Fix 500er response when bearer only and request without Authentication header.
+
 # v0.4.0 - 19 Nov 2015
 
 Update to Keycloak 1.6. 

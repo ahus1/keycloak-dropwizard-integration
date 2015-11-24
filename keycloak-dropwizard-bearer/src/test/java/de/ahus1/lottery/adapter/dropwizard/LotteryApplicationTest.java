@@ -24,8 +24,16 @@ public class LotteryApplicationTest {
     @ClassRule
     public static final DropwizardAppRule<LotteryConfiguration> RULE =
             new DropwizardAppRule<LotteryConfiguration>(LotteryApplication.class,
-                    new File("../config.yml").getAbsolutePath()
+                    getConfig()
             );
+
+    private static String getConfig() {
+        File file = new File("config.yml");
+        if (!file.exists()) {
+            file = new File("../config.yml");
+        }
+        return file.getAbsolutePath();
+    }
 
     public static String resourceFilePath(final String resourceClassPathLocation) {
         try {
