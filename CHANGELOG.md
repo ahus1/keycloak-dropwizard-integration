@@ -1,3 +1,7 @@
+# v0.5.0 - ??
+
+Upgrading to Keycloak 1.7
+
 # v0.4.1 - 24 Nov 2015
 
 Fix 500er response when bearer only and request without Authentication header. #4

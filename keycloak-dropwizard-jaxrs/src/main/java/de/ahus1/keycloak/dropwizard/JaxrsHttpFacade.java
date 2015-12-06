@@ -1,6 +1,8 @@
 package de.ahus1.keycloak.dropwizard;
 
+import org.keycloak.adapters.spi.AuthenticationError;
 import org.keycloak.adapters.spi.HttpFacade;
+import org.keycloak.adapters.spi.LogoutError;
 import org.keycloak.common.util.HostUtils;
 
 import javax.security.cert.X509Certificate;
@@ -92,6 +94,16 @@ public class JaxrsHttpFacade implements HttpFacade {
             // TODO: implement properly
             return HostUtils.getIpAddress();
         }
+
+        @Override
+        public void setError(AuthenticationError error) {
+            requestContext.setProperty(AuthenticationError.class.getName(), error);
+        }
+
+        @Override
+        public void setError(LogoutError error) {
+            requestContext.setProperty(LogoutError.class.getName(), error);
+        }
     }
 
     protected class ResponseFacade implements Response {
@@ -129,6 +141,12 @@ public class JaxrsHttpFacade implements HttpFacade {
             // For now doesn't need to be supported
             throw new IllegalStateException("Not supported yet");
         }
+
+        @Override
+        public void sendError(int code) {
+            javax.ws.rs.core.Response response = responseBuilder.status(code).build();
+            requestContext.abortWith(response);
+            responseFinished = true;        }
 
         @Override
         public void sendError(int code, String message) {
