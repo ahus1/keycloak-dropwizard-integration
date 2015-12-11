@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ArquillianContainersManager">
-    <container containerId="container.arquillian.embedded.jetty.9" name="Jetty Embedded 9.x">
-      <maven-library groupId="org.jboss.arquillian.container" artifactId="arquillian-jetty-embedded-9" version="RELEASE" />
-    </container>
-    <container containerId="container.arquillian.manual" name="Manual container configuration" />
-  </component>
-</project>
