@@ -1,4 +1,4 @@
-# v0.5.0 - ??
+# v0.5.0 - 12 Nov 2015
 
 Upgrading to Keycloak 1.7
 
