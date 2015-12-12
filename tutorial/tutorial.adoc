@@ -7,6 +7,7 @@
 // using experimental to support btn: macro
 :experimental:
 :imagesdir: tutorial
+:last-update-label!:
 
 include::../README.adoc[]
 
