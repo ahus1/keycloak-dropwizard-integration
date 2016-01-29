@@ -4,8 +4,8 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
   #go to home and setup git
   cd $HOME
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "Travis"
+  git config --global user.email "alexander.schwartz@gmx.net"
+  git config --global user.name "Travis CI"
 
   #using token clone gh-pages branch
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/ahus1/keycloak-dropwizard-integration.git  gh-pages > /dev/null
