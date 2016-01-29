@@ -1,3 +1,7 @@
+# v0.6.0 - 29 Jan 2016
+
+Upgrading to Keycloak 1.8. No API changes.
+
 # v0.5.0 - 12 Nov 2015
 
 Upgrading to Keycloak 1.7
