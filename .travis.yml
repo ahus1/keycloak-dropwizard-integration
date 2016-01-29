@@ -13,7 +13,7 @@ cache:
 script:
   - ./tutorial/build.sh
   - docker build -t keycloak-server-docker keycloak-server-docker
-  - docker run --cidfile=kd -d -p 8080:8080 keycloak-server-docker
+  - docker run --cidfile=kd -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d -p 8080:8080 keycloak-server-docker
   - docker ps
   - ./keycloak-server-docker/wait-for-docker.sh localhost 8080
   - docker logs `cat kd`
