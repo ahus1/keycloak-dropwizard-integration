@@ -1,3 +1,9 @@
+# v0.7.0 - unreleased
+
+Upgrading to Keycloak 1.9.
+  * You'll now need to include dropwizard-jackson module if you haven't done that before, as Keycloak client will assume that it is provided.
+  * Keycloak annotated their `AdapterConfig` with JsonProperty elements, therefore you can now (and must now) use the hyphenated configuration element names instead of the camelcase ones in you `config.yml`. Example: `authServerUrl` is now `auth-server-url`, and `realmKey` is `realm-public-key`.
+
 # v0.6.0 - 29 Jan 2016
 
 Upgrading to Keycloak 1.8. No API changes.
