@@ -75,7 +75,7 @@ For completeness and an even simple setup a standard Servlet configuration is al
 
 ### License
 
-Copyright 2015 Alexander Schwartz
+Copyright 2015-2016 Alexander Schwartz
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
