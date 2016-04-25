@@ -66,7 +66,7 @@ public abstract class KeycloakBundle<T> implements ConfiguredBundle<T> {
     protected ContainerRequestFilter createAuthFactory(T configuration) {
         return new KeycloakAuthFilter.Builder<Principal>()
                 .setConfig(getKeycloakConfiguration(configuration))
-                .setAuthenticator(createAuthenticator())
+                .setAuthenticator(createAuthenticator(getKeycloakConfiguration(configuration)))
                 .setAuthorizer(createAuthorizer())
                 .setRealm(getRealm(configuration))
                 .buildAuthFilter();
@@ -100,18 +100,18 @@ public abstract class KeycloakBundle<T> implements ConfiguredBundle<T> {
      *
      * @return the authenticator.
      */
-    protected Authenticator createAuthenticator() {
-        return new KeycloakAuthenticator();
+    protected Authenticator createAuthenticator(KeycloakConfiguration configuration) {
+        return new KeycloakAuthenticator(configuration);
     }
 
     /**
      * Prepare the realm name. Override as needed to provide a different name.
      *
-     * @param configuration for future use
+     * @param configuration the application's configuration
      * @return realm name
      */
     protected String getRealm(T configuration) {
-        return "dropwizard";
+        return getKeycloakConfiguration(configuration).getRealm();
     }
 
     protected abstract KeycloakConfiguration getKeycloakConfiguration(T configuration);

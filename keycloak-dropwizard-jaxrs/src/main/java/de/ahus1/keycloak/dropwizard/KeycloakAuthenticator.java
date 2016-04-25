@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class KeycloakAuthenticator extends AbstractKeycloakAuthenticator<User> {
 
+    public KeycloakAuthenticator(KeycloakConfiguration configuration) {
+        super(configuration);
+    }
+
     @Override
-    protected User prepareAuthentication(KeycloakSecurityContext securityContext, HttpServletRequest request) {
-        return new User(securityContext, request);
+    protected User prepareAuthentication(KeycloakSecurityContext securityContext, HttpServletRequest request, KeycloakConfiguration configuration) {
+        return new User(securityContext, request, configuration);
     }
 }

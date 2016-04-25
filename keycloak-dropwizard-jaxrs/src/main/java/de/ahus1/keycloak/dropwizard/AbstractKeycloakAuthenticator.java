@@ -15,15 +15,21 @@ import java.security.Principal;
  */
 public abstract class AbstractKeycloakAuthenticator<P extends Principal> implements Authenticator<HttpServletRequest, P> {
 
+    private final KeycloakConfiguration keycloakConfiguration;
+
+    public AbstractKeycloakAuthenticator(final KeycloakConfiguration keycloakConfiguration) {
+        this.keycloakConfiguration = keycloakConfiguration;
+    }
+
     @Override
     public Optional<P> authenticate(HttpServletRequest request) throws AuthenticationException {
         KeycloakSecurityContext securityContext = (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
         if (securityContext != null) {
-            return Optional.fromNullable(prepareAuthentication(securityContext, request));
+            return Optional.fromNullable(prepareAuthentication(securityContext, request, keycloakConfiguration));
         } else {
             return Optional.absent();
         }
     }
 
-    protected abstract P prepareAuthentication(KeycloakSecurityContext securityContext, HttpServletRequest request);
+    protected abstract P prepareAuthentication(KeycloakSecurityContext securityContext, HttpServletRequest request, KeycloakConfiguration keycloakConfiguration);
 }
