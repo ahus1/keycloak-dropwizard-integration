@@ -11,12 +11,12 @@ import javax.ws.rs.ForbiddenException;
  */
 public class User extends AbstractUser {
 
-    public User(KeycloakSecurityContext securityContext, HttpServletRequest request) {
-        super(request, securityContext);
+    public User(KeycloakSecurityContext securityContext, HttpServletRequest request, KeycloakConfiguration keycloakConfiguration) {
+        super(request, securityContext, keycloakConfiguration);
     }
 
     public void checkUserInRole(String role) {
-        if (!securityContext.getToken().getRealmAccess().isUserInRole(role)) {
+        if (!getRoles().contains(role)) {
             throw new ForbiddenException();
         }
     }
