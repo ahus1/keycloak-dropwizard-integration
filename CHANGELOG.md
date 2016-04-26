@@ -1,4 +1,8 @@
-# v0.7.0 - unreleased
+# v0.7.1 - 26 Apr 2016
+
+Support `use-resource-role-mappings` for dropwizard adapter thanks to @anthonyraymond. #5
+
+# v0.7.0 - 28 Feb 2016
 
 Upgrading to Keycloak 1.9.
   * You'll now need to include dropwizard-jackson module if you haven't done that before, as Keycloak client will assume that it is provided.
