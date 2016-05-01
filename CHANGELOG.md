@@ -1,3 +1,7 @@
+# v0.7.2 - 01 May 2016
+
+Upgrade to Keycloak 1.9.3. No code or API changes.
+
 # v0.7.1 - 26 Apr 2016
 
 Support `use-resource-role-mappings` for dropwizard adapter thanks to @anthonyraymond. #5
