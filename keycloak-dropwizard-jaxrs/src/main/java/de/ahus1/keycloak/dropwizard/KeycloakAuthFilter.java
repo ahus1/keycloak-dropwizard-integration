@@ -93,6 +93,10 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
     }
 
     public void validateRequest(final ContainerRequestContext requestContext) {
+        if(requestContext.getSecurityContext().getUserPrincipal() != null) {
+            // the user is already authenticated, further processing is not necessary
+            return;
+        }
         Request request = HttpChannel.getCurrentHttpChannel().getRequest();
         JaxrsHttpFacade facade = new JaxrsHttpFacade(requestContext, requestContext.getSecurityContext());
         request.setAttribute(AdapterDeploymentContext.class.getName(), deploymentContext);
