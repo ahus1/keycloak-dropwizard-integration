@@ -53,8 +53,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <keycloak.version>1.9.4.Final</keycloak.version>
-        <dropwizard.version>0.9.2</dropwizard.version>
+        <keycloak.version>1.9.8.Final</keycloak.version>
+        <dropwizard.version>0.9.3</dropwizard.version>
         <dropwizardjava8.version>0.9.0-1</dropwizardjava8.version>
     </properties>
 
