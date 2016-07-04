@@ -20,6 +20,7 @@ public class KeycloakDropwizardAuthenticator extends KeycloakJettyAuthenticator 
     @Override
     public Authentication validateRequest(ServletRequest req, ServletResponse res, boolean mandatory) throws ServerAuthException {
         HttpServletRequest request = ((HttpServletRequest) req);
+        request.setAttribute(HttpServletRequest.class.getName(), request);
         if (getAdapterConfig().isBearerOnly() == false &&
                 request.getQueryString() != null &&
                 request.getQueryString().contains("code=")) {

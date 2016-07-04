@@ -1,12 +1,12 @@
 package de.ahus1.keycloak.dropwizard;
 
-import com.google.common.base.Optional;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 import org.keycloak.KeycloakSecurityContext;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Optional;
 
 /**
  * Authentication to make it work with Keycloak.
@@ -25,9 +25,9 @@ public abstract class AbstractKeycloakAuthenticator<P extends Principal> impleme
     public Optional<P> authenticate(HttpServletRequest request) throws AuthenticationException {
         KeycloakSecurityContext securityContext = (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
         if (securityContext != null) {
-            return Optional.fromNullable(prepareAuthentication(securityContext, request, keycloakConfiguration));
+            return Optional.ofNullable(prepareAuthentication(securityContext, request, keycloakConfiguration));
         } else {
-            return Optional.absent();
+            return Optional.empty();
         }
     }
 

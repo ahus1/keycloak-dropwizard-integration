@@ -1,6 +1,5 @@
 package de.ahus1.keycloak.dropwizard;
 
-import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import io.dropwizard.auth.AuthFilter;
 import io.dropwizard.auth.AuthenticationException;
@@ -24,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Priority;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.Priorities;
@@ -31,6 +31,7 @@ import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.SecurityContext;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.Optional;
 
 @Priority(Priorities.AUTHENTICATION)
 public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServletRequest, P> {
@@ -41,7 +42,6 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
     protected AdapterDeploymentContext deploymentContext;
 
     private AdapterConfig adapterConfig;
-
 
     public void initializeKeycloak() {
         KeycloakDeployment kd = KeycloakDeploymentBuilder.build(adapterConfig);
@@ -55,7 +55,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
     @Override
     public void filter(final ContainerRequestContext requestContext) throws IOException {
         validateRequest(requestContext);
-        HttpServletRequest request = HttpChannel.getCurrentHttpChannel().getRequest();
+        HttpServletRequest request = (HttpServletRequest) requestContext.getProperty(HttpServletRequest.class.getName());
         final Optional<P> principal;
         try {
             principal = authenticator.authenticate(request);
@@ -97,7 +97,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
             // the user is already authenticated, further processing is not necessary
             return;
         }
-        Request request = HttpChannel.getCurrentHttpChannel().getRequest();
+        Request request = Request.getBaseRequest((ServletRequest) requestContext.getProperty(HttpServletRequest.class.getName()));
         JaxrsHttpFacade facade = new JaxrsHttpFacade(requestContext, requestContext.getSecurityContext());
         request.setAttribute(AdapterDeploymentContext.class.getName(), deploymentContext);
 
@@ -127,7 +127,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
 
     protected JettyRequestAuthenticator createRequestAuthenticator(HttpServletRequest request, JaxrsHttpFacade facade,
                                                                    KeycloakDeployment deployment, AdapterTokenStore tokenStore) {
-        Request r = (request instanceof Request) ? (Request) request : HttpChannel.getCurrentHttpChannel().getRequest();
+        Request r = Request.getBaseRequest(request);
         return new JettyRequestAuthenticator(facade, deployment, tokenStore, -1, r);
     }
 
@@ -138,7 +138,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
             return store;
         }
 
-        Request r = (request instanceof Request) ? (Request) request : HttpChannel.getCurrentHttpChannel().getRequest();
+        Request r = Request.getBaseRequest(request);
         if (resolvedDeployment.getTokenStore() == TokenStore.SESSION) {
             store = new JettySessionTokenStore(r, resolvedDeployment, new JettyAdapterSessionStore(r));
         } else {

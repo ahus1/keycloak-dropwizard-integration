@@ -36,6 +36,9 @@ image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/d
 
   * Version 0.8.x is tested with Keycloak 2.x.x and Dropwizard 0.9.x
 
+  * Version 0.9.x is tested with Keycloak 2.x.x and Dropwizard 1.x.x +
+    (not released yet)
+
 .pom.xml
 ----
 <dependencies>

@@ -38,7 +38,7 @@
 
     <groupId>de.ahus1.keycloak.dropwizard</groupId>
     <artifactId>keycloak-dropwizard-parent</artifactId>
-    <version>0.8.1-SNAPSHOT</version>
+    <version>0.9.0-SNAPSHOT</version>
     <modules>
         <module>domain</module>
         <module>simple-war</module>
@@ -53,9 +53,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <keycloak.version>2.0.0.Final</keycloak.version>
-        <dropwizard.version>0.9.3</dropwizard.version>
-        <dropwizardjava8.version>0.9.0-1</dropwizardjava8.version>
+        <keycloak.version>2.1.0.CR1</keycloak.version>
+        <dropwizard.version>1.0.0</dropwizard.version>
     </properties>
 
     <build>

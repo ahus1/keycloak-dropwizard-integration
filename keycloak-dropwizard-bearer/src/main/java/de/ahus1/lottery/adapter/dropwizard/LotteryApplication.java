@@ -4,7 +4,6 @@ import de.ahus1.lottery.adapter.dropwizard.resource.DrawRessource;
 import de.ahus1.lottery.adapter.dropwizard.util.DropwizardBearerTokenFilterImpl;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
-import io.dropwizard.java8.Java8Bundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
@@ -29,9 +28,6 @@ public class LotteryApplication extends Application<LotteryConfiguration> {
 
         // set up folders for static content
         bootstrap.addBundle(new AssetsBundle("/assets/ajax", "/ajax", null, "ajax"));
-
-        // support for new Java Date/Time API
-        bootstrap.addBundle(new Java8Bundle());
 
     }
 
