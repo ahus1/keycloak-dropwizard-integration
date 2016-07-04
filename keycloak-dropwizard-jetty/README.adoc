@@ -6,7 +6,7 @@ endif::[]
 
 ## What you can see here
 
-This is a very simple Dropwizard application setup to use Freemarker as templating.
+This is a very simple Dropwizard application setup using Freemarker as templating.
 
 ## Setup for Keycloak
 

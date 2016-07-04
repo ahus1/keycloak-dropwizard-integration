@@ -1,7 +1,6 @@
 # v0.7.4 - 14 May 2016
 
 Upgrade to Keycloak 1.9.8.
-Don't start authentication twice #6 as reported by @anthonyraymond.
 
 # v0.7.3 - 14 May 2016
 
