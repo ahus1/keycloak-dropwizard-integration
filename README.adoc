@@ -32,9 +32,9 @@ The releases are available both from jcenter and Maven central:
 
 image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/download.svg[link="https://bintray.com/ahus1/maven/keycloak-dropwizard/_latestVersion"]
 
-  * Version 0.6.x is tested with Keycloak 1.8.x and Dropwizard 0.9.x
-
   * Version 0.7.x is tested with Keycloak 1.9.x and Dropwizard 0.9.x
+
+  * Version 0.8.x is tested with Keycloak 2.x.x and Dropwizard 0.9.x
 
 .pom.xml
 ----
