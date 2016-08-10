@@ -1,3 +1,9 @@
+# v0.9.0 - 10 August 2016
+
+Upgrade to Keycloak 2.1.0 and Dropwizard 1.0. Some code changes due to the Dropwizard upgrade.
+
+User who want to stay on Dropwizard 0.9 should use the 0.8.x releases.
+
 # v0.8.0 - 07 July 2016
 
 Upgrade to Keycloak 2.0.0. No code or API changes.
