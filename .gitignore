@@ -4,5 +4,6 @@
 *.releaseBackup
 release.properties
 *-reduced-pom.xml
-/.idea
+/.idea/*
+!/.idea/runConfigurations
 *.iml
