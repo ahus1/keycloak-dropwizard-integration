@@ -44,6 +44,12 @@ public class JaxrsHttpFacade implements HttpFacade {
             return requestContext.getUriInfo().getRequestUri().toString();
         }
 
+        //TODO: enable once the adapter is built against Keycloak 2.5.1 and above (see KEYCLOAK-3261)
+        //@Override
+        public String getRelativePath() {
+            return requestContext.getUriInfo().getPath();
+        }
+
         @Override
         public boolean isSecure() {
             return securityContext.isSecure();
