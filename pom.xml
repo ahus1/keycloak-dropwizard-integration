@@ -53,7 +53,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <keycloak.version>2.1.0.Final</keycloak.version>
+        <keycloak.version>2.5.4.Final</keycloak.version>
         <dropwizard.version>1.0.0</dropwizard.version>
     </properties>
 
