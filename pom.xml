@@ -54,7 +54,7 @@
 
     <properties>
         <keycloak.version>2.5.4.Final</keycloak.version>
-        <dropwizard.version>1.0.0</dropwizard.version>
+        <dropwizard.version>1.0.6</dropwizard.version>
     </properties>
 
     <build>
