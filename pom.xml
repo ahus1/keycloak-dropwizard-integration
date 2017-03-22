@@ -6,7 +6,7 @@
         <connection>scm:git:https://github.com/ahus1/keycloak-dropwizard-integration.git</connection>
         <developerConnection>scm:git:https://github.com/ahus1/keycloak-dropwizard-integration.git</developerConnection>
         <url>https://github.com/ahus1/keycloak-dropwizard-integration/</url>
-        <tag>keycloak-dropwizard-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <name>Parent POM for Dropwizard and JBoss Keycloak integration</name>
@@ -38,7 +38,7 @@
 
     <groupId>de.ahus1.keycloak.dropwizard</groupId>
     <artifactId>keycloak-dropwizard-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <modules>
         <module>domain</module>
         <module>simple-war</module>

@@ -3,7 +3,7 @@
     <parent>
         <groupId>de.ahus1.keycloak.dropwizard</groupId>
         <artifactId>keycloak-dropwizard-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>de.ahus1.keycloak.dropwizard</groupId>
             <artifactId>domain</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
