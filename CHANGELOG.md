@@ -1,3 +1,7 @@
+# v1.0.0 - 22 March 2017
+
+Update to Keycloak 3.0.0 and Dropwizard 1.1.0 thanks to @maksymgendin and @reneploetz 
+
 # v0.9.1 - 07 March 2017
 
 Upgrade to Keycloak 2.5.4, fixes by @reneploetz. Previous Keycloak 2.x versions should still work. Update to Dropwizard 1.0.6.
