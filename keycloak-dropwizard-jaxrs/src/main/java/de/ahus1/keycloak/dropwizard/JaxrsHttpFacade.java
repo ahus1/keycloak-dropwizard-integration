@@ -43,9 +43,8 @@ public class JaxrsHttpFacade implements HttpFacade {
         public String getURI() {
             return requestContext.getUriInfo().getRequestUri().toString();
         }
-
-        //TODO: enable once the adapter is built against Keycloak 2.5.1 and above (see KEYCLOAK-3261)
-        //@Override
+        
+        @Override
         public String getRelativePath() {
             return requestContext.getUriInfo().getPath();
         }
@@ -97,8 +96,8 @@ public class JaxrsHttpFacade implements HttpFacade {
 
         @Override
         public String getRemoteAddr() {
-            // TODO: implement properly
-            return HostUtils.getIpAddress();
+            // Read the URI from the incoming requestConext, instead of from the host itself.
+            return requestContext.getUriInfo().getBaseUri().getHost();
         }
 
         @Override
