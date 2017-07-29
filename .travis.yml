@@ -19,7 +19,7 @@ script:
 - docker logs `cat kd`
 - mvn --batch-mode test
 after_success:
-- '[[ $TRAVIS_BRANCH == "master" ]] && "./tutorial/update-gh-pages.sh"
+- '[[ $TRAVIS_BRANCH == "master" ]] && ./tutorial/update-gh-pages.sh'
 after_failure:
 - docker logs `cat kd`
 services:
