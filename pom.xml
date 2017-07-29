@@ -44,7 +44,7 @@
         <module>simple-war</module>
         <module>keycloak-war</module>
         <module>keycloak-dropwizard-jetty</module>
-        <module>keycloak-dropwizard-jaxrs</module>
+        <module>keycloak-dropwizard</module>
         <module>keycloak-dropwizard-jaxrs-example</module>
         <module>keycloak-dropwizard-bearer</module>
         <module>keycloak-dropwizard-bearermodule</module>

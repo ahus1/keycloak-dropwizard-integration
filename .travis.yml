@@ -1,29 +1,29 @@
 language: ruby
 rvm:
-  - 1.9.3
+- 1.9.3
 addons:
   apt:
     packages:
     - graphviz
 jdk:
-  - oraclejdk8
+- oraclejdk8
 cache:
   directories:
-  - $HOME/.m2
+  - "$HOME/.m2"
 script:
-  - ./tutorial/build.sh
-  - docker build -t keycloak-server-docker keycloak-server-docker
-  - docker run --cidfile=kd -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d -p 8080:8080 keycloak-server-docker
-  - docker ps
-  - ./keycloak-server-docker/wait-for-docker.sh localhost 8080
-  - docker logs `cat kd`
-  - mvn --batch-mode test
+- "./tutorial/build.sh"
+- docker build -t keycloak-server-docker keycloak-server-docker
+- docker run --cidfile=kd -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d -p 8080:8080 keycloak-server-docker
+- docker ps
+- "./keycloak-server-docker/wait-for-docker.sh localhost 8080"
+- docker logs `cat kd`
+- mvn --batch-mode test
 after_success:
-  - ./tutorial/update-gh-pages.sh
+- '[[ $TRAVIS_BRANCH == "master" ]] && "./tutorial/update-gh-pages.sh"
 after_failure:
-  - docker logs `cat kd`
+- docker logs `cat kd`
 services:
-  - docker
+- docker
 env:
   global:
-  - secure: hNawfngKjfxYnlQ45yLtghJPJKh3ksV+6bEGWp9w2CAgsJw2I3fQOrNU6Rt4U/FKx+m79x+rB8G64sAy9D1lxdeA2tRefolkySLByAFekH0CZb8zElecBucNLxVQPv5hr/DrcigxdTVJQIy3cxmPm0i0wXG25wCXEqlKJuA4//gV+3w9btAYzA/yANFbiyI/exqEwqF15ED+2BPprPhYYdPFSKVXpNfdHBbGTLpAAW1MIRR73E+Rn8cQX8NzEoGxqoE1IYlOOL2WYWs4K/H1OxYjm8jk6rZ275V7eU16LtUOf0E90q1aK7Wac+gqVn8e+TJ3YWQaEGZGXj9HwL5ENaclxUfG1Y53txZt5CxnCN4MvZwOHIvZ/fxLcIyY94u/d0BeHVUAjncbwJluMkH7c0QcPFyaCjVp6MJ02GHzuvmNWwq7OK4C2hB9zJqv1JG31M8BLaONyZGwkyjfZ0cL3u+/NoVzBUWiRd1F4awMIGLBWYy71GhqecEQgw8MOyWwiL4wo6pzhvgJKY65MPx3r7XEn/S9V71qQrV3RjA8bOHCVY2CnsCsFL+laZpCuwqqu+kLTyIPSh4Vnla6baJtTpVyiXX5qpZ8ffKPReA+nxUBGhd5Okp5qViRkUgKxTqndrQNG/M3+0mBRho+j5P7c8szSPYZexulY3X0BeI29YY=
+  - secure: W6CmWXTKT2N9t73DvBYFqgONUFJ6HwjZcYl4tCHGm4iSJH6kq98ELOBIPTxEfZM1RNyp9EmI5PJ8KPSPbzNqMXCFCXYbfi2wt4Ys+cHm05tqHoF+ZWsq68tt0goWn5Up1+FsdIEK50eqFi4dOR+7rBsPC0/GQzcpdTxGq3XhhbvgmDFl4/jRGwYtqBhKDx+UImdT6QWcA4aqQCaklulz4T/PcQuTwsdVcDx0cmbdCM1EKSfyssTXu1OmjJOW+aAyIKmbH1w353tlnf4+t4l6bHt7FDf53yA4XjGCkEDxntoL3xKLq0UAHAT2bXQY0rzhoQwBx0dBsbhQsv0myDHJqZLNLNHPbgIbWR3KbFc9Egbc18Sp0695Ruv5fh0fPQfG8IDz2XxfLO+zhS9DuusMup9AvDrg5hAkRrQDY+LDNByDgiHlaIl1+xa0IowX+cnY7OPnSmNSHvaQNlz5NxTOUh2jKscMEgm15Qh7mXrFgjliKd+pOOoUqX99Ja6q1X7AFhajlbq3jR1/sSqueCBsuyyEMPHst3b1/e2xYheHalS6Pml7E7BVSqXI4LVdY0wMllv2h2R7LDBcLlUxKxXHjEQa6NFEjrZ9EKEURmwq6nhEx0VVVrNogg5sVlo8cpPrmoXW598z++EfD2fFIQnKgLXHS0xRcvRwZTxhuRV1qIE=

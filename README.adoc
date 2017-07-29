@@ -21,6 +21,7 @@ http://dropwizard.io[Dropwizard^] is a Java framework for developing ops-friendl
 *TL;DR:* The module
 https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs-example[keycloak-dropwizard-jaxrs-example]
 shows how to use Dropwizard's `@Auth` annotation with Keycloak using a full OAuth flow.
+If you have a i.e. a JavaScript-Client and want to send only JWT Tokens, go directly to https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-bearermodule[keycloak-dropwizard-bearermodule]
 
 At the time I write this there is no open source integration of the two, so I set up this project.
 See https://github.com/ahus1/keycloak-dropwizard-integration for the latest version.
