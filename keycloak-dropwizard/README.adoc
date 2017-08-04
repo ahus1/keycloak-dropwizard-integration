@@ -30,6 +30,18 @@ include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=aut
 
 ## How to use it
 
-Anyone who wants to use this will need register this bundle and will need to provide an own implementation derived from `KeycloakBundle` together with an class encapsulating the user's authentication that might be derived from `AbstractUser`.
+To use it:
+
+. register the _KeycloakBundle_
+. override _getKeycloakConfiguration()_ to provide the configuration information.
+
+Optionally (if you want to use a different class instead of _User_ to wrap access to Keycloak):
+
+. override _getUserClass()_ to return the class you are using
+. override _createAuthenticator()_ to provide a factory to create the instances of your user class
+. override _createAuthorizer()_ to implement the role checking used by the _@RolesAllowed_ annotation.
+
+See the default implementations _User_, _KeycloakAuthenticator_, and _UserAuthorizer_ as a guide.
+
 Please see the next chapter how to integrate.
 
