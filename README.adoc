@@ -1,11 +1,11 @@
 ifdef::env-github[:outfilesuffix: .adoc]
 :ext-relative: {outfilesuffix}
 
-# Integration of Keycloak and Dropwizard
+= Integration of Keycloak and Dropwizard
 
-## About
+== About
 
-### Summary
+=== Summary
 
 This project shows how JBoss Keycloak and Dropwizard can be used together.
 
@@ -26,7 +26,7 @@ If you have a i.e. a JavaScript-Client and want to send only JWT Tokens, go dire
 At the time I write this there is no open source integration of the two, so I set up this project.
 See https://github.com/ahus1/keycloak-dropwizard-integration for the latest version.
 
-### How to use
+=== How to use
 
 The module `keycloak-dropwizard-jaxrs` is a ready-to-use Dropwizard module.
 The releases are available both from jcenter and Maven central:
@@ -39,7 +39,7 @@ image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/d
 
   * Version 0.9.x is tested with Keycloak 2.x.x/3.x.x and Dropwizard 1.0.x
 
-  * Version 1.0.x is tested with Keycloak 3.x.x and Dropwizard 1.1.x
+  * Version 1.0.x is tested with Keycloak 3.x.x and Dropwizard 1.1.x/1.2.x
 
 .pom.xml
 ----
@@ -52,14 +52,14 @@ image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/d
 </dependencies>
 ----
 
-### Prerequisites
+=== Prerequisites
 
 These examples need a local JBoss Keycloak instance with Realm `test` and user `demo` with password `demo`.
 
 Please download the Keycloak distribution matching your keycloak-dropwizard-integration version from http://keycloak.org and extract it to a subfolder `keycloak-server` of this directory.
 Then call `keycloak-server.bat` to import an already configured realm. Using this startup file the configuration will be reset every time you start Keycloak.
 
-### Parts
+=== Parts
 
 This example will guide you through setting up JBoss Keycloak in several configurations:
 
@@ -78,7 +78,7 @@ For completeness and as a very simple getting started a standard Servlet configu
   * Servlet with Keycloak +
     see  https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-war[module keycloak-war^].
 
-### License
+=== License
 
 Copyright 2015-2017 Alexander Schwartz
 
