@@ -27,7 +27,6 @@ public class Draw {
     public static class DrawBuilder {
         public static final int DRAW_SIZE = 6;
         Set<Integer> numbers = new HashSet<Integer>();
-        private boolean complete;
         private LocalDate date;
 
         public DrawBuilder withNumber(Integer aNumber) {
