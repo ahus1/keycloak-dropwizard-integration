@@ -2,13 +2,13 @@ ifdef::env-github[]
 To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.
 endif::[]
 
-# Simple Dropwizard Integration Servlet style
+= Simple Dropwizard Integration Servlet style
 
-## What you can see here
+== What you can see here
 
 This is a very simple Dropwizard application setup using Freemarker as templating.
 
-## Setup for Keycloak
+== Setup for Keycloak
 
 The following elements add Keycloak authentication to Dropwizard:
 
@@ -49,12 +49,12 @@ include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.ja
 TODO: describe @Role annotation and how to activate it.
 ////
 
-## How to run
+== How to run
 
 Use the following command line to start it from the parent's directory
 
 ----
-mvn test -pl keycloak-dropwizard-jetty -am -Peycloak-dropwizard-jetty
+mvn test -pl keycloak-dropwizard-jetty -am -Pkeycloak-dropwizard-jetty
 ----
 
 Once it is started, point your browser to http://localhost:9090 to see the application.
