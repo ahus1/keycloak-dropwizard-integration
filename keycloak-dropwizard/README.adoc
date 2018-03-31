@@ -2,13 +2,13 @@ ifdef::env-github[]
 To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.
 endif::[]
 
-# Preparing a proper Dropwizard Bundle for Keycloak
+= Preparing a proper Dropwizard Bundle for Keycloak
 
-## What you can see here
+== What you can see here
 
 This is a Dropwizard bundle that provides a ready-to-use Keycloak integration.
 
-## Step by Step
+== Step by Step
 
 This shows the main integration points
 
@@ -28,7 +28,7 @@ include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=aut
 include::src/main/java/de/ahus1/keycloak/dropwizard/KeycloakBundle.java[tags=authfactory]
 -----
 
-## How to use it
+== How to use it
 
 To use it:
 

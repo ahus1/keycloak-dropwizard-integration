@@ -7,7 +7,7 @@
 
 <p>
 <#-- tag::principal[] -->
-Hello, ${idToken.name?html}!
+Hello, ${idToken.name}!
 (<a href="logout">logout</a>)
 <#-- end::principal[] -->
 

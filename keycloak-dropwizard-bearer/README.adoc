@@ -2,14 +2,14 @@ ifdef::env-github[]
 To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.
 endif::[]
 
-# Dropwizard Integration for Bearer-Only REST services
+= Dropwizard Integration for Bearer-Only REST services
 
-## What you can see here
+== What you can see here
 
 This is a setup that includes a small JavaScript client that interfaces with a REST backend.
 The client authenticates all requests using a Bearer Token.
 
-## Setup for Keycloak
+== Setup for Keycloak
 
 The following elements add Keycloak authentication to Dropwizard and are identical to the simple setup:
 
@@ -41,7 +41,7 @@ include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.ja
 
 A very short and simple JavaScript client is located in `src/main/ressources/assets/ajax`.
 
-## How to run
+== How to run
 
 Use the following command line to start it from the parent's directory
 

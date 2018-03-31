@@ -4,7 +4,9 @@
 
 <body>
 
-Hello, ${bean.idToken.name?html}! (<a href="logout" name="logout">logout</a>)
+<p>
+    Hello, ${bean.idToken.name}! (<a href="logout" name="logout">logout</a>)
+</p>
 
 <p />
 

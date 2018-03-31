@@ -107,7 +107,6 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-io</artifactId>
             <version>${jetty.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

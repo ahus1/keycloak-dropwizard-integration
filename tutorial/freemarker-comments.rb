@@ -1,0 +1,1 @@
+Asciidoctor::CIRCUMFIX_COMMENTS['.ftl'] = { prefix: '<#--', suffix: '-->' }

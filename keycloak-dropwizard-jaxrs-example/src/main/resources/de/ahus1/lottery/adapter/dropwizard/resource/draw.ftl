@@ -5,7 +5,7 @@
 <body>
 
 <p>
-Hello, ${bean.name?html}! (<a href="logout" name="logout">logout</a>)
+Hello, ${bean.name}! (<a href="logout" name="logout">logout</a>)
 </p>
 
 <form name="draw" action="/draw" method="post">

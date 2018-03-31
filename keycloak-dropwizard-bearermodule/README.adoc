@@ -45,7 +45,7 @@ include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.ja
 
 A very short and simple JavaScript client is located in `src/main/ressources/assets/ajax`.
 
-## How to run
+== How to run
 
 Use the following command line to start it from the parent's directory
 
