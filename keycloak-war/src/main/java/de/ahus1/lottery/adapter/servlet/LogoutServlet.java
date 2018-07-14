@@ -31,4 +31,4 @@ public class LogoutServlet extends HttpServlet {
     }
 // tag::logout[]
 }
-// tag::logout[]
+// end::logout[]
