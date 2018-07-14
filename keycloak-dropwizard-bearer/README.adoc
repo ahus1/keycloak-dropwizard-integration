@@ -18,9 +18,7 @@ The following elements add Keycloak authentication to Dropwizard and are identic
 [source,yaml,indent=0]
 .config.yml
 -----
-include::../config.yml[tags=config-a]
-  realmKey: "MIIB...AQAB"
-include::../config.yml[tags=config-b]
+include::../config.yml[tags=config]
 -----
 . Add Keycloak as a security constraint to `LotteryConfiguration.java`, but without the role and URL mappings.
 +
