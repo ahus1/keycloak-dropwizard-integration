@@ -1,8 +1,0 @@
-{
-  "realm": "test",
-  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsJ9Qdu+pQ3rPzdj/2DfiR3LXmKKbZG+Xi1pxidY1rdfjdtuPK6XRGfaDZD10yUKRGFqxf1mAee4NlWcDT1Q7CuugAaptkdkyRrXhcPdbQJQvebavwaIPa+sMM4WdtyKL8NJnXM3s843wahkmNit1VJ54v8DYnNtP8aVJN6NLjpN5G2i8GNjxZMehEChKXLN1xQJXw/Q/AdUkaHlp2MzW5s8AGbu3j9dhYPFWgjj5KiCjM0JLzCB1/zE+2xvcRW2qYLDDSBkMdt+OF/knlSSVdiwrnpIPNTT22Ybyw1r1MDgRtNPb9dBvuWJi2ulmDwJjFcYn9czPusoIikoRtXV5VwIDAQAB",
-  "auth-server-url": "http://localhost:8080/auth",
-  "ssl-required": "none",
-  "resource": "javascript",
-  "public-client": true
-}
