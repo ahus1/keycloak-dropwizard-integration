@@ -15,6 +15,7 @@ public class DrawPage extends Page {
     @FindBy(name = "logout")
     private WebElement linkLogout;
 
+    @Override
     public void verify() {
         assertThat(areaResult.isDisplayed());
     }

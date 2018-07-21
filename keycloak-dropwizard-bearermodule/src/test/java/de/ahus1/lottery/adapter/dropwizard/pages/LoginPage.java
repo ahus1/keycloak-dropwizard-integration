@@ -25,6 +25,7 @@ public class LoginPage<T extends Page> extends Page {
 
     private Class<T> clazz;
 
+    @Override
     public void verify() {
         assertThat(browser.getTitle()).isEqualTo("Log in to test");
     }

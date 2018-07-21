@@ -34,7 +34,7 @@ var loadData = function () {
                 document.getElementById('draw').innerHTML = html;
                 document.getElementById('drawdate').innerHTML = draw.date;
                 document.getElementById('message').innerHTML = '';
-                document.getElementById('result').style = '';
+                document.getElementById('result').style.display = 'block';
             } else {
                 document.getElementById('message').innerHTML = req.responseText
             }

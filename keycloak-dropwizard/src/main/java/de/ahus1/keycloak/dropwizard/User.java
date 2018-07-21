@@ -22,6 +22,7 @@ public class User extends AbstractUser {
         }
     }
 
+    @Override
     public String getName() {
         return securityContext.getToken().getName();
     }

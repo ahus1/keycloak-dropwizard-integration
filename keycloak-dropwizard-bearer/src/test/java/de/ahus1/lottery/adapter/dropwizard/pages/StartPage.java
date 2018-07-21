@@ -22,6 +22,7 @@ public class StartPage extends Page {
     @FindBy(name = "draw")
     private WebElement buttonDraw;
 
+    @Override
     public void verify() {
         assertThat(browser.getTitle()).isEqualTo("Lottery Calculator");
     }
