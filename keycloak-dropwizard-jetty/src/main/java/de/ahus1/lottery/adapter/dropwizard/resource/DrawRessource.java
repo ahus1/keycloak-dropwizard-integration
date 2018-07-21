@@ -1,19 +1,14 @@
 package de.ahus1.lottery.adapter.dropwizard.resource;
 
 import de.ahus1.lottery.domain.DrawingService;
-import io.dropwizard.auth.Auth;
-import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
-import org.keycloak.representations.IDToken;
 
 import javax.annotation.security.RolesAllowed;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
 import java.time.LocalDate;
 
 @Path("/")
@@ -26,7 +21,8 @@ public class DrawRessource {
     @GET
     // @RolesAllowed("user")
     public DrawView show() {
-        KeycloakSecurityContext session = (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
+        KeycloakSecurityContext session =
+                (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
         DrawBean bean = new DrawBean();
         DrawView view = new DrawView(bean);
         bean.setIdToken(session.getIdToken());
@@ -37,7 +33,8 @@ public class DrawRessource {
     @Path("/draw")
     @RolesAllowed("user")
     public DrawView draw(@FormParam("date") String dateAsString) {
-        KeycloakSecurityContext session = (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
+        KeycloakSecurityContext session =
+                (KeycloakSecurityContext) request.getAttribute(KeycloakSecurityContext.class.getName());
         DrawBean bean = new DrawBean();
         LocalDate date = LocalDate.parse(dateAsString);
         bean.setDraw(DrawingService.drawNumbers(date));

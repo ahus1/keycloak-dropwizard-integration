@@ -7,8 +7,8 @@
 
 <p>
 <#-- tag::principal[] -->
-Hello, ${idToken.name}!
-(<a href="logout">logout</a>)
+    Hello, ${idToken.name}!
+    (<a href="logout">logout</a>)
 <#-- end::principal[] -->
 
 </p>
@@ -18,14 +18,14 @@ Hello, ${idToken.name}!
     <input type="submit" value="Draw!"/>
 </form>
 
-<br />
+<br/>
 
 <#if draw??>
 <b>Draw for ${draw.date}</b>
 <br>
 The lucky numbers are:<br>
     <#list draw.numbers as number>
-    ${number}<br>
+        ${number}<br>
     </#list>
 </#if>
 </body>

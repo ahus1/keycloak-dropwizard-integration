@@ -1,0 +1,14 @@
+# To match the .editorconfig that asks for lf only
+# Otherwise you will end up with files that show up as modified after you IDE
+* text=auto eol=lf
+
+# Shell scripts need to be LF when you run them on *inux.
+# The mvnw is the Maven wrapper file, gradlew the Gradle wrapper file.
+*.sh text eol=lf
+/mvnw text eol=lf
+/gradlew text eol=lf
+*.cmd text eol=crlf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary

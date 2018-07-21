@@ -12,7 +12,7 @@
 <br>
 The lucky numbers are:<br>
     <#list draw.numbers as number>
-    ${number}<br>
+        ${number}<br>
     </#list>
 </table>
 </#if>

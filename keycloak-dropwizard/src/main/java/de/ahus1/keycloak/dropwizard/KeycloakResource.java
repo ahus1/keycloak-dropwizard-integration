@@ -3,21 +3,21 @@ package de.ahus1.keycloak.dropwizard;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Map the resource name
+ * Map the resource name.
  */
 class KeycloakResource {
 
-	private final String resource;
+    private final String resource;
 
-	public KeycloakResource(String resource) {
-		if (StringUtils.isBlank(resource)) {
-			throw new IllegalArgumentException("Cannot build a " + getClass().getName() + " without a resource.");
-		}
+    KeycloakResource(String resource) {
+        if (StringUtils.isBlank(resource)) {
+            throw new IllegalArgumentException("Cannot build a " + getClass().getName() + " without a resource.");
+        }
 
-		this.resource = resource;
-	}
+        this.resource = resource;
+    }
 
-	public String getResource() {
-		return resource;
-	}
+    public String getResource() {
+        return resource;
+    }
 }

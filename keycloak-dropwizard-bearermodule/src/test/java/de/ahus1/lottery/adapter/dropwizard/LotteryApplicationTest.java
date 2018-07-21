@@ -22,17 +22,18 @@ import java.time.LocalDate;
 public class LotteryApplicationTest {
 
     @Drone
+    @SuppressWarnings("checkstyle:visibilitymodifier")
     protected WebDriver browser;
 
     @ClassRule
     public static final DropwizardAppRule<LotteryConfiguration> RULE =
-            new DropwizardAppRule<LotteryConfiguration>(LotteryApplication.class,
+            new DropwizardAppRule<>(LotteryApplication.class,
                     getConfig()
             );
 
     private static String getConfig() {
         File file = new File("config-bearer.yml");
-        if(!file.exists()) {
+        if (!file.exists()) {
             file = new File("../config-bearer.yml");
         }
         return file.getAbsolutePath();

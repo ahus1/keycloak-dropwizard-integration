@@ -18,11 +18,12 @@ public class DrawServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // tag::principal[]
-        request.setAttribute("idToken", ((KeycloakPrincipal)request.getUserPrincipal())
+        request.setAttribute("idToken", ((KeycloakPrincipal) request.getUserPrincipal())
                 .getKeycloakSecurityContext().getIdToken());
         // end::principal[]
         request.getRequestDispatcher("/index.ftl").forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

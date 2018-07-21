@@ -16,7 +16,8 @@ public class KeycloakAuthenticator extends AbstractKeycloakAuthenticator<User> {
     }
 
     @Override
-    protected User prepareAuthentication(KeycloakSecurityContext securityContext, HttpServletRequest request, KeycloakConfiguration configuration) {
+    protected User prepareAuthentication(KeycloakSecurityContext securityContext, HttpServletRequest request,
+                                         KeycloakConfiguration configuration) {
         return new User(securityContext, request, configuration);
     }
 }

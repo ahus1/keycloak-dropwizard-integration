@@ -5,7 +5,7 @@
 <body>
 
 <p>
-Hello, ${bean.name}! (<a href="logout" name="logout">logout</a>)
+    Hello, ${bean.name}! (<a href="logout" name="logout">logout</a>)
 </p>
 
 <form name="draw" action="/draw" method="post">
@@ -18,7 +18,7 @@ Hello, ${bean.name}! (<a href="logout" name="logout">logout</a>)
 <br>
 The lucky numbers are:<br>
     <#list bean.draw.numbers as number>
-    ${number}<br>
+        ${number}<br>
     </#list>
 </#if>
 </body>

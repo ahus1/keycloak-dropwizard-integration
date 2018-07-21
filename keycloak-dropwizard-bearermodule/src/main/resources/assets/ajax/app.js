@@ -1,6 +1,6 @@
 var keycloak = Keycloak();
 keycloak.init({onLoad: 'login-required'}).success(function (authenticated) {
-    if(!authenticated) {
+    if (!authenticated) {
         alert('not authenticated');
     } else {
         document.getElementById('name').innerHTML = keycloak.idTokenParsed.name;
@@ -29,7 +29,7 @@ var loadData = function () {
                 var draw = JSON.parse(req.responseText);
                 var html = '';
                 for (var i = 0; i < draw.numbers.length; i++) {
-                    html +=  draw.numbers[i] + '<br>';
+                    html += draw.numbers[i] + '<br>';
                 }
                 document.getElementById('draw').innerHTML = html;
                 document.getElementById('drawdate').innerHTML = draw.date;

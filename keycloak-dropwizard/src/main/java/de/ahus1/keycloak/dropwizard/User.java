@@ -11,7 +11,8 @@ import javax.ws.rs.ForbiddenException;
  */
 public class User extends AbstractUser {
 
-    public User(KeycloakSecurityContext securityContext, HttpServletRequest request, KeycloakConfiguration keycloakConfiguration) {
+    public User(KeycloakSecurityContext securityContext, HttpServletRequest request,
+                KeycloakConfiguration keycloakConfiguration) {
         super(request, securityContext, keycloakConfiguration);
     }
 

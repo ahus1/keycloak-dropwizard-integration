@@ -17,9 +17,7 @@ public class LotteryApplicationTest {
 
     @ClassRule
     public static final DropwizardAppRule<LotteryConfiguration> RULE =
-            new DropwizardAppRule<LotteryConfiguration>(LotteryApplication.class,
-                    // "config.yml"
-                    // resourceFilePath("config.yml")
+            new DropwizardAppRule<>(LotteryApplication.class,
                     new File("../config.yml").getAbsolutePath()
             );
 
@@ -34,7 +32,7 @@ public class LotteryApplicationTest {
 
     @Test
     public void shouldCalculateDraw() throws IOException, ReflectiveOperationException {
-        try (final WebClient webClient = new WebClient()) {
+        try (WebClient webClient = new WebClient()) {
             // load initial page, will redirect to keycloak
             URL baseUrl = new URL("http://localhost:" + RULE.getLocalPort());
             StartPage
@@ -47,7 +45,7 @@ public class LotteryApplicationTest {
 
     @Test
     public void shouldLoginFromPost() throws IOException, ReflectiveOperationException {
-        try (final WebClient webClient = new WebClient()) {
+        try (WebClient webClient = new WebClient()) {
             // load initial page, will redirect to keycloak
             URL baseUrl = new URL("http://localhost:" + RULE.getLocalPort());
             DrawPage

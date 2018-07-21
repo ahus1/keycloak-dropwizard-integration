@@ -3,9 +3,9 @@
 </head>
 <body>
 <p>
-You have been logged out.
+    You have been logged out.
 
-(<a href="/">login</a>)
+    (<a href="/">login</a>)
 </p>
 </body>
 </html>

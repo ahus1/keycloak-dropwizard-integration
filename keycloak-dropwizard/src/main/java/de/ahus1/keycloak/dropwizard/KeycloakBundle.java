@@ -23,7 +23,8 @@ public abstract class KeycloakBundle<T> implements ConfiguredBundle<T> {
     // tag::keycloak[]
 
     @Override
-    public void run(T configuration, Environment environment) throws Exception {
+    @SuppressWarnings("checkstyle:emptyblock")
+    public void run(T configuration, Environment environment) {
 
         /* setup the authenticator in front of the requests to allow for pre-auth integration */
         // tag::authenticator[]
@@ -45,9 +46,9 @@ public abstract class KeycloakBundle<T> implements ConfiguredBundle<T> {
 
         if (getKeycloakConfiguration(configuration).isBearerOnly()) {
             // no session needed
-        } else if (getKeycloakConfiguration(configuration).getTokenStore() != null &&
-                getKeycloakConfiguration(configuration).getTokenStore().toLowerCase(Locale.ENGLISH)
-                        .equals(TokenStore.COOKIE.toString().toLowerCase(Locale.ENGLISH))) {
+        } else if (getKeycloakConfiguration(configuration).getTokenStore() != null
+                && getKeycloakConfiguration(configuration).getTokenStore().toLowerCase(Locale.ENGLISH)
+                .equals(TokenStore.COOKIE.toString().toLowerCase(Locale.ENGLISH))) {
             // no session needed
         } else {
             // allow (stateful) sessions in Dropwizard

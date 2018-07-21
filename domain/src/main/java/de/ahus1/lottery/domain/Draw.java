@@ -26,7 +26,7 @@ public class Draw {
 
     public static class DrawBuilder {
         public static final int DRAW_SIZE = 6;
-        Set<Integer> numbers = new HashSet<Integer>();
+        private Set<Integer> numbers = new HashSet<>();
         private LocalDate date;
 
         public DrawBuilder withNumber(Integer aNumber) {
@@ -48,7 +48,7 @@ public class Draw {
 
         public DrawBuilder withNumbers(Integer... someNumbers) {
             List<Integer> list = Arrays.asList(someNumbers);
-            list.forEach(n -> withNumber(n));
+            list.forEach(this::withNumber);
             return this;
         }
 

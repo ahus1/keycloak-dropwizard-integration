@@ -1,9 +1,6 @@
-package domain;
+package de.ahus1.lottery.domain;
 
-import de.ahus1.lottery.domain.Draw;
-import de.ahus1.lottery.domain.DrawingService;
 import org.assertj.core.api.Assertions;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -30,13 +27,13 @@ public class DrawingServiceTest {
     public void shouldDrawOneAsMinimum() {
         LocalDate date = LocalDate.parse("2012-01-01");
         LocalDate maxDate = LocalDate.parse("2013-01-01");
-        while(true) {
+        while (true) {
             Draw draw = DrawingService.drawNumbers(date);
-            if(draw.getNumbers().contains(1)) {
+            if (draw.getNumbers().contains(1)) {
                 break;
             }
             date = date.plusDays(1);
-            if(date.isAfter(maxDate)) {
+            if (date.isAfter(maxDate)) {
                 fail("didn't find 1 in the draw");
             }
         }
@@ -46,13 +43,13 @@ public class DrawingServiceTest {
     public void shouldDrawFourtyNineAsMaximum() {
         LocalDate date = LocalDate.parse("2012-01-01");
         LocalDate maxDate = LocalDate.parse("2013-01-01");
-        while(true) {
+        while (true) {
             Draw draw = DrawingService.drawNumbers(date);
-            if(draw.getNumbers().contains(49)) {
+            if (draw.getNumbers().contains(49)) {
                 break;
             }
             date = date.plusDays(1);
-            if(date.isAfter(maxDate)) {
+            if (date.isAfter(maxDate)) {
                 fail("didn't find 49 in the draw");
             }
         }

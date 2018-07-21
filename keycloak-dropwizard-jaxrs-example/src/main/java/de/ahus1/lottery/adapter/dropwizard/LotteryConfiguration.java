@@ -2,7 +2,6 @@ package de.ahus1.lottery.adapter.dropwizard;
 
 import de.ahus1.keycloak.dropwizard.KeycloakConfiguration;
 import io.dropwizard.Configuration;
-import org.keycloak.representations.adapters.config.AdapterConfig;
 
 // tag::config[]
 public class LotteryConfiguration extends Configuration {
@@ -19,5 +18,5 @@ public class LotteryConfiguration extends Configuration {
 }
 // end::config[]
 
-                
+
 

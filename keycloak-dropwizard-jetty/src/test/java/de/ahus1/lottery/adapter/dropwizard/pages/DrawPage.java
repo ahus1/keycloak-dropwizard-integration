@@ -32,7 +32,8 @@ public class DrawPage {
         return new LogoutPage(page.getAnchorByName("logout").click());
     }
 
-    public static LoginPage<DrawPage> openWithoutLogin(WebClient webClient, URL url, LocalDate parse) throws IOException {
+    public static LoginPage<DrawPage> openWithoutLogin(WebClient webClient, URL url, LocalDate parse)
+            throws IOException {
         WebRequest request = new WebRequest(new URL(url.toString() + "/draw"), HttpMethod.POST);
         List<NameValuePair> parameters = new ArrayList<>();
         parameters.add(new NameValuePair("date", "2015-01-01"));

@@ -13,10 +13,10 @@ public class DrawingService {
         Draw.DrawBuilder builder = Draw.builder().withDate(date);
         do {
             Integer number = random.nextInt(MAX_NUMBER_IN_DRAW + 1);
-            if(number < MIN_NUMBER_IN_DRAW) {
+            if (number < MIN_NUMBER_IN_DRAW) {
                 continue;
             }
-            if(builder.contains(number)) {
+            if (builder.contains(number)) {
                 continue;
             }
             builder.withNumber(number);

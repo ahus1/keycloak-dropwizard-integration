@@ -14,7 +14,7 @@ import javax.ws.rs.container.PreMatching;
  * Allow the filter to be created from a KeycloakDeployment instance directly to make
  * it easier in a Dropwizard environment. This overrides the initialization functionality
  * in the parent class, but keeps all the filtering logic.
- *
+ * <p>
  * annotations are necessary to handle authentication before i.e. role matching.
  * Jersey doesn't look at the annotations on the interface or the parent class.
  *

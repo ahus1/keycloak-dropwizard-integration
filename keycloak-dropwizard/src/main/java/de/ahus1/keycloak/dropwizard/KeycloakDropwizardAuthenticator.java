@@ -3,13 +3,9 @@ package de.ahus1.keycloak.dropwizard;
 import org.eclipse.jetty.security.ServerAuthException;
 import org.eclipse.jetty.security.authentication.DeferredAuthentication;
 import org.eclipse.jetty.server.Authentication;
-import org.eclipse.jetty.server.Request;
 import org.keycloak.KeycloakSecurityContext;
-import org.keycloak.adapters.AdapterTokenStore;
-import org.keycloak.adapters.KeycloakDeployment;
 import org.keycloak.adapters.jetty.JettyAdapterSessionStore;
 import org.keycloak.adapters.jetty.KeycloakJettyAuthenticator;
-import org.keycloak.adapters.jetty.core.JettySessionTokenStore;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -18,12 +14,13 @@ import javax.servlet.http.HttpSession;
 
 public class KeycloakDropwizardAuthenticator extends KeycloakJettyAuthenticator {
     @Override
-    public Authentication validateRequest(ServletRequest req, ServletResponse res, boolean mandatory) throws ServerAuthException {
+    public Authentication validateRequest(ServletRequest req, ServletResponse res, boolean mandatory)
+            throws ServerAuthException {
         HttpServletRequest request = ((HttpServletRequest) req);
         request.setAttribute(HttpServletRequest.class.getName(), request);
-        if (getAdapterConfig().isBearerOnly() == false &&
-                request.getQueryString() != null &&
-                request.getQueryString().contains("code=")) {
+        if (!getAdapterConfig().isBearerOnly()
+                && request.getQueryString() != null
+                && request.getQueryString().contains("code=")) {
             // we receive a code as part of the query string that is returned by OAuth
             // but only assume control is this is not bearer only!
             mandatory = true;

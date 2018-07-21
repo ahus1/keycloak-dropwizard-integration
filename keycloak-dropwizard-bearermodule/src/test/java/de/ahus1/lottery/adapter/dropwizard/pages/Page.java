@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class Page {
     @Drone
+    @SuppressWarnings("checkstyle:visibilitymodifier")
     protected WebDriver browser;
 
     public abstract void verify();

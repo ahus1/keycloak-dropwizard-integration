@@ -3,8 +3,6 @@ package de.ahus1.keycloak.dropwizard;
 import com.google.common.base.Preconditions;
 import io.dropwizard.auth.AuthFilter;
 import io.dropwizard.auth.AuthenticationException;
-import io.dropwizard.auth.Authenticator;
-import org.eclipse.jetty.server.HttpChannel;
 import org.eclipse.jetty.server.Request;
 import org.keycloak.adapters.AdapterDeploymentContext;
 import org.keycloak.adapters.AdapterTokenStore;
@@ -29,7 +27,6 @@ import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.SecurityContext;
-import java.io.IOException;
 import java.security.Principal;
 import java.util.Optional;
 
@@ -39,7 +36,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
 
     public static final String TOKEN_STORE_NOTE = "TOKEN_STORE_NOTE";
 
-    protected AdapterDeploymentContext deploymentContext;
+    private AdapterDeploymentContext deploymentContext;
 
     private AdapterConfig adapterConfig;
 
@@ -53,9 +50,10 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
     }
 
     @Override
-    public void filter(final ContainerRequestContext requestContext) throws IOException {
+    public void filter(final ContainerRequestContext requestContext) {
         validateRequest(requestContext);
-        HttpServletRequest request = (HttpServletRequest) requestContext.getProperty(HttpServletRequest.class.getName());
+        HttpServletRequest request =
+                (HttpServletRequest) requestContext.getProperty(HttpServletRequest.class.getName());
         final Optional<P> principal;
         try {
             principal = authenticator.authenticate(request);
@@ -93,11 +91,12 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
     }
 
     public void validateRequest(final ContainerRequestContext requestContext) {
-        if(requestContext.getSecurityContext().getUserPrincipal() != null) {
+        if (requestContext.getSecurityContext().getUserPrincipal() != null) {
             // the user is already authenticated, further processing is not necessary
             return;
         }
-        Request request = Request.getBaseRequest((ServletRequest) requestContext.getProperty(HttpServletRequest.class.getName()));
+        Request request = Request.getBaseRequest((ServletRequest)
+                requestContext.getProperty(HttpServletRequest.class.getName()));
         JaxrsHttpFacade facade = new JaxrsHttpFacade(requestContext, requestContext.getSecurityContext());
         request.setAttribute(AdapterDeploymentContext.class.getName(), deploymentContext);
 
@@ -126,13 +125,15 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
     }
 
     protected JettyRequestAuthenticator createRequestAuthenticator(HttpServletRequest request, JaxrsHttpFacade facade,
-                                                                   KeycloakDeployment deployment, AdapterTokenStore tokenStore) {
+                                                                   KeycloakDeployment deployment,
+                                                                   AdapterTokenStore tokenStore) {
         Request r = Request.getBaseRequest(request);
         return new JettyRequestAuthenticator(facade, deployment, tokenStore, -1, r);
     }
 
 
-    public static AdapterTokenStore getTokenStore(HttpServletRequest request, HttpFacade facade, KeycloakDeployment resolvedDeployment) {
+    public static AdapterTokenStore getTokenStore(HttpServletRequest request, HttpFacade facade,
+                                                  KeycloakDeployment resolvedDeployment) {
         AdapterTokenStore store = (AdapterTokenStore) request.getAttribute(TOKEN_STORE_NOTE);
         if (store != null) {
             return store;
@@ -152,7 +153,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
 
     /**
      * Builder for {@link KeycloakAuthFilter}.
-     * <p>An {@link Authenticator} must be provided during the building process.</p>
+     * <p>An {@link io.dropwizard.auth.Authenticator} must be provided during the building process.</p>
      *
      * @param <P> the type of the principal
      */

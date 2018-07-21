@@ -17,6 +17,3 @@ public class LotteryConfiguration extends Configuration {
     }
 }
 // end::config[]
-
-                
-

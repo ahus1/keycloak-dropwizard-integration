@@ -17,7 +17,7 @@ script:
 - docker ps
 - "./keycloak-server-docker/wait-for-docker.sh localhost 8080"
 - docker logs `cat kd`
-- mvn --batch-mode test
+- mvn --batch-mode test checkstyle:check
 after_success:
 - '[[ $TRAVIS_BRANCH == "master" ]] && ./tutorial/update-gh-pages.sh'
 after_failure:

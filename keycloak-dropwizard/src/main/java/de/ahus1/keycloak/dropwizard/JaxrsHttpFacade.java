@@ -9,6 +9,7 @@ import javax.security.cert.X509Certificate;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.NewCookie;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.SecurityContext;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -21,11 +22,11 @@ import java.util.Map;
  */
 public class JaxrsHttpFacade implements HttpFacade {
 
-    protected final ContainerRequestContext requestContext;
-    protected final SecurityContext securityContext;
-    protected final RequestFacade requestFacade = new RequestFacade();
-    protected final ResponseFacade responseFacade = new ResponseFacade();
-    protected boolean responseFinished;
+    private final ContainerRequestContext requestContext;
+    private final SecurityContext securityContext;
+    private final RequestFacade requestFacade = new RequestFacade();
+    private final ResponseFacade responseFacade = new ResponseFacade();
+    private boolean responseFinished;
 
     public JaxrsHttpFacade(ContainerRequestContext containerRequestContext, SecurityContext securityContext) {
         this.requestContext = containerRequestContext;
@@ -63,20 +64,24 @@ public class JaxrsHttpFacade implements HttpFacade {
         @Override
         public String getQueryParamValue(String param) {
             MultivaluedMap<String, String> queryParams = requestContext.getUriInfo().getQueryParameters();
-            if (queryParams == null)
+            if (queryParams == null) {
                 return null;
+            }
             return queryParams.getFirst(param);
         }
 
         @Override
         public Cookie getCookie(String cookieName) {
             Map<String, javax.ws.rs.core.Cookie> cookies = requestContext.getCookies();
-            if (cookies == null)
+            if (cookies == null) {
                 return null;
+            }
             javax.ws.rs.core.Cookie cookie = cookies.get(cookieName);
-            if (cookie == null)
+            if (cookie == null) {
                 return null;
-            return new Cookie(cookie.getName(), cookie.getValue(), cookie.getVersion(), cookie.getDomain(), cookie.getPath());
+            }
+            return new Cookie(cookie.getName(), cookie.getValue(), cookie.getVersion(), cookie.getDomain(),
+                    cookie.getPath());
         }
 
         @Override
@@ -114,7 +119,8 @@ public class JaxrsHttpFacade implements HttpFacade {
 
     protected class ResponseFacade implements Response {
 
-        private javax.ws.rs.core.Response.ResponseBuilder responseBuilder = javax.ws.rs.core.Response.status(204);
+        private javax.ws.rs.core.Response.ResponseBuilder responseBuilder =
+                javax.ws.rs.core.Response.status(Status.NO_CONTENT);
 
         @Override
         public void setStatus(int status) {
@@ -138,7 +144,8 @@ public class JaxrsHttpFacade implements HttpFacade {
         }
 
         @Override
-        public void setCookie(String name, String value, String path, String domain, int maxAge, boolean secure, boolean httpOnly) {
+        public void setCookie(String name, String value, String path, String domain, int maxAge, boolean secure,
+                              boolean httpOnly) {
             responseBuilder.cookie(new NewCookie(name, value, path, domain, null, maxAge, secure, httpOnly));
         }
 
@@ -152,7 +159,8 @@ public class JaxrsHttpFacade implements HttpFacade {
         public void sendError(int code) {
             javax.ws.rs.core.Response response = responseBuilder.status(code).build();
             requestContext.abortWith(response);
-            responseFinished = true;        }
+            responseFinished = true;
+        }
 
         @Override
         public void sendError(int code, String message) {

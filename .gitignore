@@ -4,6 +4,20 @@
 *.releaseBackup
 release.properties
 *-reduced-pom.xml
+
+### Intellij ###
+# Ignore the IntelliJ standard folder with configurations
 /.idea/*
-!/.idea/runConfigurations
 *.iml
+# These are the run configurations you marked as "shared"
+# This allows you to share them with fellow developers.
+!/.idea/runConfigurations
+# This allows you to check-in data sources for other developers to use
+!/.idea/dataSources.xml
+# This allows you to check-in the Checkstyle configurations in IntelliJ
+!/.idea/checkstyle-idea.xml
+# You can configure your IntelliJ project settings to prompt fellow developers
+# to install required plugins.
+# Once you use this, check in the file
+# More information: https://www.jetbrains.com/help/idea/required-plugin.html
+!/.idea/externalDependencies.xml

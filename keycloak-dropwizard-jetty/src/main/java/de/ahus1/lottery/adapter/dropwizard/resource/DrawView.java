@@ -2,7 +2,7 @@ package de.ahus1.lottery.adapter.dropwizard.resource;
 
 import io.dropwizard.views.View;
 
-public class DrawView extends View{
+public class DrawView extends View {
 
     private final DrawBean bean;
 

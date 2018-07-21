@@ -15,22 +15,28 @@ import java.util.Set;
  * roll your own, as I don't want to impose any class dependencies on your (domain) model.
  */
 public abstract class AbstractUser implements Principal {
+
+    // TODO: change visibility to hidden and add (protected) getters
+    @SuppressWarnings("checkstyle:visibilitymodifier")
     protected HttpServletRequest request;
+    @SuppressWarnings("checkstyle:visibilitymodifier")
     protected KeycloakSecurityContext securityContext;
     private final Set<String> roles;
 
-    public AbstractUser(HttpServletRequest request, KeycloakSecurityContext securityContext, KeycloakConfiguration keycloakConfiguration) {
+    public AbstractUser(HttpServletRequest request, KeycloakSecurityContext securityContext,
+                        KeycloakConfiguration keycloakConfiguration) {
         this.request = request;
         this.securityContext = securityContext;
 
         this.roles = selectRolesToApply(keycloakConfiguration);
     }
 
-	/**
-     * The configuration parameter use-resource-role-mappings define if the module should use Realm roles OR Resources roles.
-     * Resources roles correspond to the role given by the client in keycloak
+    /**
+     * The configuration parameter use-resource-role-mappings define if the module should use Realm roles OR
+     * Resources roles.
+     * Resources roles correspond to the role given by the client in Keycloak
      *
-     * @param keycloakConfiguration
+     * @param keycloakConfiguration Keycloak configuration
      * @return list of user's roles.
      */
     private Set<String> selectRolesToApply(KeycloakConfiguration keycloakConfiguration) {
@@ -43,7 +49,8 @@ public abstract class AbstractUser implements Principal {
     private Set<String> selectResourceRoles(KeycloakResource keycloakResource) {
         Set<String> roles = new HashSet<>();
 
-        AccessToken.Access resourceAccess = securityContext.getToken().getResourceAccess(keycloakResource.getResource());
+        AccessToken.Access resourceAccess =
+                securityContext.getToken().getResourceAccess(keycloakResource.getResource());
         if (resourceAccess != null && resourceAccess.getRoles() != null) {
             roles.addAll(resourceAccess.getRoles());
         }
@@ -65,7 +72,7 @@ public abstract class AbstractUser implements Principal {
     }
 
     public void logout() throws ServletException {
-        if(request.getUserPrincipal() != null) {
+        if (request.getUserPrincipal() != null) {
             request.logout();
         }
     }

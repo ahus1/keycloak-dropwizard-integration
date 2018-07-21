@@ -2,13 +2,10 @@ package de.ahus1.lottery.adapter.dropwizard;
 
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.google.common.io.Resources;
-import de.ahus1.lottery.adapter.dropwizard.LotteryApplication;
-import de.ahus1.lottery.adapter.dropwizard.LotteryConfiguration;
 import de.ahus1.lottery.adapter.dropwizard.pages.DrawPage;
 import de.ahus1.lottery.adapter.dropwizard.pages.StartPage;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.junit.ClassRule;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -20,9 +17,7 @@ public class LotteryApplicationTest {
 
     @ClassRule
     public static final DropwizardAppRule<LotteryConfiguration> RULE =
-            new DropwizardAppRule<LotteryConfiguration>(LotteryApplication.class,
-                    // "config.yml"
-                    // resourceFilePath("config.yml")
+            new DropwizardAppRule<>(LotteryApplication.class,
                     new File("../config.yml").getAbsolutePath()
             );
 
@@ -37,7 +32,7 @@ public class LotteryApplicationTest {
 
     @Test
     public void shouldCalculateDraw() throws IOException, ReflectiveOperationException {
-        try (final WebClient webClient = new WebClient()) {
+        try (WebClient webClient = new WebClient()) {
             // load initial page, will redirect to keycloak
             URL baseUrl = new URL("http://localhost:" + RULE.getLocalPort());
             StartPage
@@ -50,7 +45,7 @@ public class LotteryApplicationTest {
 
     @Test
     public void shouldLoginFromPost() throws IOException, ReflectiveOperationException {
-        try (final WebClient webClient = new WebClient()) {
+        try (WebClient webClient = new WebClient()) {
             // load initial page, will redirect to keycloak
             URL baseUrl = new URL("http://localhost:" + RULE.getLocalPort());
             DrawPage

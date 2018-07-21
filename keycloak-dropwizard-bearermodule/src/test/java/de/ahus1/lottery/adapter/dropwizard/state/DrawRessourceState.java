@@ -1,7 +1,6 @@
 package de.ahus1.lottery.adapter.dropwizard.state;
 
 import de.ahus1.lottery.adapter.dropwizard.resource.DrawRequest;
-import org.assertj.core.api.StrictAssertions;
 
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
@@ -14,14 +13,14 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
 public class DrawRessourceState {
     private final URI baseUrl;
     private Response response;
-    String accessToken;
+    private String accessToken;
 
     public DrawRessourceState(URI baseUrl) {
         this.baseUrl = baseUrl;
     }
 
     public DrawRessourceState givenNoToken() {
-         accessToken = null;
+        accessToken = null;
         return this;
     }
 
@@ -36,7 +35,7 @@ public class DrawRessourceState {
         DrawRequest request = new DrawRequest();
         request.setDate(LocalDate.now());
         Invocation.Builder builder = target.request();
-        if(accessToken != null) {
+        if (accessToken != null) {
             builder.header("Authorization", "Bearer " + accessToken);
         }
         response = builder.post(Entity.entity(request, MediaType.APPLICATION_JSON_TYPE));

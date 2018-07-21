@@ -11,8 +11,6 @@ import org.keycloak.adapters.KeycloakDeployment;
 import org.keycloak.adapters.KeycloakDeploymentBuilder;
 import org.keycloak.jaxrs.JaxrsBearerTokenFilterImpl;
 
-import java.io.IOException;
-
 public class LotteryApplication extends Application<LotteryConfiguration> {
     public static void main(String[] args) throws Exception {
         new LotteryApplication().run(args);
@@ -32,11 +30,11 @@ public class LotteryApplication extends Application<LotteryConfiguration> {
     }
 
     @Override
-    public void run(LotteryConfiguration configuration, Environment environment)
-            throws ClassNotFoundException, IOException {
+    public void run(LotteryConfiguration configuration, Environment environment) {
 
         // tag::keycloak[]
-        KeycloakDeployment keycloakDeployment = KeycloakDeploymentBuilder.build(configuration.getKeycloakConfiguration());
+        KeycloakDeployment keycloakDeployment =
+                KeycloakDeploymentBuilder.build(configuration.getKeycloakConfiguration());
         JaxrsBearerTokenFilterImpl filter = new DropwizardBearerTokenFilterImpl(keycloakDeployment);
         environment.jersey().register(filter);
         // end::keycloak[]
