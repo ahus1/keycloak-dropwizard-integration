@@ -1,5 +1,7 @@
 package de.ahus1.lottery.adapter.dropwizard.pages;
 
+import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -8,6 +10,9 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoginPage<T extends Page> extends Page {
+
+    @Drone
+    private WebDriver browser;
 
     @FindBy(name = "username")
     private WebElement fieldUsername;

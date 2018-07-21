@@ -24,8 +24,8 @@ var loadData = function () {
     req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
 
     req.onreadystatechange = function () {
-        if (req.readyState == 4) {
-            if (req.status == 200) {
+        if (req.readyState === 4) {
+            if (req.status === 200) {
                 var draw = JSON.parse(req.responseText);
                 var html = '';
                 for (var i = 0; i < draw.numbers.length; i++) {

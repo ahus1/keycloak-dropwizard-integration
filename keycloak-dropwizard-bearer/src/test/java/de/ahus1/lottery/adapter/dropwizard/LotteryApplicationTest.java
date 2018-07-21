@@ -18,8 +18,7 @@ import java.time.LocalDate;
 public class LotteryApplicationTest {
 
     @Drone
-    @SuppressWarnings("checkstyle:visibilitymodifier")
-    protected WebDriver browser;
+    private WebDriver browser;
 
     @ClassRule
     public static final DropwizardAppRule<LotteryConfiguration> RULE =

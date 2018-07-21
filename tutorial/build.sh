@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -x
 set -e
 mkdir -p $HOME/pages/tutorial

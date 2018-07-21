@@ -1,7 +1,6 @@
 package de.ahus1.lottery.adapter.dropwizard;
 
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.google.common.io.Resources;
 import de.ahus1.lottery.adapter.dropwizard.pages.DrawPage;
 import de.ahus1.lottery.adapter.dropwizard.pages.StartPage;
 import io.dropwizard.testing.junit.DropwizardAppRule;
@@ -20,15 +19,6 @@ public class LotteryApplicationTest {
             new DropwizardAppRule<>(LotteryApplication.class,
                     new File("../config.yml").getAbsolutePath()
             );
-
-    public static String resourceFilePath(final String resourceClassPathLocation) {
-        try {
-            return new File(Resources.getResource(resourceClassPathLocation).toURI()).getAbsolutePath();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 
     @Test
     public void shouldCalculateDraw() throws IOException, ReflectiveOperationException {

@@ -1,6 +1,5 @@
 package de.ahus1.lottery.adapter.dropwizard;
 
-import com.google.common.io.Resources;
 import de.ahus1.lottery.adapter.dropwizard.pages.StartPage;
 import de.ahus1.lottery.adapter.dropwizard.state.DrawRessourceState;
 import io.dropwizard.testing.junit.DropwizardAppRule;
@@ -22,8 +21,7 @@ import java.time.LocalDate;
 public class LotteryApplicationTest {
 
     @Drone
-    @SuppressWarnings("checkstyle:visibilitymodifier")
-    protected WebDriver browser;
+    private WebDriver browser;
 
     @ClassRule
     public static final DropwizardAppRule<LotteryConfiguration> RULE =
@@ -37,15 +35,6 @@ public class LotteryApplicationTest {
             file = new File("../config-bearer.yml");
         }
         return file.getAbsolutePath();
-    }
-
-
-    public static String resourceFilePath(final String resourceClassPathLocation) {
-        try {
-            return new File(Resources.getResource(resourceClassPathLocation).toURI()).getAbsolutePath();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @Test
