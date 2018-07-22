@@ -1,8 +1,9 @@
 FROM jboss/keycloak:3.4.3.Final
+MAINTAINER alexander.schwartz@gmx.net
 
 USER jboss
 
-ADD keycloak-realm.json /opt/jboss/keycloak/
+COPY keycloak-realm.json /opt/jboss/keycloak/
 
 EXPOSE 8080
 
