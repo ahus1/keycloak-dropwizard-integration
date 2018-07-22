@@ -63,6 +63,9 @@
         <jetty.version>9.4.11.v20180605</jetty.version>
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
         <project.parent.relativePath></project.parent.relativePath>
+        <forbiddenapis.version>2.5</forbiddenapis.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <build>
@@ -135,12 +138,50 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>de.thetaphi</groupId>
+                <artifactId>forbiddenapis</artifactId>
+                <version>${forbiddenapis.version}</version>
+                <configuration>
+                    <failOnUnsupportedJava>true</failOnUnsupportedJava>
+                    <failOnViolation>true</failOnViolation>
+                    <failOnUnresolvableSignatures>false</failOnUnresolvableSignatures>
+                    <failOnMissingClasses>false</failOnMissingClasses>
+                    <bundledSignatures>
+                        <bundledSignature>jdk-non-portable</bundledSignature>
+                        <bundledSignature>jdk-unsafe</bundledSignature>
+                        <bundledSignature>jdk-deprecated</bundledSignature>
+                        <bundledSignature>jdk-system-out</bundledSignature>
+                        <bundledSignature>jdk-internal</bundledSignature>
+                    </bundledSignatures>
+                    <signaturesFiles>
+                        <signaturesFile>${project.basedir}/${project.parent.relativePath}/conf/signatures.txt
+                        </signaturesFile>
+                    </signaturesFiles>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCheck</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>

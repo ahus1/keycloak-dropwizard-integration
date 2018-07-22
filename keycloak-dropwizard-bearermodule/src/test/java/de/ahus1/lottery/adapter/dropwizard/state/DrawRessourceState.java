@@ -33,7 +33,7 @@ public class DrawRessourceState {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(baseUrl).path("/draw");
         DrawRequest request = new DrawRequest();
-        request.setDate(LocalDate.now());
+        request.setDate(LocalDate.parse("2015-01-01"));
         Invocation.Builder builder = target.request();
         if (accessToken != null) {
             builder.header("Authorization", "Bearer " + accessToken);
