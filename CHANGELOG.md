@@ -1,3 +1,7 @@
+# v1.1.0 - 24 February 2019
+
+Update to Keycloak 4.8.9 and Dropwizard 1.3.9. No API changes for your code. Minor change to allow for latest Keycloak library. 
+
 # v1.0.0 - 22 March 2017
 
 Update to Keycloak 3.0.0 and Dropwizard 1.1.0 thanks to @maksymgendin and @reneploetz 
