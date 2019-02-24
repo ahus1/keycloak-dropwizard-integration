@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <scm>
         <connection>scm:git:https://github.com/ahus1/keycloak-dropwizard-integration.git</connection>
         <developerConnection>scm:git:https://github.com/ahus1/keycloak-dropwizard-integration.git</developerConnection>
         <url>https://github.com/ahus1/keycloak-dropwizard-integration/</url>
-        <tag>HEAD</tag>
+        <tag>keycloak-dropwizard-1.1.0</tag>
     </scm>
 
     <name>Parent POM for Dropwizard and JBoss Keycloak integration</name>
@@ -41,7 +40,7 @@
 
     <groupId>de.ahus1.keycloak.dropwizard</groupId>
     <artifactId>keycloak-dropwizard-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1.0</version>
     <modules>
         <module>domain</module>
         <module>simple-war</module>
@@ -62,7 +61,7 @@
         <dropwizard.version>1.3.9</dropwizard.version>
         <jetty.version>9.4.14.v20181114</jetty.version>
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
-        <project.parent.relativePath></project.parent.relativePath>
+        <project.parent.relativePath />
         <forbiddenapis.version>2.5</forbiddenapis.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
