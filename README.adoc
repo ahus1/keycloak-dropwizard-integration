@@ -41,13 +41,15 @@ image::https://api.bintray.com/packages/ahus1/maven/keycloak-dropwizard/images/d
 
   * Version 1.0.x is tested with Keycloak 3.x.x and Dropwizard 1.1.x/1.2.x/1.3.x
 
+  * Version 1.1.x is tested with Keycloak 4.x.x and Dropwizard 1.3.x
+
 .pom.xml
 ----
 <dependencies>
   <dependency>
     <groupId>de.ahus1.keycloak.dropwizard</groupId>
     <artifactId>keycloak-dropwizard</artifactId>
-    <version>0.x.x</version>
+    <version>x.x.x</version>
   </dependency>
 </dependencies>
 ----

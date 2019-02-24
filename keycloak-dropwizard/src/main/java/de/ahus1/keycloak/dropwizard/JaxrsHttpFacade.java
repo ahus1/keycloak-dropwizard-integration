@@ -11,6 +11,7 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.SecurityContext;
+import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
@@ -34,6 +35,8 @@ public class JaxrsHttpFacade implements HttpFacade {
     }
 
     protected class RequestFacade implements Request {
+
+        private InputStream inputStream;
 
         @Override
         public String getMethod() {
@@ -96,6 +99,20 @@ public class JaxrsHttpFacade implements HttpFacade {
 
         @Override
         public InputStream getInputStream() {
+            return getInputStream(false);
+        }
+
+        @Override
+        public InputStream getInputStream(boolean buffered) {
+            if (inputStream != null) {
+                return inputStream;
+            }
+
+            if (buffered) {
+                inputStream = new BufferedInputStream(requestContext.getEntityStream());
+                return inputStream;
+            }
+
             return requestContext.getEntityStream();
         }
 
