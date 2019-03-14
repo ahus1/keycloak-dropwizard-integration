@@ -1,11 +1,13 @@
 package de.ahus1.keycloak.dropwizard;
 
+import org.keycloak.KeycloakSecurityContext;
+import org.keycloak.adapters.OIDCHttpFacade;
 import org.keycloak.adapters.spi.AuthenticationError;
-import org.keycloak.adapters.spi.HttpFacade;
 import org.keycloak.adapters.spi.LogoutError;
 import org.keycloak.common.util.HostUtils;
 
 import javax.security.cert.X509Certificate;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.NewCookie;
@@ -21,7 +23,7 @@ import java.util.Map;
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  * @author <a href="mailto:alexander.schwartz@gmx.net">Alexander Schwartz</a> (adoption for Dropwizard)
  */
-public class JaxrsHttpFacade implements HttpFacade {
+public class JaxrsHttpFacade implements OIDCHttpFacade {
 
     private final ContainerRequestContext requestContext;
     private final SecurityContext securityContext;
@@ -32,6 +34,17 @@ public class JaxrsHttpFacade implements HttpFacade {
     public JaxrsHttpFacade(ContainerRequestContext containerRequestContext, SecurityContext securityContext) {
         this.requestContext = containerRequestContext;
         this.securityContext = securityContext;
+    }
+
+    @Override
+    public KeycloakSecurityContext getSecurityContext() {
+        HttpServletRequest httpServletRequest =
+                (HttpServletRequest) requestContext.getProperty(HttpServletRequest.class.getName());
+        if (httpServletRequest != null) {
+            return (KeycloakSecurityContext) httpServletRequest.getAttribute(KeycloakSecurityContext.class.getName());
+        } else {
+            return null;
+        }
     }
 
     protected class RequestFacade implements Request {

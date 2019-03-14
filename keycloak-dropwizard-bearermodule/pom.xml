@@ -109,6 +109,12 @@
             <artifactId>jetty-io</artifactId>
             <version>${jetty.version}</version>
         </dependency>
+        <dependency>
+            <artifactId>keycloak-authz-client</artifactId>
+            <groupId>org.keycloak</groupId>
+            <version>${keycloak.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

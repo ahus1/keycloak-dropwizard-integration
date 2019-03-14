@@ -46,4 +46,8 @@ public class DrawRessourceState {
         assertThat(response.getStatusInfo()).isEqualTo(Response.Status.UNAUTHORIZED);
     }
 
+    public void thenForbidden() {
+        assertThat(response.getStatusInfo()).isEqualTo(Response.Status.FORBIDDEN);
+    }
+
 }
