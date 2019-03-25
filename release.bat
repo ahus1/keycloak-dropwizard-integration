@@ -1,2 +1,2 @@
-call mvn release:prepare -Dresume=false
-call mvn release:perform
+call mvnw release:prepare -Dresume=false
+call mvnw release:perform
