@@ -241,8 +241,8 @@
 
     <distributionManagement>
         <repository>
-            <id>bintray</id>
-            <url>https://api.bintray.com/maven/ahus1/maven/keycloak-dropwizard</url>
+            <id>sonatypeossstaging</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
         <snapshotRepository>
             <id>sonatypeosssnapshot</id>
