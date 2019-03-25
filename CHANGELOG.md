@@ -1,3 +1,7 @@
+# v1.1.1 - 25 March 2019
+
+Supporting policy enforcer/authz support by makeing JaxrsHttpFacade implement OIDCHttpFacade #25 
+
 # v1.1.0 - 24 February 2019
 
 Update to Keycloak 4.8.9 and Dropwizard 1.3.9. No API changes for your code. Minor change to allow for latest Keycloak library. 
