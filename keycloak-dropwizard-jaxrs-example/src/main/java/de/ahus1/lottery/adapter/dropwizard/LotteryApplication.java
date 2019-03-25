@@ -39,7 +39,7 @@ public class LotteryApplication extends Application<LotteryConfiguration> {
                 return configuration.getKeycloakConfiguration();
             }
             /* OPTIONAL: override getUserClass(), createAuthorizer() and createAuthenticator() if you want to use
-             * a class other than de.ahus1.keycloak.dropwizard.User to be injected by @User*/
+             * a class other than de.ahus1.keycloak.dropwizard.User to be injected by @Auth */
         });
         // end::keycloak[]
 
