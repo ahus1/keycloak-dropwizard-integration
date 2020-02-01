@@ -10,26 +10,26 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
-public class DrawRessourceState {
+public class DrawResourceState {
     private final URI baseUrl;
     private Response response;
     private String accessToken;
 
-    public DrawRessourceState(URI baseUrl) {
+    public DrawResourceState(URI baseUrl) {
         this.baseUrl = baseUrl;
     }
 
-    public DrawRessourceState givenNoToken() {
+    public DrawResourceState givenNoToken() {
         accessToken = null;
         return this;
     }
 
-    public DrawRessourceState givenToken(String accessToken) {
+    public DrawResourceState givenToken(String accessToken) {
         this.accessToken = accessToken;
         return this;
     }
 
-    public DrawRessourceState whenOpened() {
+    public DrawResourceState whenOpened() {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(baseUrl).path("/draw");
         DrawRequest request = new DrawRequest();

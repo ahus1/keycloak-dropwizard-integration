@@ -5,6 +5,7 @@ import de.ahus1.lottery.adapter.dropwizard.pages.DrawPage;
 import de.ahus1.lottery.adapter.dropwizard.pages.StartPage;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.junit.ClassRule;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -34,6 +35,7 @@ public class LotteryApplicationTest {
     }
 
     @Test
+    @Ignore("No longer supported starting with Dropwizard 2.0 - see README.adoc at top of project")
     public void shouldLoginFromPost() throws IOException, ReflectiveOperationException {
         try (WebClient webClient = new WebClient()) {
             // load initial page, will redirect to keycloak

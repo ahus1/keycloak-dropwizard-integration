@@ -1,7 +1,7 @@
 package de.ahus1.lottery.adapter.dropwizard;
 
 import de.ahus1.lottery.adapter.dropwizard.pages.StartPage;
-import de.ahus1.lottery.adapter.dropwizard.state.DrawRessourceState;
+import de.ahus1.lottery.adapter.dropwizard.state.DrawResourceState;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.junit.Arquillian;
@@ -51,7 +51,7 @@ public class LotteryApplicationTestWithPolicyEnforcer {
     @Test
     public void shouldDenyAccessWithoutBearerToken() throws URISyntaxException {
         URI baseUrl = new URI("http://localhost:" + RULE.getLocalPort());
-        new DrawRessourceState(baseUrl)
+        new DrawResourceState(baseUrl)
                 .givenNoToken()
                 .whenOpened()
                 .thenForbidden();
@@ -60,7 +60,7 @@ public class LotteryApplicationTestWithPolicyEnforcer {
     @Test
     public void shouldDenyAccessEmptyBearerToken() throws URISyntaxException {
         URI baseUrl = new URI("http://localhost:" + RULE.getLocalPort());
-        new DrawRessourceState(baseUrl)
+        new DrawResourceState(baseUrl)
                 .givenToken("")
                 .whenOpened()
                 .thenForbidden();
@@ -69,7 +69,7 @@ public class LotteryApplicationTestWithPolicyEnforcer {
     @Test
     public void shouldDenyAccessIllegalBearerToken() throws URISyntaxException {
         URI baseUrl = new URI("http://localhost:" + RULE.getLocalPort());
-        new DrawRessourceState(baseUrl)
+        new DrawResourceState(baseUrl)
                 .givenToken("Illegal")
                 .whenOpened()
                 .thenForbidden();

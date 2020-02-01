@@ -77,7 +77,7 @@ public class LotteryApplication extends Application<LotteryConfiguration> {
         environment.servlets().setSessionHandler(new SessionHandler());
 
         // register web resources.
-        environment.jersey().register(new DrawRessource());
+        environment.jersey().register(DrawRessource.class);
 
         // support annotation @RolesAllowed
         // tag::roles[]

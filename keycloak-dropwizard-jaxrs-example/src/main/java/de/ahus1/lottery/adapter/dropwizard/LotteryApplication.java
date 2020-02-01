@@ -49,7 +49,7 @@ public class LotteryApplication extends Application<LotteryConfiguration> {
     public void run(LotteryConfiguration configuration, Environment environment) {
 
         // register web resources.
-        environment.jersey().register(new DrawRessource());
+        environment.jersey().register(DrawRessource.class);
 
         // support annotation @RolesAllowed
         environment.jersey().register(RolesAllowedDynamicFeature.class);
