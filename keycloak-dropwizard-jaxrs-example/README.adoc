@@ -36,7 +36,7 @@ include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryConfiguration.
 include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.java[tags=keycloak]
 -----
 
-Once this is set up, Dropwizard's `@Auth` annotation can be used as usual in ressources:
+Once this is set up, Dropwizard's `@Auth` annotation can be used as usual in resources:
 
 [source,java,indent=0]
 .DrawRessource
@@ -47,7 +47,7 @@ include::src/main/java/de/ahus1/lottery/adapter/dropwizard/resource/DrawRessourc
 <2> Access the security context directly to find out if the user is logged in without forcing authentication
 
 ////
-## Additions to handle user roles in ressources
+## Additions to handle user roles in resources
 
 TODO: describe @Role annotation and how to activate it.
 ////

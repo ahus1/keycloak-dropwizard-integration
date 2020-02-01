@@ -1,0 +1,10 @@
+:toc: left
+:linkcss:
+:stylesdir: css/
+:source-highlighter: coderay
+:numbered:
+:icons: font
+// using experimental to support btn: macro
+:experimental:
+:imagesdir: tutorial
+:last-update-label!:

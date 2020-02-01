@@ -42,7 +42,7 @@ include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.ja
 -----
 
 ////
-## Additions to handle user roles in ressources
+## Additions to handle user roles in resources
 
 TODO: describe @Role annotation and how to activate it.
 ////

@@ -29,7 +29,7 @@ include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryConfiguration.
 -----
 . Add Keycloak as a filter to the REST stack.
 +
-WARNING: Be aware that all calls to REST ressources now require a Bearer Token. There are no unauthenticated requests any more (except to static ressources)
+WARNING: Be aware that all calls to REST resources now require a Bearer Token. There are no unauthenticated requests any more (except to static resources)
 +
 [source,java,indent=0]
 .LotteryApplication.java
@@ -37,7 +37,7 @@ WARNING: Be aware that all calls to REST ressources now require a Bearer Token. 
 include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryApplication.java[tags=keycloak]
 -----
 
-A very short and simple JavaScript client is located in `src/main/ressources/assets/ajax`.
+A very short and simple JavaScript client is located in `src/main/resources/assets/ajax`.
 
 == How to run
 
