@@ -1,14 +1,20 @@
+# v1.1.2 - 16 June 2020
+
+Upgrading to latest Keycloak 10.0.2 thanks to @gjvoosten #31
+Upgrade to httpclient dependency.
+No API changes for your code.
+
 # v1.1.1 - 25 March 2019
 
-Supporting policy enforcer/authz support by makeing JaxrsHttpFacade implement OIDCHttpFacade #25 
+Supporting policy enforcer/authz support by makeing JaxrsHttpFacade implement OIDCHttpFacade #25
 
 # v1.1.0 - 24 February 2019
 
-Update to Keycloak 4.8.9 and Dropwizard 1.3.9. No API changes for your code. Minor change to allow for latest Keycloak library. 
+Update to Keycloak 4.8.9 and Dropwizard 1.3.9. No API changes for your code. Minor change to allow for latest Keycloak library.
 
 # v1.0.0 - 22 March 2017
 
-Update to Keycloak 3.0.0 and Dropwizard 1.1.0 thanks to @maksymgendin and @reneploetz 
+Update to Keycloak 3.0.0 and Dropwizard 1.1.0 thanks to @maksymgendin and @reneploetz
 
 # v0.9.1 - 07 March 2017
 
@@ -61,7 +67,7 @@ Fix 500er response when bearer only and request without Authentication header. #
 
 # v0.4.0 - 19 Nov 2015
 
-Update to Keycloak 1.6. 
+Update to Keycloak 1.6.
 Although this is quite a major change for Keycloak, the API for our consumers didn't change.
 Therefore it is a patch only.
 
@@ -72,16 +78,16 @@ This release has also better support to combine a frontend public client with a 
 Works with Keycloak 1.5 and Dropwizard 0.9.
 
 When upgrading, you'll notice that `@Auth(required=false)` is no longer supported by Dropwizard 0.9.
-Instead instead inject the Security context like shown below. 
+Instead instead inject the Security context like shown below.
 
     @GET
     @Path("/logout")
-    public LogoutView logout(@Context SecurityContext context) throws ServletException { 
+    public LogoutView logout(@Context SecurityContext context) throws ServletException {
         if (context.getUserPrincipal() != null) {
             request.logout();
         }
     }
-    
+
 This is also the first release that supports the `@RolesAllowed` annotation.
 This was possible due to the Dropwizard 0.9 changes.
 
