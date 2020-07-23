@@ -1,3 +1,8 @@
+# v1.1.3 - 23 July 2020
+
+Upgrading to latest Keycloak 11.0.0 and Dropwizard 2.0.12 thanks to @gjvoosten #35
+No API changes for your code.
+
 # v1.1.2 - 16 June 2020
 
 Upgrading to latest Keycloak 10.0.2 thanks to @gjvoosten #31
