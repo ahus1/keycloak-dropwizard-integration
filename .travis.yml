@@ -21,7 +21,7 @@ script:
 - docker logs `cat kd`
 - mvn --batch-mode test checkstyle:check
 after_success:
-- '[[ $TRAVIS_BRANCH == "master" ]] && ./tutorial/update-gh-pages.sh && mvn deploy --settings travissettings.xml -DskipTests=true -B'
+- "./after_success.sh"
 after_failure:
 - docker logs `cat kd`
 services:
