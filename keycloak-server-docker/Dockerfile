@@ -1,4 +1,4 @@
-FROM jboss/keycloak:11.0.0
+FROM jboss/keycloak:11.0.1
 MAINTAINER alexander.schwartz@gmx.net
 
 USER jboss
