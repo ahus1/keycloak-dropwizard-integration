@@ -1,4 +1,4 @@
-# v1.1.4-SNAPSHOT - 26 August 2020
+# v1.1.4 - (work in progress)
 
 Upgrading to latest Keycloak 11.0.1 thanks to @gjvoosten #39
 No API changes for your code.
