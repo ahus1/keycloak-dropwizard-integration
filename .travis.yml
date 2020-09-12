@@ -19,7 +19,7 @@ script:
 - docker ps
 - "./keycloak-server-docker/wait-for-docker.sh localhost 8080"
 - docker logs `cat kd`
-- mvn --batch-mode test checkstyle:check
+- ./mvnw --batch-mode test checkstyle:check
 after_success:
 - "./after_success.sh"
 after_failure:
