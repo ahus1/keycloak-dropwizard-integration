@@ -29,7 +29,7 @@ See https://github.com/ahus1/keycloak-dropwizard-integration for the latest vers
 === How to use
 
 The module `keycloak-dropwizard-jaxrs` is a ready-to-use Dropwizard module.
-The releases are available both from Maven central.
+The releases are available from Maven central.
 
 The releases depend on a version of Dropwizard and Keycloak that was current at release time.
 To use a more recent release, please add them as an explicit dependency to your project, as this project will not release new versions on every minor or patch release of its dependencies.
