@@ -57,7 +57,7 @@
     <properties>
         <encoding>UTF-8</encoding>
         <checkstyle.version>8.29</checkstyle.version>
-        <keycloak.version>11.0.1</keycloak.version>
+        <keycloak.version>12.0.1</keycloak.version>
         <dropwizard.version>2.0.17</dropwizard.version>
         <assertj.version>3.16.1</assertj.version>
         <jetty.version>9.4.31.v20200723</jetty.version>
