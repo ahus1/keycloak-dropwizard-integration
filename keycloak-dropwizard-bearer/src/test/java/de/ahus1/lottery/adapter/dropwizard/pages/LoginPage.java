@@ -1,13 +1,12 @@
 package de.ahus1.lottery.adapter.dropwizard.pages;
 
 import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.jboss.arquillian.graphene.Graphene;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.IOException;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import java.util.concurrent.TimeUnit;
 
 public class LoginPage<T extends Page> extends Page {
 
@@ -27,15 +26,16 @@ public class LoginPage<T extends Page> extends Page {
 
     @Override
     public void verify() {
-        assertThat(browser.getTitle()).isEqualTo("Log in to test");
+        // wait a bit as frontend needs to redirect to keycloak login page
+        Graphene.waitAjax().withTimeout(15, TimeUnit.SECONDS)
+                .until(webDriver -> webDriver.getTitle().equals("Log in to test"));
     }
 
-    public T login(String login, String password) throws IOException, ReflectiveOperationException {
+    public T login(String login, String password) {
         fieldUsername.sendKeys(login);
         fieldPassword.sendKeys(password);
         buttonLogin.click();
-        T page = createPage(clazz);
-        return page;
+        return createPage(clazz);
     }
 
     public void setReturnPage(Class<T> returnPage) {
