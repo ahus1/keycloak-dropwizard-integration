@@ -61,7 +61,7 @@
         <dropwizard.version>2.0.13</dropwizard.version>
         <assertj.version>3.16.1</assertj.version>
         <jetty.version>9.4.31.v20200723</jetty.version>
-        <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
+        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
         <project.parent.relativePath />
         <forbiddenapis.version>2.5</forbiddenapis.version>
         <maven.compiler.source>1.8</maven.compiler.source>
