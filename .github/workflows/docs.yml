@@ -1,0 +1,26 @@
+name: Creating Documentation Site
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+      - name: Build docs
+        run: |
+          ./tutorial/build.sh
+      - name: Publish docs
+        if: ${{ success() && github.event_name != 'pull_request' && github.ref == 'refs/heads/github-actions' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ./tutorial/update-gh-pages.sh

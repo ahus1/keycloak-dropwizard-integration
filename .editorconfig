@@ -25,6 +25,9 @@ trim_trailing_whitespace = true
 # Never again with this setting!
 insert_final_newline = true
 
+[*.yml]
+indent_size = 2
+
 [*.properties]
 # There is always an exception to a rule:
 # Java properties files should be encoded latin1 (aka iso8859-1)

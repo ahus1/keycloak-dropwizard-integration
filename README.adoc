@@ -34,7 +34,7 @@ The releases are available from Maven central.
 The releases depend on a version of Dropwizard and Keycloak that was current at release time.
 To use a more recent release, please add them as an explicit dependency to your project, as this project will not release new versions on every minor or patch release of its dependencies.
 
-image:https://img.shields.io/maven-central/v/de.ahus1.keycloak.dropwizard/keycloak-dropwizard-parent[Maven Central,link=https://mvnrepository.com/artifact/de.ahus1.keycloak.dropwizard/keycloak-dropwizard] image:https://travis-ci.org/ahus1/keycloak-dropwizard-integration.svg?branch=master[Build Status,link=https://travis-ci.org/github/ahus1/keycloak-dropwizard-integration/builds]
+image:https://img.shields.io/maven-central/v/de.ahus1.keycloak.dropwizard/keycloak-dropwizard-parent[Maven Central,link=https://mvnrepository.com/artifact/de.ahus1.keycloak.dropwizard/keycloak-dropwizard] image:https://github.com/ahus1/keycloak-dropwizard-integration/workflows/Java%20CI%20with%20Maven/badge.svg[Build Status,link=https://travis-ci.org/github/ahus1/keycloak-dropwizard-integration/builds]
 
   * Version 0.7.x is tested with Keycloak 1.9.x and Dropwizard 0.9.x
 

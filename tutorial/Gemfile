@@ -1,4 +1,4 @@
-# this is used by Travis CI to build the online manual
+# this is used by GitHub Action to build the online manual
 source 'https://rubygems.org'
 gem 'asciidoctor'
 gem 'coderay'
