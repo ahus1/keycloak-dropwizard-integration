@@ -28,7 +28,7 @@ public class LoginPage<T extends Page> extends Page {
     public void verify() {
         // wait a bit as frontend needs to redirect to keycloak login page
         Graphene.waitAjax().withTimeout(15, TimeUnit.SECONDS)
-                .until(webDriver -> webDriver.getTitle().equals("Log in to test"));
+                .until(webDriver -> webDriver.getTitle().equals("Sign in to test"));
     }
 
     public T login(String login, String password) {

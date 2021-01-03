@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.IOException;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoginPage<T extends Page> extends Page {
@@ -27,15 +25,14 @@ public class LoginPage<T extends Page> extends Page {
 
     @Override
     public void verify() {
-        assertThat(browser.getTitle()).isEqualTo("Log in to test");
+        assertThat(browser.getTitle()).isEqualTo("Sign in to test");
     }
 
-    public T login(String login, String password) throws IOException, ReflectiveOperationException {
+    public T login(String login, String password) {
         fieldUsername.sendKeys(login);
         fieldPassword.sendKeys(password);
         buttonLogin.click();
-        T page = createPage(clazz);
-        return page;
+        return createPage(clazz);
     }
 
     public void setReturnPage(Class<T> returnPage) {
