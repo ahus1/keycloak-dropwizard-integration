@@ -19,7 +19,7 @@ public class LoginPage<T> {
     }
 
     private void verify() {
-        assertThat(page.getTitleText()).isEqualTo("Log in to test");
+        assertThat(page.getTitleText()).isEqualTo("Sign in to test");
     }
 
     public T login(String login, String password) throws IOException, ReflectiveOperationException {
@@ -31,6 +31,6 @@ public class LoginPage<T> {
         form.getInputByName("username").setValueAttribute(login);
         form.getInputByName("password").setValueAttribute(password);
         HtmlPage afterLogin = form.getInputByName("login").click();
-        return (T) clazz.getConstructor(HtmlPage.class).newInstance(afterLogin);
+        return clazz.getConstructor(HtmlPage.class).newInstance(afterLogin);
     }
 }
