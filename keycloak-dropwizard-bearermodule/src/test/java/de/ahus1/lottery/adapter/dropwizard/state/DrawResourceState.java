@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.time.LocalDate;
 
-import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DrawResourceState {
     private final URI baseUrl;
