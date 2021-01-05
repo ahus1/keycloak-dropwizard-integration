@@ -63,7 +63,7 @@
         <jetty.version>9.4.35.v20201120</jetty.version>
         <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
         <project.parent.relativePath />
-        <forbiddenapis.version>2.5</forbiddenapis.version>
+        <forbiddenapis.version>3.1</forbiddenapis.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
