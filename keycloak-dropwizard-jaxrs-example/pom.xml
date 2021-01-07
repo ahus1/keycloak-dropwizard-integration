@@ -152,7 +152,7 @@
                 </groupId>
                 <artifactId>maven-shade-plugin
                 </artifactId>
-                <version>2.2</version>
+                <version>3.2.4</version>
                 <configuration>
                     <createDependencyReducedPom>true
                     </createDependencyReducedPom>
