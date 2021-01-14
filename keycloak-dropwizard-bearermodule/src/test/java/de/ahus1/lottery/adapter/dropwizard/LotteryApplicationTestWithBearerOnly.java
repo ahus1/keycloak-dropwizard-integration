@@ -18,7 +18,7 @@ import java.net.URL;
 import java.time.LocalDate;
 
 @RunWith(Arquillian.class)
-public class LotteryApplicationTest {
+public class LotteryApplicationTestWithBearerOnly {
 
     @Drone
     private WebDriver browser;

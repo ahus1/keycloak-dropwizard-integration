@@ -9,10 +9,6 @@ public class LotteryConfiguration extends Configuration {
     private KeycloakConfiguration keycloakConfiguration = new KeycloakConfiguration();
 
     public KeycloakConfiguration getKeycloakConfiguration() {
-        if (!keycloakConfiguration.isBearerOnly()) {
-            throw new RuntimeException("For this application the backend must be configured 'bearer only'. "
-                    + "This avoids confusion of the keycloak dropwizard plugin when detecting OAuth redirects");
-        }
         return keycloakConfiguration;
     }
 

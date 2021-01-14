@@ -19,9 +19,9 @@ public class DrawPage extends Page {
         Graphene.waitAjax().withTimeout(2, TimeUnit.SECONDS).until().element(areaResult).is().visible();
     }
 
-    public LoginPage logout() {
+    public LoginPage<StartPage> logout() {
         linkLogout.click();
-        LoginPage page = createPage(LoginPage.class);
+        LoginPage<StartPage> page = createPage(LoginPage.class);
         page.setReturnPage(StartPage.class);
         return page;
     }

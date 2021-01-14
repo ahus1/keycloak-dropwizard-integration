@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 
@@ -27,17 +26,21 @@ public class StartPage extends Page {
         assertThat(browser.getTitle()).isEqualTo("Lottery Calculator");
     }
 
-    public static LoginPage<StartPage> openWithoutLogin(WebDriver webClient, URL url) throws IOException {
+    public static LoginPage<StartPage> openWithoutLogin(WebDriver webClient, URL url) {
         webClient.get(url.toString());
-        LoginPage loginPage = Page.createPage(LoginPage.class, webClient);
+        if (webClient.getCurrentUrl().equals(url.toString())) {
+            // if we end up at the target page, the browser was still logged in
+            webClient.navigate()
+                    .to("http://localhost:8080/auth/realms/test/protocol/openid-connect/logout?redirect_uri=" + url);
+        }
+        LoginPage<StartPage> loginPage = Page.createPage(LoginPage.class, webClient);
         loginPage.setReturnPage(StartPage.class);
         return loginPage;
     }
 
-    public DrawPage draw(LocalDate date) throws IOException {
+    public DrawPage draw(LocalDate date) {
         fieldDate.sendKeys(date.toString());
         buttonDraw.click();
-        DrawPage page = createPage(DrawPage.class);
-        return page;
+        return createPage(DrawPage.class);
     }
 }

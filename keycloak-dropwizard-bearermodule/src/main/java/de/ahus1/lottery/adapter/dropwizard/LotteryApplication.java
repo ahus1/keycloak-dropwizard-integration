@@ -3,10 +3,13 @@ package de.ahus1.lottery.adapter.dropwizard;
 import de.ahus1.keycloak.dropwizard.KeycloakBundle;
 import de.ahus1.keycloak.dropwizard.KeycloakConfiguration;
 import de.ahus1.lottery.adapter.dropwizard.resource.DrawRessource;
+import de.ahus1.lottery.adapter.dropwizard.resource.WhoamiRessource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.dropwizard.views.ViewBundle;
+import org.keycloak.enums.TokenStore;
 
 public class LotteryApplication extends Application<LotteryConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -24,6 +27,9 @@ public class LotteryApplication extends Application<LotteryConfiguration> {
         // set up folders for static content
         bootstrap.addBundle(new AssetsBundle("/assets/ajax", "/ajax", null, "ajax"));
 
+        // setup Freemarker views - this is only needed for the WhoamiResource when in non-bearer-only-mode
+        bootstrap.addBundle(new ViewBundle());
+
         // tag::keycloak[]
         bootstrap.addBundle(new KeycloakBundle<LotteryConfiguration>() {
             @Override
@@ -40,5 +46,11 @@ public class LotteryApplication extends Application<LotteryConfiguration> {
     public void run(LotteryConfiguration configuration, Environment environment) {
 
         environment.jersey().register(new DrawRessource());
+
+        boolean isUsingCookieStore = configuration.getKeycloakConfiguration().getTokenStore() != null
+                && configuration.getKeycloakConfiguration()
+                .getTokenStore().equalsIgnoreCase(TokenStore.COOKIE.toString());
+        environment.jersey().register(new WhoamiRessource(isUsingCookieStore));
+
     }
 }

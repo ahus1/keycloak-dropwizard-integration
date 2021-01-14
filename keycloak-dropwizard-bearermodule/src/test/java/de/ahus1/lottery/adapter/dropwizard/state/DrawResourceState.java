@@ -1,6 +1,7 @@
 package de.ahus1.lottery.adapter.dropwizard.state;
 
 import de.ahus1.lottery.adapter.dropwizard.resource.DrawRequest;
+import org.glassfish.jersey.client.ClientProperties;
 
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
@@ -31,6 +32,7 @@ public class DrawResourceState {
 
     public DrawResourceState whenOpened() {
         Client client = ClientBuilder.newClient();
+        client.property(ClientProperties.FOLLOW_REDIRECTS, false);
         WebTarget target = client.target(baseUrl).path("/draw");
         DrawRequest request = new DrawRequest();
         request.setDate(LocalDate.parse("2015-01-01"));
@@ -48,6 +50,14 @@ public class DrawResourceState {
 
     public void thenForbidden() {
         assertThat(response.getStatusInfo()).isEqualTo(Response.Status.FORBIDDEN);
+    }
+
+    public void thenUnauthorized() {
+        assertThat(response.getStatusInfo()).isEqualTo(Response.Status.UNAUTHORIZED);
+    }
+
+    public void thenRedirectedToLoginScreen() {
+        assertThat(response.getLocation().getPath()).startsWith("/auth/realms");
     }
 
 }

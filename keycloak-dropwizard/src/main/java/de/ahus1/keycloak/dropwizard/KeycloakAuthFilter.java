@@ -79,7 +79,6 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
                         return SecurityContext.BASIC_AUTH;
                     }
                 });
-                return;
             }
         } catch (AuthenticationException e) {
             LOGGER.warn("Error authenticating credentials", e);
@@ -116,7 +115,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
         AuthChallenge challenge = authenticator.getChallenge();
         if (challenge != null) {
             challenge.challenge(facade);
-            if (!adapterConfig.isBearerOnly()) {
+            if (!adapterConfig.isBearerOnly() && deployment.getTokenStore() == TokenStore.SESSION) {
                 // create session and set cookie for client
                 facade.getResponse().setCookie("JSESSIONID", request.getSession().getId(), "/", null, -1, false, false);
             }
