@@ -19,7 +19,7 @@ jobs:
         run: |
           ./tutorial/build.sh
       - name: Publish docs
-        if: ${{ success() && github.event_name != 'pull_request' && github.ref == 'refs/heads/master' }}
+        if: ${{ success() && github.event_name != 'pull_request' && ( github.ref == 'refs/heads/master' || github.ref == 'refs/heads/docs' ) }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
