@@ -116,7 +116,7 @@ For completeness and as a very simple getting started a standard Servlet configu
 
 === License
 
-Copyright 2015-2020 Alexander Schwartz
+Copyright 2015-2021 Alexander Schwartz and the individual contributors.
 
 Licensed under the Apache License, Version 2.0 (the "`License`");
 you may not use this file except in compliance with the License.
