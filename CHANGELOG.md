@@ -1,6 +1,9 @@
-# v1.1.4 - (work in progress)
+# v1.2.0 - (work in progress)
 
-Upgrading to latest Keycloak 11.0.1 thanks to @gjvoosten #39
+Upgrading to latest Keycloak 12.0.1 thanks to @gjvoosten #39
+
+Support cookie store for dropwizard module, promote usage also for situations for not only a bearer token (#38)
+
 No API changes for your code.
 
 # v1.1.3 - 23 July 2020
