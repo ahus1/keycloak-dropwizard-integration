@@ -1,4 +1,4 @@
-# v1.2.0 - (work in progress)
+# v1.2.0 - 03 February 2021
 
 Upgrading to latest Keycloak 12.0.1 thanks to @gjvoosten #39
 
