@@ -34,8 +34,13 @@ jobs:
           docker build -t keycloak-server-docker keycloak-server-docker
           docker run --cidfile=kd -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d -p 8080:8080 keycloak-server-docker
           docker ps
+          docker network ls
+          ifconfig
           ./keycloak-server-docker/wait-for-docker.sh localhost 8080
           docker logs `cat kd`
+          # set IP address to docker host in the default 'bridge' network
+          # this enables successful callbacks from the Keycloak server on logout
+          export HOSTNAME=172.17.0.1
           ./mvnw -B test checkstyle:check
       - name: failure reporting
         if: ${{ failure() }}

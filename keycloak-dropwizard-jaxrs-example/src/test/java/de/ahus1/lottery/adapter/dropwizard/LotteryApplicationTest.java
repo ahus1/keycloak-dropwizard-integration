@@ -24,6 +24,7 @@ public class LotteryApplicationTest {
     @Test
     public void shouldCalculateDraw() throws IOException, ReflectiveOperationException {
         try (WebClient webClient = new WebClient()) {
+            webClient.getOptions().setCssEnabled(false);
             // load initial page, will redirect to keycloak
             URL baseUrl = new URL("http://localhost:" + RULE.getLocalPort());
             StartPage
@@ -38,6 +39,7 @@ public class LotteryApplicationTest {
     @Ignore("No longer supported starting with Dropwizard 2.0 - see README.adoc at top of project")
     public void shouldLoginFromPost() throws IOException, ReflectiveOperationException {
         try (WebClient webClient = new WebClient()) {
+            webClient.getOptions().setCssEnabled(false);
             // load initial page, will redirect to keycloak
             URL baseUrl = new URL("http://localhost:" + RULE.getLocalPort());
             DrawPage
