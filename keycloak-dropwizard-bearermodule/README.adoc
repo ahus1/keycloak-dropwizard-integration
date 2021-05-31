@@ -16,9 +16,9 @@ The different to the example `keycloak-dropwizard-bearer` is here that the keycl
 
 The following elements add Keycloak authentication to Dropwizard and are identical to the simple setup:
 
-. Add Keycloak `config-bearer.yml` with bearer only authentication.This way the Keycloak will not
-initiate the OAuth redirecting flow.And the Keycloak Dropwizard module with not interfere with any
-OAuth redirect initiated by the frontend.
+. Add Keycloak `config-bearer.yml` with bearer only authentication.
+This way the Keycloak will not initiate the OAuth redirecting flow.
+The Keycloak Dropwizard module with not interfere with any OAuth redirect initiated by the frontend.
 +
 [source,yaml,indent=0]
 .config-bearer.yml
@@ -36,7 +36,15 @@ include::src/main/java/de/ahus1/lottery/adapter/dropwizard/LotteryConfiguration.
 -----
 . Add Keycloak as a filter to the REST stack.
 +
-WARNING: Be aware that all calls to REST resources now require a Bearer Token. There are no unauthenticated requests any more (except to static resources)
+[WARNING]
+====
+Be aware that all calls to REST resources now require a Bearer Token only if
+
+- the method or class is annotated with _@RolesAllowed_ *OR*
+- has a method parameter annotated with _@Auth_.
+
+Methods that have neither and want to check if the user has sent a valid token can add a parameter _@Context SecurityContext context_ and check the logged-in user via _context.getUserPrincipal()_.
+====
 +
 [source,java,indent=0]
 .LotteryApplication.java
