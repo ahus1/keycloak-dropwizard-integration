@@ -36,7 +36,8 @@ Be aware that all calls to REST resources now require a Bearer Token only if
 - the method or class is annotated with _@RolesAllowed_ *OR*
 - has a method parameter annotated with _@Auth_.
 
-Methods that have neither and want to check if the user has sent a valid token can add a parameter _@Context SecurityContext context_ and check the logged-in user via _context.getUserPrincipal()_.
+Methods and classes that have neither will proceed when the user hasn't sent a Bearer Token or is not authenticated, or if the user has sent an (optional) valid Bearer Token.
+To check if the user has sent an (optional) valid token, add a parameter _@Context SecurityContext context_ and check the logged-in user via _context.getUserPrincipal()_.
 ====
 +
 [source,java,indent=0]
