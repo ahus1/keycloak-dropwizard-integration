@@ -23,7 +23,7 @@ public class DrawPage {
     }
 
     private void verify() {
-        assertThat(page.getBody().asText())
+        assertThat(page.getBody().asNormalizedText())
                 .describedAs("successful draw")
                 .contains("The lucky numbers are");
     }
