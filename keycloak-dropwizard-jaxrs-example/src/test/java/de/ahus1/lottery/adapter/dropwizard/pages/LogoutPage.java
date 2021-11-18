@@ -13,7 +13,7 @@ public class LogoutPage {
     }
 
     private void verify() {
-        assertThat(page.getBody().asText()).contains("You have been logged out");
+        assertThat(page.getBody().asNormalizedText()).contains("You have been logged out");
     }
 
 
