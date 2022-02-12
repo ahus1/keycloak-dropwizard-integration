@@ -64,7 +64,6 @@
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
-        <project.parent.relativePath>pom.xml</project.parent.relativePath>
         <forbiddenapis.version>3.2</forbiddenapis.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -177,7 +176,7 @@
                         <bundledSignature>jdk-internal</bundledSignature>
                     </bundledSignatures>
                     <signaturesFiles>
-                        <signaturesFile>${project.basedir}/${project.parent.relativePath}/../conf/signatures.txt
+                        <signaturesFile>${maven.multiModuleProjectDirectory}/conf/signatures.txt
                         </signaturesFile>
                     </signaturesFiles>
                 </configuration>
@@ -211,10 +210,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <propertyExpansion>config_loc=${project.basedir}/${project.parent.relativePath}/../conf
-                    </propertyExpansion>
-                    <configLocation>${project.basedir}/${project.parent.relativePath}/../conf/checkstyle.xml
-                    </configLocation>
+                    <propertyExpansion>config_loc=${maven.multiModuleProjectDirectory}/conf</propertyExpansion>
+                    <configLocation>${maven.multiModuleProjectDirectory}/conf/checkstyle.xml</configLocation>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failOnViolation>true</failOnViolation>
