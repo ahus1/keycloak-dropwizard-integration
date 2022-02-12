@@ -176,10 +176,6 @@
                         <bundledSignature>jdk-system-out</bundledSignature>
                         <bundledSignature>jdk-internal</bundledSignature>
                     </bundledSignatures>
-                    <signaturesFiles>
-                        <signaturesFile>${project.basedir}/${project.parent.relativePath}/conf/signatures.txt
-                        </signaturesFile>
-                    </signaturesFiles>
                 </configuration>
                 <executions>
                     <execution>
