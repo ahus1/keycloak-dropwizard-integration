@@ -161,7 +161,7 @@
                 </groupId>
                 <artifactId>maven-shade-plugin
                 </artifactId>
-                <version>3.2.4</version>
+                <version>3.3.0</version>
                 <configuration>
                     <createDependencyReducedPom>true
                     </createDependencyReducedPom>
