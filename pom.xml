@@ -60,7 +60,7 @@
         <keycloak.version>16.1.1</keycloak.version>
         <dropwizard.version>2.0.28</dropwizard.version>
         <assertj.version>3.22.0</assertj.version>
-        <jetty.version>9.4.44.v20210927</jetty.version>
+        <jetty.version>9.4.46.v20220331</jetty.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
