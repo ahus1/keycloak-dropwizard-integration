@@ -1,4 +1,4 @@
-FROM jboss/keycloak:16.1.1
+FROM quay.io/keycloak/keycloak:18.0.0-legacy
 MAINTAINER alexander.schwartz@gmx.net
 
 USER jboss

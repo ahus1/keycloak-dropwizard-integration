@@ -1186,28 +1186,7 @@
         "_id" : "f852bdfb-69c5-4b1d-adbf-ad9340b999b9",
         "uris" : [ "/*" ]
       } ],
-      "policies" : [ {
-        "id" : "5607e12d-5d51-4c8c-bb40-f0078726de06",
-        "name" : "Default Policy",
-        "description" : "A policy that grants access only for users within this realm",
-        "type" : "js",
-        "logic" : "POSITIVE",
-        "decisionStrategy" : "AFFIRMATIVE",
-        "config" : {
-          "code" : "// by default, grants any permission associated with this policy\n$evaluation.grant();\n"
-        }
-      }, {
-        "id" : "9fcd1668-21a5-42a4-a7de-9bbde4a58c06",
-        "name" : "Default Permission",
-        "description" : "A permission that applies to the default resource type",
-        "type" : "resource",
-        "logic" : "POSITIVE",
-        "decisionStrategy" : "UNANIMOUS",
-        "config" : {
-          "defaultResourceType" : "urn:test:resources:default",
-          "applyPolicies" : "[\"Default Policy\"]"
-        }
-      } ],
+      "policies" : [ ],
       "scopes" : [ ]
     }
   } ],
