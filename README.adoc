@@ -2,6 +2,7 @@ ifdef::env-github[:outfilesuffix: .adoc]
 :ext-relative: {outfilesuffix}
 
 = Integration of Keycloak and Dropwizard
+:icons: font
 
 == About
 
