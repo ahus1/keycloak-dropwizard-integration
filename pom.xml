@@ -59,7 +59,7 @@
         <encoding>UTF-8</encoding>
         <checkstyle.version>9.3</checkstyle.version>
         <keycloak.version>19.0.1</keycloak.version>
-        <dropwizard.version>2.1.1</dropwizard.version>
+        <dropwizard.version>2.1.2</dropwizard.version>
         <assertj.version>3.23.1</assertj.version>
         <jetty.version>9.4.48.v20220622</jetty.version>
         <maven-checkstyle-plugin.version>3.2.0</maven-checkstyle-plugin.version>
