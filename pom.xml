@@ -62,7 +62,7 @@
         <dropwizard.version>2.1.4</dropwizard.version>
         <assertj.version>3.24.1</assertj.version>
         <jetty.version>9.4.50.v20221201</jetty.version>
-        <maven-checkstyle-plugin.version>3.2.0</maven-checkstyle-plugin.version>
+        <maven-checkstyle-plugin.version>3.2.1</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
         <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
         <forbiddenapis.version>3.4</forbiddenapis.version>
