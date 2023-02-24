@@ -59,9 +59,10 @@
         <encoding>UTF-8</encoding>
         <checkstyle.version>9.3</checkstyle.version>
         <keycloak.version>21.0.0</keycloak.version>
-        <dropwizard.version>2.1.4</dropwizard.version>
+        <dropwizard.version>2.1.5</dropwizard.version>
         <assertj.version>3.24.2</assertj.version>
         <jetty.version>9.4.50.v20221201</jetty.version>
+        <junit.version>4.13.2</junit.version>
         <maven-checkstyle-plugin.version>3.2.1</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M9</maven-surefire-plugin.version>
         <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
@@ -283,6 +284,12 @@
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>${assertj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
