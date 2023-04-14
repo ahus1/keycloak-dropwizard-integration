@@ -1,5 +1,5 @@
 FROM quay.io/keycloak/keycloak:19.0.3-legacy
-MAINTAINER alexander.schwartz@gmx.net
+LABEL maintainer="alexander.schwartz@gmx.net"
 
 USER jboss
 
