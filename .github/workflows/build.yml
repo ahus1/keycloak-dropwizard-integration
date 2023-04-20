@@ -32,12 +32,11 @@ jobs:
             ${{ runner.os }}-maven-wrapper-
       - name: Build with Maven
         run: |
-          docker build -t keycloak-server-docker keycloak-server-docker
-          docker run --cidfile=kd -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d -p 8080:8080 keycloak-server-docker
+          docker run --name keycloak -v $(pwd)/keycloak-server-docker/keycloak-realm.json:/opt/keycloak/data/import/keycloak-realm.json -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -d -p 8080:8080 quay.io/keycloak/keycloak:21.1.0 start-dev --import-realm
           docker ps
           docker network ls
           ./keycloak-server-docker/wait-for-docker.sh localhost 8080
-          docker logs `cat kd`
+          docker logs keycloak
           # set IP address to docker host in the default 'bridge' network
           # this enables successful callbacks from the Keycloak server on logout
           export HOSTNAME=172.17.0.1
@@ -45,7 +44,7 @@ jobs:
       - name: failure reporting
         if: ${{ failure() }}
         run: |
-          docker logs `cat kd`
+          docker logs keycloak
       - name: publish
         if: ${{ success() && github.event_name != 'pull_request' && github.ref == 'refs/heads/master' }}
         env:

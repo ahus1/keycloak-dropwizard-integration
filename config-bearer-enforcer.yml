@@ -9,7 +9,7 @@ server:
 
 keycloakConfiguration:
   realm: test
-  auth-server-url: http://localhost:8080/auth
+  auth-server-url: http://localhost:8080
   ssl-required: none
   register-node-at-startup: true
   register-node-period: 600

@@ -14,7 +14,7 @@ RETRIES=50
 
 echo -n "Waiting for keycloak to start on ${HOST}:${PORT}"
 # loop until we connect successfully or failed
-until curl -f -v "http://${HOST}:${PORT}/auth/realms/test/.well-known/openid-configuration" >/dev/null 2>/dev/null
+until curl -f -v "http://${HOST}:${PORT}/realms/test/.well-known/openid-configuration" >/dev/null 2>/dev/null
 do
     RETRIES=$(($RETRIES - 1))
     if [ $RETRIES -eq 0 ]

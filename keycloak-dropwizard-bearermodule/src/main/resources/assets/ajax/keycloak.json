@@ -1,6 +1,6 @@
 {
     "realm": "test",
-    "auth-server-url": "http://localhost:8080/auth",
+    "auth-server-url": "http://localhost:8080",
     "ssl-required": "none",
     "resource": "javascript",
     "public-client": true

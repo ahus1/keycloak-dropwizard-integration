@@ -31,7 +31,7 @@ public class StartPage extends Page {
         if (webClient.getCurrentUrl().equals(url.toString())) {
             // if we end up at the target page, the browser was still logged in
             webClient.navigate()
-                    .to("http://localhost:8080/auth/realms/test/protocol/openid-connect/logout?redirect_uri=" + url);
+                    .to("http://localhost:8080/realms/test/protocol/openid-connect/logout?redirect_uri=" + url);
         }
         LoginPage<StartPage> loginPage = Page.createPage(LoginPage.class, webClient);
         loginPage.setReturnPage(StartPage.class);
