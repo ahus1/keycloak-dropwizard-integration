@@ -63,7 +63,7 @@
         <assertj.version>3.24.2</assertj.version>
         <jetty.version>9.4.51.v20230217</jetty.version>
         <junit.version>4.13.2</junit.version>
-        <maven-checkstyle-plugin.version>3.2.2</maven-checkstyle-plugin.version>
+        <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
         <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
         <forbiddenapis.version>3.5.1</forbiddenapis.version>
