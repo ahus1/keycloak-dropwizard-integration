@@ -1,6 +1,6 @@
 package de.ahus1.lottery.adapter.dropwizard.pages;
 
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import org.htmlunit.html.HtmlPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

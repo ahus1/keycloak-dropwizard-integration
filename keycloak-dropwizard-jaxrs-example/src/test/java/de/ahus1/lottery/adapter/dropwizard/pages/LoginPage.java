@@ -1,8 +1,8 @@
 package de.ahus1.lottery.adapter.dropwizard.pages;
 
-import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import junit.framework.AssertionFailedError;
+import org.htmlunit.html.HtmlForm;
+import org.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
 

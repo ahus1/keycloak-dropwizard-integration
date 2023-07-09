@@ -1,9 +1,9 @@
 package de.ahus1.lottery.adapter.dropwizard;
 
-import com.gargoylesoftware.htmlunit.WebClient;
 import de.ahus1.lottery.adapter.dropwizard.pages.DrawPage;
 import de.ahus1.lottery.adapter.dropwizard.pages.StartPage;
 import io.dropwizard.testing.junit.DropwizardAppRule;
+import org.htmlunit.WebClient;
 import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Test;
