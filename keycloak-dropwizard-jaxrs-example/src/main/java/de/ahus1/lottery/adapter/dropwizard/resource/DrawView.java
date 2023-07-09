@@ -1,6 +1,6 @@
 package de.ahus1.lottery.adapter.dropwizard.resource;
 
-import io.dropwizard.views.View;
+import io.dropwizard.views.common.View;
 
 public class DrawView extends View {
 

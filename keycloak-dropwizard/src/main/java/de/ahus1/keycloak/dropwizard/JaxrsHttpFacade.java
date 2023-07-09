@@ -217,6 +217,7 @@ public class JaxrsHttpFacade implements OIDCHttpFacade {
     }
 
     @Override
+    @SuppressForbidden(reason = "required by API")
     public X509Certificate[] getCertificateChain() {
         throw new IllegalStateException("Not supported yet");
     }

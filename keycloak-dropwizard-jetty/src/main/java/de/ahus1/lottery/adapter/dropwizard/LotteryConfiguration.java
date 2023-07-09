@@ -1,6 +1,6 @@
 package de.ahus1.lottery.adapter.dropwizard;
 
-import io.dropwizard.Configuration;
+import io.dropwizard.core.Configuration;
 import org.keycloak.representations.adapters.config.AdapterConfig;
 
 // tag::config[]

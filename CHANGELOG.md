@@ -1,3 +1,9 @@
+# v2.0.0 - 09 July 2023
+
+Upgrade to Dropwizard 3.x, which introduced API changes related to Dropwizard.
+
+No other API changes for your code.
+
 # v1.2.0 - 03 February 2021
 
 Upgrading to latest Keycloak 12.0.1 thanks to @gjvoosten #39

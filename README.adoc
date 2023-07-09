@@ -55,6 +55,8 @@ image:https://github.com/ahus1/keycloak-dropwizard-integration/workflows/Java%20
 
   * Version 1.1.x/1.2.x is tested with Keycloak 4.x-21.x and Dropwizard 1.3.x/2.0.x/2.1.x
 
+  * Version 2.x is tested with Keycloak 4.x-21.x and Dropwizard 3.0.x
+
 [WARNING]
 --
 Starting with Dropwizard 2.0 and the included version of Jersey, a login performed during a POST for a form will not recover the contents of the POST.
@@ -117,7 +119,7 @@ For completeness and as a very simple getting started a standard Servlet configu
 
 === License
 
-Copyright 2015-2021 Alexander Schwartz and the individual contributors.
+Copyright 2015-2023 Alexander Schwartz and the individual contributors.
 
 Licensed under the Apache License, Version 2.0 (the "`License`");
 you may not use this file except in compliance with the License.

@@ -32,7 +32,8 @@ jobs:
             ${{ runner.os }}-maven-wrapper-
       - name: Build with Maven
         run: |
-          docker run --name keycloak -v $(pwd)/keycloak-server-docker/keycloak-realm.json:/opt/keycloak/data/import/keycloak-realm.json -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -d -p 8080:8080 quay.io/keycloak/keycloak:21.1.0 start-dev --import-realm
+          KEYCLOAK_VERSION=$(mvn help:evaluate -Dexpression=keycloak.version -q -DforceStdout)
+          docker run --name keycloak -v $(pwd)/keycloak-server-docker/keycloak-realm.json:/opt/keycloak/data/import/keycloak-realm.json -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -d -p 8080:8080 quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} start-dev --import-realm
           docker ps
           docker network ls
           ./keycloak-server-docker/wait-for-docker.sh localhost 8080

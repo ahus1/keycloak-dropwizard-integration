@@ -66,7 +66,7 @@ public class KeycloakAuthFilter<P extends Principal> extends AuthFilter<HttpServ
 
                     @Override
                     public boolean isUserInRole(String role) {
-                        return authorizer.authorize(principal.get(), role);
+                        return authorizer.authorize(principal.get(), role, requestContext);
                     }
 
                     @Override
