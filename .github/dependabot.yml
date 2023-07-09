@@ -16,10 +16,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-  - package-ecosystem: "docker" # See documentation for possible values
-    directory: "/keycloak-server-docker" # Location of package manifests
-    allow:
-      # Allow both direct and indirect updates for all packages
-      - dependency-type: "all"
-    schedule:
-      interval: "daily"

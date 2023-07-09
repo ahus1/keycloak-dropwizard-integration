@@ -47,7 +47,7 @@ jobs:
         run: |
           docker logs keycloak
       - name: publish
-        if: ${{ success() && github.event_name != 'pull_request' && github.ref == 'refs/heads/master' }}
+        if: ${{ success() && github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
         env:
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
