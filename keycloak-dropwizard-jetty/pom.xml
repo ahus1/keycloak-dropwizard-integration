@@ -89,7 +89,7 @@
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-views</artifactId>
-            <version>3.0.1</version>
+            <version>4.0.1</version>
         </dependency>
     </dependencies>
 
