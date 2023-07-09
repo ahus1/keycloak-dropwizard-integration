@@ -86,11 +86,6 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-views</artifactId>
-            <version>3.0.1</version>
-        </dependency>
     </dependencies>
 
     <build>
