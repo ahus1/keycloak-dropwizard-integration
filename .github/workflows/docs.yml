@@ -22,7 +22,7 @@ jobs:
       - name: Build docs
         run: ./tutorial/build.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: 'tutorial/output'
 
