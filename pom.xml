@@ -58,7 +58,7 @@
     <properties>
         <encoding>UTF-8</encoding>
         <checkstyle.version>9.3</checkstyle.version>
-        <keycloak.version>22.0.0</keycloak.version>
+        <keycloak.version>22.0.1</keycloak.version>
         <dropwizard.version>3.0.1</dropwizard.version>
         <dropwizard.version.junit4>3.0.0</dropwizard.version.junit4>
         <assertj.version>3.24.2</assertj.version>
