@@ -1,7 +1,0 @@
-keycloak:
-  build: .
-  environment:
-    KEYCLOAK_USER: admin
-    KEYCLOAK_PASSWORD: admin
-  ports: 
-    - "8080:8080"

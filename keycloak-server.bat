@@ -1,1 +1,6 @@
-call keycloak-server/bin/standalone.bat -Dkeycloak.profile.feature.scripts=enabled -Dkeycloak.profile.feature.upload_scripts=enabled -Dkeycloak.migration.action=import -Dkeycloak.migration.provider=singleFile -Dkeycloak.migration.realmName=test -Dkeycloak.migration.file=keycloak-server-docker/keycloak-realm.json -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+rmdir /s /q -rf keycloak-server\data
+mkdir keycloak-server\data\import
+copy keycloak-server-docker\keycloak-realm.json keycloak-server\data\import
+set KEYCLOAK_ADMIN=admin
+set KEYCLOAK_ADMIN_PASSWORD=admin
+call keycloak-server\bin\kc.bat start-dev --import-realm

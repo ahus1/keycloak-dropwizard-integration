@@ -2,9 +2,9 @@ package de.ahus1.keycloak.dropwizard;
 
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
+import jakarta.servlet.http.HttpServletRequest;
 import org.keycloak.KeycloakSecurityContext;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Optional;
 

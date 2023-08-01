@@ -1,16 +1,15 @@
 package de.ahus1.keycloak.dropwizard;
 
+import de.ahus1.keycloak.jetty.JettyAdapterSessionStore;
+import de.ahus1.keycloak.jetty.KeycloakJettyAuthenticator;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.eclipse.jetty.security.ServerAuthException;
 import org.eclipse.jetty.security.authentication.DeferredAuthentication;
 import org.eclipse.jetty.server.Authentication;
 import org.keycloak.KeycloakSecurityContext;
-import org.keycloak.adapters.jetty.JettyAdapterSessionStore;
-import org.keycloak.adapters.jetty.KeycloakJettyAuthenticator;
-
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 public class KeycloakDropwizardAuthenticator extends KeycloakJettyAuthenticator {
     @Override

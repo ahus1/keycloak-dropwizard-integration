@@ -8,35 +8,25 @@ ifdef::env-github[:outfilesuffix: .adoc]
 
 === Summary
 
-This project shows how JBoss Keycloak and Dropwizard can be used together.
+This project shows how Keycloak and Dropwizard can be used together.
+At the time I wrote this there was no open source integration of the two, so I set up this project.
 
 ifdef::env-github[To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.]
 
 ifndef::env-github[To read the latest version of this tutorial, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.]
 
-http://keycloak.org[JBoss Keycloak^] provides a standalone OAuth 2.0 and Open ID Connect server.
+http://keycloak.org[Keycloak^] provides a standalone OAuth 2.0 and Open ID Connect server.
 It handles user credentials for your application, so you can focus on business requirements.
 
-http://dropwizard.io[Dropwizard^] is a Java framework for developing ops-friendly, high-performance, RESTful web services.
+http://dropwizard.io[Dropwizard^] is a Java framework for developing ops-friendly, high-performance, REST-ful web services.
 
-*TL;DR:* The module
-https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs-example[keycloak-dropwizard-jaxrs-example]
-shows how to use Dropwizard's `@Auth` annotation with Keycloak using a full OAuth flow.
-If you have i.e. a JavaScript-Client and want to send only JWT Tokens, go directly to
-ifdef::env-github[]
-https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-bearermodule[keycloak-dropwizard-bearermodule]
-endif::[]
-ifndef::env-github[]
-<<bearermodule,keycloak-dropwizard-bearermodule>>
-endif::[]
-
-
-At the time I write this there is no open source integration of the two, so I set up this project.
-See https://github.com/ahus1/keycloak-dropwizard-integration for the latest version.
+The versions 1.0.x and 2.0.x of this project showed alternative ways to integrate Keycloak's client libraries with Dropwizard versions 1.x to 3.x.
+With Dropwizard version 4.x, Dropwizard upgraded from Java EE to Jakarta EE.
+As this would have required additional migration efforts which an unclear added value to users, those have been removed. They might be added in the future if there is co
 
 === How to use
 
-The module `keycloak-dropwizard-jaxrs` is a ready-to-use Dropwizard module.
+The module `keycloak-dropwizard` is a ready-to-use Dropwizard module.
 The releases are available from Maven central.
 
 The releases depend on a version of Dropwizard and Keycloak that was current at release time.
@@ -55,7 +45,9 @@ image:https://github.com/ahus1/keycloak-dropwizard-integration/workflows/Java%20
 
   * Version 1.1.x/1.2.x is tested with Keycloak 4.x-21.x and Dropwizard 1.3.x/2.0.x/2.1.x
 
-  * Version 2.x is tested with Keycloak 4.x-21.x and Dropwizard 3.0.x
+  * Version 2.x is tested with Keycloak 4.x-23.x and Dropwizard 3.0.x
+
+  * Version 3.x is tested with Keycloak 23.x and Dropwizard 4.0.x
 
 [WARNING]
 --
@@ -93,29 +85,20 @@ The most recent development version (based on the _master_ branch on GitHub) is 
 
 === Prerequisites
 
-These examples need a local JBoss Keycloak instance with Realm `test` and user `demo` with password `demo`.
+These examples need a local Keycloak instance with Realm `test` and user `demo` with password `demo`.
 
-Please download the Keycloak distribution matching your keycloak-dropwizard-integration version from http://keycloak.org and extract it to a subfolder `keycloak-server` of this directory.
+Download the Keycloak distribution matching your keycloak-dropwizard-integration version from http://keycloak.org and extract it to a subfolder `keycloak-server` of this directory.
 Then call `keycloak-server.bat` to import an already configured realm. Using this startup file the configuration will be reset every time you start Keycloak.
 
 === Parts
 
-This example will guide you through setting up JBoss Keycloak in several configurations:
+These examples will guide you through setting up Dropwizard and Keycloak in several configurations:
 
-  * Simple Integration Servlet style for http://dropwizard.io[Dropwizard^] +
-    see  https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jetty[module keycloak-dropwizard-jetty^].
-  * Advanced Integration http://dropwizard.io[Dropwizard^] style +
-    see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs[module keycloak-dropwizard-jaxrs^]
-    and https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs-example[module keycloak-dropwizard-example^].
-  * Bearer-Only REST services for http://dropwizard.io[Dropwizard^] +
-    see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-bearer[module keycloak-dropwizard-bearer^].
+* JAX-RS stateful server sessions +
+see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-jaxrs-example[module keycloak-dropwizard-jaxrs-example^].
 
-For completeness and as a very simple getting started a standard Servlet configuration is also included (without and with Keycloak):
-
-  * Simple Servlet +
-    see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/simple-war[module simple-war^].
-  * Servlet with Keycloak +
-    see  https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-war[module keycloak-war^].
+* Bearer-Only REST services for Dropwizard +
+see https://github.com/ahus1/keycloak-dropwizard-integration/tree/master/keycloak-dropwizard-ajax-example[module keycloak-dropwizard-ajax-example^].
 
 === License
 

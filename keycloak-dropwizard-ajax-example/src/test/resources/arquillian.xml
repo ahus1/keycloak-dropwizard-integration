@@ -1,0 +1,9 @@
+<arquillian xmlns="http://jboss.com/arquillian"
+>
+
+    <extension qualifier="webdriver">
+        <property name="browser">firefox</property>
+        <property name="firefoxHeadless">true</property>
+    </extension>
+
+</arquillian>

@@ -1186,8 +1186,33 @@
         "_id" : "f852bdfb-69c5-4b1d-adbf-ad9340b999b9",
         "uris" : [ "/*" ]
       } ],
-      "policies" : [ ],
-      "scopes" : [ ]
+      "policies" : [
+        {
+          "id": "208b2bc1-9810-45ae-9efd-8755196b6159",
+          "name": "user-role-user",
+          "description": "",
+          "type": "role",
+          "logic": "POSITIVE",
+          "decisionStrategy": "UNANIMOUS",
+          "config": {
+            "roles": "[{\"id\":\"user\",\"required\":true}]"
+          }
+        },
+        {
+          "id": "b47c0a67-4dfa-47b1-ba02-8784f3460421",
+          "name": "default-resource-permission",
+          "description": "",
+          "type": "resource",
+          "logic": "POSITIVE",
+          "decisionStrategy": "UNANIMOUS",
+          "config": {
+            "resources": "[\"Default Resource\"]",
+            "applyPolicies": "[\"user-role-user\"]"
+          }
+        }
+      ],
+      "scopes": [],
+      "decisionStrategy": "UNANIMOUS"
     }
   } ],
   "clientScopes" : [ {

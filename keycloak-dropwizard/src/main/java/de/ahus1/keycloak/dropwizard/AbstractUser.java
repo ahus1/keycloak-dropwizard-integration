@@ -1,10 +1,10 @@
 package de.ahus1.keycloak.dropwizard;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.representations.AccessToken;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Collections;
 import java.util.HashSet;

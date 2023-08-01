@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="keycloak-dropwizard-ajax-example" type="Application" factoryName="Application" singleton="true">
+    <option name="MAIN_CLASS_NAME" value="de.ahus1.lottery.adapter.dropwizard.LotteryApplication" />
+    <module name="keycloak-dropwizard-ajax-example" />
+    <option name="PROGRAM_PARAMETERS" value="server config-bearer.yml" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="de.ahus1.lottery.adapter.dropwizard.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

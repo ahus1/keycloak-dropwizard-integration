@@ -2,12 +2,12 @@ ifdef::env-github[]
 To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.
 endif::[]
 
-= Advanced Dropwizard Integration Dropwizard style
+= Dropwizard integration with session-based JAX-RS
 
 == What you can see here
 
-This is a setup that builds upon the simple integration.
-But instead of relying on security constraints it uses Dropwizard's `@Auth` annotation.
+This provides a JAX-RS application with server managed session.
+It uses Dropwizard's `@Auth` annotation.
 
 == Setup for Keycloak
 

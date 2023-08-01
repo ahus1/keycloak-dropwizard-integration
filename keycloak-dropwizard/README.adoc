@@ -2,7 +2,7 @@ ifdef::env-github[]
 To read this tutorial fully rendered, please visit: https://ahus1.github.io/keycloak-dropwizard-integration/tutorial.html.
 endif::[]
 
-= Preparing a proper Dropwizard Bundle for Keycloak
+= Preparing a Dropwizard Bundle for Keycloak
 
 == What you can see here
 

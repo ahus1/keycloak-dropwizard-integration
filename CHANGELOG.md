@@ -1,3 +1,9 @@
+# v3.0.0 - (pending)
+
+Upgrade to Dropwizard 4.x, which migrated to Jakarta EE.
+
+Removing all examples except the Dropwizard Module, as Keycloak doesn't provide Jakarta EE variants of the clients anymore.
+
 # v2.0.0 - 09 July 2023
 
 Upgrade to Dropwizard 3.x, which introduced API changes related to Dropwizard.
