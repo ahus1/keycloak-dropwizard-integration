@@ -41,16 +41,12 @@
 
     <groupId>de.ahus1.keycloak.dropwizard</groupId>
     <artifactId>keycloak-dropwizard-parent</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
     <modules>
         <module>domain</module>
-        <module>simple-war</module>
-        <module>keycloak-war</module>
-        <module>keycloak-dropwizard-jetty</module>
         <module>keycloak-dropwizard</module>
         <module>keycloak-dropwizard-jaxrs-example</module>
-        <module>keycloak-dropwizard-bearer</module>
-        <module>keycloak-dropwizard-bearermodule</module>
+        <module>keycloak-dropwizard-ajax-example</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -59,10 +55,10 @@
         <encoding>UTF-8</encoding>
         <checkstyle.version>9.3</checkstyle.version>
         <keycloak.version>23.0.4</keycloak.version>
-        <dropwizard.version>3.0.1</dropwizard.version>
-        <dropwizard.version.junit4>3.0.0</dropwizard.version.junit4>
+        <dropwizard.version>4.0.5</dropwizard.version>
+        <dropwizard.version.junit4>4.0.5</dropwizard.version.junit4>
         <assertj.version>3.24.2</assertj.version>
-        <jetty.version>9.4.53.v20231009</jetty.version>
+        <jetty.version>11.0.9</jetty.version>
         <junit.version>4.13.2</junit.version>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
@@ -139,6 +135,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <argLine>-Djava.security.egd=file:/dev/urandom</argLine>
+                    <includes>
+                        <include>**/*Test*.java</include>
+                    </includes>
                 </configuration>
             </plugin>
             <plugin>
@@ -180,6 +179,10 @@
                         <bundledSignature>jdk-system-out</bundledSignature>
                         <bundledSignature>jdk-internal</bundledSignature>
                     </bundledSignatures>
+                    <excludes>
+                        <exclude>**/de/ahus1/keycloak/jetty/**</exclude>
+                        <exclude>**/de/ahus1/keycloak/jaxrs/**</exclude>
+                    </excludes>
                     <suppressAnnotations>
                         <suppressAnnotation>de.ahus1.keycloak.dropwizard.SuppressForbidden</suppressAnnotation>
                     </suppressAnnotations>

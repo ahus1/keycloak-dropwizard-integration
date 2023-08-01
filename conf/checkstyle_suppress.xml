@@ -15,4 +15,8 @@
     <!-- Suppress all checks in generated sources -->
     <suppress checks=".*" files="[\\/]target[\\/]generated"/>
 
+    <!-- Suppress all checks in Keycloak classes -->
+    <suppress checks=".*" files="de[\\/]ahus1[\\/]keycloak[\\/]jetty"/>
+    <suppress checks=".*" files="de[\\/]ahus1[\\/]keycloak[\\/]jaxrs"/>
+
 </suppressions>

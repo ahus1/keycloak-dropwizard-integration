@@ -1,8 +1,7 @@
 package de.ahus1.keycloak.dropwizard;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.keycloak.KeycloakSecurityContext;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * This is a default implementation for AbstractKeycloakAuthenticator. When you use a different

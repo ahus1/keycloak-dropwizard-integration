@@ -3,14 +3,14 @@ package de.ahus1.lottery.adapter.dropwizard.resource;
 import de.ahus1.keycloak.dropwizard.User;
 import de.ahus1.lottery.domain.DrawingService;
 import io.dropwizard.auth.Auth;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.SecurityContext;
 
-import javax.annotation.security.RolesAllowed;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.SecurityContext;
 import java.time.LocalDate;
 
 // tag::ressource[]

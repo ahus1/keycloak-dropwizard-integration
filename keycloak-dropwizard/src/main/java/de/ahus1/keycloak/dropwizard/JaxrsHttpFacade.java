@@ -1,5 +1,11 @@
 package de.ahus1.keycloak.dropwizard;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.core.NewCookie;
+import jakarta.ws.rs.core.Response.Status;
+import jakarta.ws.rs.core.SecurityContext;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.OIDCHttpFacade;
 import org.keycloak.adapters.spi.AuthenticationError;
@@ -7,12 +13,6 @@ import org.keycloak.adapters.spi.LogoutError;
 import org.keycloak.common.util.HostUtils;
 
 import javax.security.cert.X509Certificate;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.NewCookie;
-import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.SecurityContext;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -87,11 +87,11 @@ public class JaxrsHttpFacade implements OIDCHttpFacade {
 
         @Override
         public Cookie getCookie(String cookieName) {
-            Map<String, javax.ws.rs.core.Cookie> cookies = requestContext.getCookies();
+            Map<String, jakarta.ws.rs.core.Cookie> cookies = requestContext.getCookies();
             if (cookies == null) {
                 return null;
             }
-            javax.ws.rs.core.Cookie cookie = cookies.get(cookieName);
+            jakarta.ws.rs.core.Cookie cookie = cookies.get(cookieName);
             if (cookie == null) {
                 return null;
             }
@@ -148,8 +148,8 @@ public class JaxrsHttpFacade implements OIDCHttpFacade {
 
     protected class ResponseFacade implements Response {
 
-        private javax.ws.rs.core.Response.ResponseBuilder responseBuilder =
-                javax.ws.rs.core.Response.status(Status.NO_CONTENT);
+        private jakarta.ws.rs.core.Response.ResponseBuilder responseBuilder =
+                jakarta.ws.rs.core.Response.status(Status.NO_CONTENT);
 
         @Override
         public void setStatus(int status) {
@@ -186,21 +186,21 @@ public class JaxrsHttpFacade implements OIDCHttpFacade {
 
         @Override
         public void sendError(int code) {
-            javax.ws.rs.core.Response response = responseBuilder.status(code).build();
+            jakarta.ws.rs.core.Response response = responseBuilder.status(code).build();
             requestContext.abortWith(response);
             responseFinished = true;
         }
 
         @Override
         public void sendError(int code, String message) {
-            javax.ws.rs.core.Response response = responseBuilder.status(code).entity(message).build();
+            jakarta.ws.rs.core.Response response = responseBuilder.status(code).entity(message).build();
             requestContext.abortWith(response);
             responseFinished = true;
         }
 
         @Override
         public void end() {
-            javax.ws.rs.core.Response response = responseBuilder.build();
+            jakarta.ws.rs.core.Response response = responseBuilder.build();
             requestContext.abortWith(response);
             responseFinished = true;
         }

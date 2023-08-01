@@ -30,9 +30,10 @@ jobs:
           key: ${{ runner.os }}-maven-wrapper-${{ hashFiles('**/maven-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-maven-wrapper-
+      - uses: browser-actions/setup-firefox@v1
       - name: Build with Maven
         run: |
-          KEYCLOAK_VERSION=$(mvn help:evaluate -Dexpression=keycloak.version -q -DforceStdout)
+          KEYCLOAK_VERSION=$(./mvnw help:evaluate -Dexpression=keycloak.version -q -DforceStdout)
           docker run --name keycloak -v $(pwd)/keycloak-server-docker/keycloak-realm.json:/opt/keycloak/data/import/keycloak-realm.json -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -d -p 8080:8080 quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} start-dev --import-realm
           docker ps
           docker network ls
@@ -47,7 +48,7 @@ jobs:
         run: |
           docker logs keycloak
       - name: publish
-        if: ${{ success() && github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+        if: ${{ success() && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main') }}
         env:
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}

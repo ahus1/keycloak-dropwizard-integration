@@ -1,10 +1,9 @@
 package de.ahus1.keycloak.dropwizard;
 
 import io.dropwizard.auth.Authorizer;
+import jakarta.ws.rs.ForbiddenException;
+import jakarta.ws.rs.container.ContainerRequestContext;
 import org.checkerframework.checker.nullness.qual.Nullable;
-
-import javax.ws.rs.ForbiddenException;
-import javax.ws.rs.container.ContainerRequestContext;
 
 public class UserAuthorizer implements Authorizer<User> {
 

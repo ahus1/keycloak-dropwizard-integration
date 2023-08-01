@@ -1,5 +1,6 @@
 package de.ahus1.keycloak.dropwizard;
 
+import de.ahus1.keycloak.jetty.KeycloakJettyAuthenticator;
 import io.dropwizard.auth.AuthDynamicFeature;
 import io.dropwizard.auth.AuthValueFactoryProvider;
 import io.dropwizard.auth.Authenticator;
@@ -8,13 +9,12 @@ import io.dropwizard.core.ConfiguredBundle;
 import io.dropwizard.core.setup.Bootstrap;
 import io.dropwizard.core.setup.Environment;
 import io.dropwizard.jersey.sessions.HttpSessionFactory;
+import jakarta.ws.rs.container.ContainerRequestFilter;
 import org.eclipse.jetty.security.ConstraintSecurityHandler;
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
-import org.keycloak.adapters.jetty.KeycloakJettyAuthenticator;
 import org.keycloak.enums.TokenStore;
 
-import javax.ws.rs.container.ContainerRequestFilter;
 import java.security.Principal;
 import java.util.Locale;
 

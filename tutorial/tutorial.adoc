@@ -4,16 +4,11 @@ include::../README.adoc[]
 
 :leveloffset: +1
 
-include::../simple-war/README.adoc[]
-
-include::../keycloak-war/README.adoc[]
-
-include::../keycloak-dropwizard-jetty/README.adoc[]
-
 include::../keycloak-dropwizard/README.adoc[]
 
 include::../keycloak-dropwizard-jaxrs-example/README.adoc[]
 
-include::../keycloak-dropwizard-bearer/README.adoc[]
+include::../keycloak-dropwizard-ajax-example/README.adoc[]
 
-include::../keycloak-dropwizard-bearermodule/README.adoc[]
+
+

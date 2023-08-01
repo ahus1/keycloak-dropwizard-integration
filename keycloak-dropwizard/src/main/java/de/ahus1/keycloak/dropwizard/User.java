@@ -1,9 +1,8 @@
 package de.ahus1.keycloak.dropwizard;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.ForbiddenException;
 import org.keycloak.KeycloakSecurityContext;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.ForbiddenException;
 
 /**
  * This is a default implementation for a user. Consider extending this class or AbstractUser

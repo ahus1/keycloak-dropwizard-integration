@@ -1,17 +1,24 @@
 package de.ahus1.keycloak.dropwizard;
 
 import com.google.common.base.Preconditions;
+import de.ahus1.keycloak.jetty.JettyAdapterSessionStore;
+import de.ahus1.keycloak.jetty.core.JettyCookieTokenStore;
+import de.ahus1.keycloak.jetty.core.JettyRequestAuthenticator;
+import de.ahus1.keycloak.jetty.core.JettySessionTokenStore;
 import io.dropwizard.auth.AuthFilter;
 import io.dropwizard.auth.AuthenticationException;
+import jakarta.annotation.Priority;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.InternalServerErrorException;
+import jakarta.ws.rs.Priorities;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.core.SecurityContext;
 import org.eclipse.jetty.server.Request;
 import org.keycloak.adapters.AdapterDeploymentContext;
 import org.keycloak.adapters.AdapterTokenStore;
 import org.keycloak.adapters.KeycloakDeployment;
 import org.keycloak.adapters.KeycloakDeploymentBuilder;
-import org.keycloak.adapters.jetty.JettyAdapterSessionStore;
-import org.keycloak.adapters.jetty.core.JettyCookieTokenStore;
-import org.keycloak.adapters.jetty.core.JettyRequestAuthenticator;
-import org.keycloak.adapters.jetty.core.JettySessionTokenStore;
 import org.keycloak.adapters.spi.AuthChallenge;
 import org.keycloak.adapters.spi.AuthOutcome;
 import org.keycloak.adapters.spi.HttpFacade;
@@ -20,13 +27,6 @@ import org.keycloak.representations.adapters.config.AdapterConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.Priority;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.InternalServerErrorException;
-import javax.ws.rs.Priorities;
-import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 import java.util.Optional;
 

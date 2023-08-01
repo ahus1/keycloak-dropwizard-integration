@@ -6,7 +6,6 @@ server:
       - type: http
         port: 9091
 
-
 keycloakConfiguration:
   realm: test
   auth-server-url: http://localhost:8080
