@@ -34,15 +34,15 @@ public class StartPage extends Page {
                 .until(webDriver -> {
                     if (webClient.getCurrentUrl().equals(url.toString())) {
                         if (!loggedOut[0]) {
-                        try {
-                            WebElement logout = webClient.findElement(By.name("logout"));
-                            if (logout.isDisplayed()) {
-                                logout.click();
-                                loggedOut[0] = true;
+                            try {
+                                WebElement logout = webClient.findElement(By.name("logout"));
+                                if (logout != null && logout.isDisplayed()) {
+                                    logout.click();
+                                    loggedOut[0] = true;
+                                }
+                            } catch (NotFoundException | ElementNotInteractableException ignored) {
+                                //
                             }
-                        } catch (NotFoundException | ElementNotInteractableException ignored) {
-                            //
-                        }
                         }
                         return false;
                     } else {
