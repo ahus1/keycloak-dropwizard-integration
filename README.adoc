@@ -52,7 +52,7 @@ image:https://github.com/ahus1/keycloak-dropwizard-integration/workflows/Java%20
 [WARNING]
 --
 Starting with Dropwizard 2.0 and the included version of Jersey, a login performed during a POST for a form will not recover the contents of the POST.
-This is wired into Keycloak's _JettyAdapterSessionStore_ (that restores the content type and the parameters to the request), but Jersey's _InboundMessageContext_ that wants to read the information the request's header and the body.
+This is wired into Keycloak's _JettyAdapterSessionStore_ (that restores the content type and the parameters to the request), but Jersey's _InboundMessageContext_ that wants to read the information in the request's header and the body.
 See the _shouldLoginFromPost()_ test case for an example.
 --
 
