@@ -10,7 +10,7 @@
     <artifactId>keycloak-dropwizard-ajax-example</artifactId>
 
     <properties>
-        <slf4j.version>2.0.9</slf4j.version>
+        <slf4j.version>2.0.12</slf4j.version>
         <logback.version>1.4.14</logback.version>
     </properties>
 
