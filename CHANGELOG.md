@@ -1,4 +1,4 @@
-# v3.0.0 - (pending)
+# v3.0.0 - 10 Feb 2024
 
 Upgrade to Dropwizard 4.x, which migrated to Jakarta EE.
 
