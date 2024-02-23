@@ -36,9 +36,13 @@ public class StartPage extends Page {
                         if (!loggedOut[0]) {
                             try {
                                 WebElement logout = webClient.findElement(By.name("logout"));
-                                if (logout != null && logout.isDisplayed()) {
-                                    logout.click();
-                                    loggedOut[0] = true;
+                                try {
+                                    if (logout != null && logout.isDisplayed()) {
+                                        logout.click();
+                                        loggedOut[0] = true;
+                                    }
+                                } catch (NullPointerException ex) {
+                                    // https://github.com/SeleniumHQ/selenium/issues/9266
                                 }
                             } catch (NotFoundException | ElementNotInteractableException ignored) {
                                 //
