@@ -54,7 +54,7 @@
     <properties>
         <encoding>UTF-8</encoding>
         <checkstyle.version>9.3</checkstyle.version>
-        <keycloak.version>24.0.2</keycloak.version>
+        <keycloak.version>24.0.3</keycloak.version>
         <dropwizard.version>4.0.7</dropwizard.version>
         <dropwizard.version.junit4>4.0.7</dropwizard.version.junit4>
         <assertj.version>3.25.3</assertj.version>
