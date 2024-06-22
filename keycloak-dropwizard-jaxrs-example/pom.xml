@@ -46,11 +46,6 @@
             <artifactId>dropwizard-views-freemarker</artifactId>
         </dependency>
         <dependency>
-            <artifactId>keycloak-jaxrs-oauth-client</artifactId>
-            <groupId>org.keycloak</groupId>
-            <version>${keycloak.version}</version>
-        </dependency>
-        <dependency>
             <groupId>io.dropwizard.modules</groupId>
             <artifactId>dropwizard-testing-junit4</artifactId>
             <version>${dropwizard.version.junit4}</version>

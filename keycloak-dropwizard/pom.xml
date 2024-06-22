@@ -24,17 +24,17 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-adapter-core</artifactId>
-            <version>${keycloak.version}</version>
+            <version>${keycloak-client.version}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-policy-enforcer</artifactId>
-            <version>${keycloak.version}</version>
+            <version>${keycloak-client.version}</version>
         </dependency>
         <dependency>
             <artifactId>keycloak-jaxrs-oauth-client</artifactId>
             <groupId>org.keycloak</groupId>
-            <version>${keycloak.version}</version>
+            <version>${keycloak-client.version}</version>
         </dependency>
         <dependency>
             <groupId>io.dropwizard</groupId>
