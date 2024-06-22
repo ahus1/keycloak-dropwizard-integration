@@ -32,6 +32,8 @@ The releases are available from Maven central.
 The releases depend on a version of Dropwizard and Keycloak that was current at release time.
 To use a more recent release, please add them as an explicit dependency to your project, as this project will not release new versions on every minor or patch release of its dependencies.
 
+As Keycloak removed some of its client adapters, the latest version of the Keycloak client libraries to use is 24.0.5.
+
 image:https://img.shields.io/maven-central/v/de.ahus1.keycloak.dropwizard/keycloak-dropwizard-parent[Maven Central,link=https://mvnrepository.com/artifact/de.ahus1.keycloak.dropwizard/keycloak-dropwizard]
 image:https://github.com/ahus1/keycloak-dropwizard-integration/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master[Build Status,link=https://github.com/ahus1/keycloak-dropwizard-integration/actions?query=workflow%3A%22Java+CI+with+Maven%22+branch%3Amaster]
 
@@ -47,7 +49,7 @@ image:https://github.com/ahus1/keycloak-dropwizard-integration/workflows/Java%20
 
   * Version 2.x is tested with Keycloak 4.x-23.x and Dropwizard 3.0.x
 
-  * Version 3.x is tested with Keycloak 23.x-24.x and Dropwizard 4.0.x
+  * Version 3.x is tested with Keycloak 23.x-25.x and Dropwizard 4.0.x
 
 [WARNING]
 --
