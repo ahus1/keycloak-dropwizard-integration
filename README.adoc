@@ -47,7 +47,7 @@ image:https://github.com/ahus1/keycloak-dropwizard-integration/workflows/Java%20
 
   * Version 2.x is tested with Keycloak 4.x-23.x and Dropwizard 3.0.x
 
-  * Version 3.x is tested with Keycloak 23.x and Dropwizard 4.0.x
+  * Version 3.x is tested with Keycloak 23.x-24.x and Dropwizard 4.0.x
 
 [WARNING]
 --
