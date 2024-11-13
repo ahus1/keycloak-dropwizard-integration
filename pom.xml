@@ -64,7 +64,7 @@
         <maven-checkstyle-plugin.version>3.4.0</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>3.3.1</maven-surefire-plugin.version>
         <maven-javadoc-plugin.version>3.11.1</maven-javadoc-plugin.version>
-        <forbiddenapis.version>3.7</forbiddenapis.version>
+        <forbiddenapis.version>3.8</forbiddenapis.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.release>11</maven.compiler.release>
